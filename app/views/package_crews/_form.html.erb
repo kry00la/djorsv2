@@ -1,0 +1,25 @@
+<%= form_for([package,package_crew]) do |f| %>
+  <% if @package_crew.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@package_crew.errors.count, "error") %> prohibited this package_crew from being saved:</h2>
+
+      <ul>
+      <% @package_crew.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+  <%= f.label :crew, "Recipe"%>
+  <%= f.collection_select :crew_id,
+  Crew.all,:id,:name,:prompt => true%>
+  	 	 	
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

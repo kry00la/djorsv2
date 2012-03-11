@@ -1,0 +1,27 @@
+<h1>Listing crews</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @crews.each do |crew| %>
+  <tr>
+    <td><%= crew.name %></td>
+    <td><%= crew.description %></td>
+    <td><%= crew.price %></td>
+    <td><%= link_to 'Show', crew %></td>
+    <td><%= link_to 'Edit', edit_crew_path(crew) %></td>
+    <td><%= link_to 'Destroy', crew, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Crew', new_crew_path %>

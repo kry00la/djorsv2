@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @package.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @package.description %>
+</p>
+
+<p>
+	<%= link_to 'add crew memmber', new_package_package_crew_path(@package)%>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @package.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @function_room.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @function_room.description %>
+</p>
+
+<p>
+  <b>Capacity:</b>
+  <%= @function_room.capacity %>
+</p>
+
+
+<%= link_to 'Edit', edit_function_room_path(@function_room) %> |
+<%= link_to 'Back', function_rooms_path %>

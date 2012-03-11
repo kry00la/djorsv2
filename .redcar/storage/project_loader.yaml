@@ -1,0 +1,5 @@
+--- 
+open_files: 
+  - app/controllers/application_controller.rb
+  - app/controllers/crews_controller.rb
+  - app/controllers/package_crews_controller.rb
