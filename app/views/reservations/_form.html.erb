@@ -1,0 +1,56 @@
+<%= form_for(@reservation) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.number_field :contact %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  
+  <div>  
+  <%= f.label :service_id%><br />
+  <%= collection_select(:reservation,:service_id,Service.all,:id,:name)%>
+	</div>
+  <div class="field">
+    <%= f.label :timeStart %><br />
+    <%= f.time_select :timeStart %>
+  </div>
+  <div class="field">
+    <%= f.label :timeEnd %><br />
+    <%= f.time_select :timeEnd %>
+  </div>
+  <div class="field">
+    <%= f.label :numGuest %><br />
+    <%= f.number_field :numGuest %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

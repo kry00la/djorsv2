@@ -1,0 +1,24 @@
+<%= form_for([reservation,reservation_package,package_line_item]) do |f| %>
+  			  
+  <% if @package_line_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@package_line_item.errors.count, "error") %> prohibited this package_line_item from being saved:</h2>
+
+      <ul>
+      <% @package_line_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  	<%= f.label :menu_id%>
+  	<%= collection_select(:package_line_item, :menu_id,Menu.all,:id,:name)%>
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

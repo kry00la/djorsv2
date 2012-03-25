@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @reservation.name %>
+</p>
+
+<%= display_package @reservation%>
+<p>
+  <b>Address:</b>
+  <%= @reservation.address %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @reservation.contact %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @reservation.date %>
+</p>
+
+<p>
+  <b>Timestart:</b>
+  <%= @reservation.timeStart %>
+</p>
+
+<p>
+  <b>Timeend:</b>
+  <%= @reservation.timeEnd %>
+</p>
+
+<p>
+  <b>Numguest:</b>
+  <%= @reservation.numGuest %>
+</p>
+
+<p>
+	<%= link_to "add functionrooms", new_reservation_reservation_function_room_path(@reservation) %>
+</p>
+
+<%= display_function_room @reservation%>
+
+
+<table>
+	<tr>
+		<th>Function room</th>
+		<th>Price</th>
+	</tr>
+	<% @reservation.reservation_function_rooms.each do |room|%>
+	<tr>
+		<td><%= room.function_room.name%></td>
+		<td><%= room.function_room.price%></td>
+	</tr>
+	
+
+
+<%end%>
+	
+	
+</table>
+
+
+
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

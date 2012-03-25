@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Name:</b>
+	<%= @reservation.reservation_package.package.name%>
+</p>
+
+<p>
+	<b>Description:</b>
+	<%= @reservation.reservation_package.package.description%>
+</p>
+
+<p>
+	<b>Price:</b>
+	<%= @reservation.reservation_package.package.price%>
+</p>
+
+<p><%= link_to 'add menu to the package',  new_reservation_package_line_item_path(@reservation)%>
+	
+	<table>
+		<tr>
+			<th>Menu name</th>
+		</tr>	
+		<% @reservation.package_line_items.each do |menu|%>		
+			<tr>
+				<td><%= link_to menu.menu.name, reservation_package_line_item_path(@reservation)%></td>
+			</tr>
+		<%end%>
+	</table>
+	
+	
+	
+	
+<table>
+	<tr>
+		<th>Crew</th>
+		<th>Price</th>
+	</tr>
+	<% @reservation.reservation_package.package.package_crews.each do |crew|%>
+		<tr>
+			<td><%= crew.crew.name%></td>
+			<td><%= crew.crew.price%></td>
+		</tr>
+	<%end%>
+</table>
+
+
+
+<%= link_to 'Edit', edit_reservation_package_path(@reservation_package) %> |
+<%= link_to 'Back', reservation_packages_path %>

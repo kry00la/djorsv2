@@ -1,0 +1,21 @@
+<h1>Listing reservation_packages</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reservation_packages.each do |reservation_package| %>
+  <tr>
+    <td><%= link_to 'Show', reservation_package %></td>
+    <td><%= link_to 'Edit', edit_reservation_package_path(reservation_package) %></td>
+    <td><%= link_to 'Destroy', reservation_package, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reservation package', new_reservation_package_path %>

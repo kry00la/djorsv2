@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310164638) do
+ActiveRecord::Schema.define(:version => 20120325161132) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -93,6 +93,20 @@ ActiveRecord::Schema.define(:version => 20120310164638) do
     t.integer  "package_id"
   end
 
+  create_table "package_line_items", :force => true do |t|
+    t.integer  "reservation_id"
+    t.integer  "menu_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "package_menus", :force => true do |t|
+    t.integer  "menu_id"
+    t.integer  "package_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -115,6 +129,42 @@ ActiveRecord::Schema.define(:version => 20120310164638) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "recipe_category_id"
+  end
+
+  create_table "reservation_function_rooms", :force => true do |t|
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "function_room_id"
+    t.integer  "reservation_id"
+    t.decimal  "price"
+  end
+
+  create_table "reservation_packages", :force => true do |t|
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "reservation_id"
+    t.integer  "package_id"
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "contact"
+    t.date     "date"
+    t.time     "timeStart"
+    t.time     "timeEnd"
+    t.integer  "numGuest"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "service_id"
+    t.string   "email"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

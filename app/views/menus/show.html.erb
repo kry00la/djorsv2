@@ -9,6 +9,19 @@
   <b>Desription:</b>
   <%= @menu.desription %>
 </p>
+<table>
+	<tr>
+		<th>Recipe name</th>
+		<th>Price</th>
+	</tr>
+	<% @menu.menu_recipes.each do |recipe|%>
+		<tr>
+			<td><%= recipe.recipe.name%></td>
+			<td><%= recipe.recipe.price%></td>
+		</tr>
+	<%end%>
+</table>
+
 
 
 <p>

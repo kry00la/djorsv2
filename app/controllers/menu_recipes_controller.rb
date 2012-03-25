@@ -1,4 +1,12 @@
 class MenuRecipesController < InheritedResources::Base
+def index
+  redirect_to Menu.find(params[:menu_id])
+end
+
+def show
+  redirect_to Menu.find(params[:menu_id])
+end
+
 
 def new 
 	@menu = Menu.find(params[:menu_id])
@@ -12,7 +20,6 @@ def create
     if @menu_recipe.save
     	redirect_to @menu
     end
-
 end
 
 end

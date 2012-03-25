@@ -1,0 +1,22 @@
+<%= form_for([reservation,reservation_function_room]) do |f| %>
+  <% if @reservation_function_room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation_function_room.errors.count, "error") %> prohibited this reservation_function_room from being saved:</h2>
+
+      <ul>
+      <% @reservation_function_room.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div>  
+	  <%= f.label :function_room_id%><br />
+	  <%= collection_select(:reservation_function_room,:function_room_id,FunctionRoom.all,:id,:name)%>
+	</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

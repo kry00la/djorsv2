@@ -11,7 +11,7 @@
     </div>
   <% end %>
 	<div>  
-  <%= f.label :recipe_type_id%><br />
+  <%= f.label :recipe_category_id%><br />
   <%= collection_select(:recipe,:recipe_category_id,RecipeCategory.all,:id,:name)%>
 	</div>
   <div class="field">

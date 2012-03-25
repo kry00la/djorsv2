@@ -9,10 +9,24 @@
   <b>Description:</b>
   <%= @package.description %>
 </p>
+		
+</p>%>
 
-<p>
-	<%= link_to 'add crew memmber', new_package_package_crew_path(@package)%>
-</p>
+<table>
+	<tr>
+		<th>Crew</th>
+		<th>Price</th>
+	</tr>
+	<% @package.package_crews.each do |crew|%>
+		<tr>
+			<td><%= crew.crew.name%></td>
+			<td><%= crew.crew.price%></td>
+		</tr>
+	<%end%>
+</table>
+
+
+
 
 <p>
   <b>Price:</b>
@@ -20,5 +34,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_package_path(@package) %> |
-<%= link_to 'Back', packages_path %>
+<%= link_to 'Edit', edit_reservation_package_path(@package) %> |
+<%= link_to 'Back', reservations_path %>

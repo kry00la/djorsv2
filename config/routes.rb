@@ -3,27 +3,37 @@ Djors::Application.routes.draw do
 
 
 
-  resources :function_rooms
+ 
+  
 
-  resources :crews
 
+  
+
+  resources :services
+
+  resources :reservations do
+     resources :reservation_packages
+     resources :reservation_function_rooms
+     resources :package_line_items
+  end
+  
   resources :packages do
-      resources :package_crews
+    resources :package_crews
   end
 
+  resources :function_rooms
+  resources :crews
   resources :menu_categories
-
   resources :menus do
      resources :menu_recipes
    end
 
+  resources :recipe_categories
+  resources :recipes
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
-  resources :recipe_categories
-
-  resources :recipes
 
  
 

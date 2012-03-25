@@ -1,0 +1,38 @@
+<table>
+	<tr>
+		<th>Package name:</th>
+	</tr>
+		<tr>	
+				<td><%= @reservation.reservation_package.package.name%></td>		
+				<td><%= link_to @reservation.reservation_package.package.name,reservation_reservation_package_path(@reservation)%></td>
+				<td><%= link_to "EDIT",edit_reservation_reservation_package_path(@reservation)%></td>	
+				<td><%= link_to "Delete package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete%></td>
+		</tr>	
+	
+	
+	
+	
+</table>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<h1>Listing package_line_items</h1>
+
+<table>
+  <tr>
+    <th>Reservation</th>
+    <th>Menu</th>
+    <th>Package</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @package_line_items.each do |package_line_item| %>
+  <tr>
+    <td><%= package_line_item.reservation_id %></td>
+    <td><%= package_line_item.menu_id %></td>
+    <td><%= package_line_item.package_id %></td>
+    <td><%= link_to 'Show', package_line_item %></td>
+    <td><%= link_to 'Edit', edit_package_line_item_path(package_line_item) %></td>
+    <td><%= link_to 'Destroy', package_line_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Package line item', new_package_line_item_path %>

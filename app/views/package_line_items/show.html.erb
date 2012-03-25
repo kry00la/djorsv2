@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<% @reservation.package_line_items.each do |menu|%>	
+<p><%= menu.menu.name%></p>
+<%end%>
+
+
+
+
+<table>
+	<tr>
+		<th>Recipe</th>
+		<th>Price</th>
+	</tr>
+	<tr>
+		<% @reservation.package_line_items.first.menu do |recipe| %>
+		<td><%= recipe.recipe.name%></td>
+		<%end%>
+	</tr>
+		
+	
+
+		
+
+</table>
+
+	

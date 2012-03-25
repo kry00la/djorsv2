@@ -1,0 +1,2 @@
+class FunctionRoomListController < ApplicationController
+end

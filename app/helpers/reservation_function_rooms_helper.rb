@@ -1,0 +1,2 @@
+module ReservationFunctionRoomsHelper
+end
