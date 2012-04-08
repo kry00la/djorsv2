@@ -1,0 +1,32 @@
+<p><%= @reservation.reservation_package.package.name%></p>
+<p><%= @reservation.reservation_package.package.description%></p>
+<p><%= @reservation.reservation_package.package.price%></p>
+
+
+
+<b>CREWS</b>
+<%@reservation_package.reservation.reservation_crews.each do |crew|%>
+	<p>
+		<%= crew.crew.name%> x 
+		<%= crew.quantity%>
+		PHP<%= crew.total_price%>
+	</p>
+<%end%>
+
+
+<p>
+	<h3><b>your package total: </b></h3>
+	<%= @reservation.reservation_package.price%>
+</p>
+
+<hr />
+<%= display_menulist @reservation%>
+
+
+
+<hr />
+
+<%= display_addon @reservation%>
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325161132) do
+ActiveRecord::Schema.define(:version => 20120408152637) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20120325161132) do
     t.decimal  "price"
   end
 
+  create_table "menu_addons_line_items", :force => true do |t|
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "reservation_id"
+    t.integer  "recipe_id"
+    t.decimal  "price",          :default => 0.0
+  end
+
   create_table "menu_categories", :force => true do |t|
     t.string   "name"
     t.text     "desription"
@@ -75,29 +83,33 @@ ActiveRecord::Schema.define(:version => 20120325161132) do
     t.datetime "updated_at", :null => false
     t.integer  "recipe_id"
     t.integer  "menu_id"
+    t.decimal  "price"
   end
 
   create_table "menus", :force => true do |t|
     t.string   "name"
     t.text     "desription"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "menu_category_id"
+    t.decimal  "price",            :default => 0.0
   end
 
   create_table "package_crews", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "packge_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "crew_id"
     t.integer  "package_id"
+    t.decimal  "price"
+    t.integer  "quantity",   :default => 1
   end
 
   create_table "package_line_items", :force => true do |t|
-    t.integer  "reservation_id"
     t.integer  "menu_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.decimal  "price"
+    t.integer  "reservation_id"
   end
 
   create_table "package_menus", :force => true do |t|
@@ -131,19 +143,29 @@ ActiveRecord::Schema.define(:version => 20120325161132) do
     t.integer  "recipe_category_id"
   end
 
+  create_table "reservation_crews", :force => true do |t|
+    t.integer  "crew_id"
+    t.integer  "reservation_id"
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "reservation_function_rooms", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "function_room_id"
     t.integer  "reservation_id"
-    t.decimal  "price"
+    t.decimal  "price",            :default => 0.0
   end
 
   create_table "reservation_packages", :force => true do |t|
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "reservation_id"
     t.integer  "package_id"
+    t.decimal  "price",          :default => 0.0
   end
 
   create_table "reservations", :force => true do |t|
@@ -154,10 +176,11 @@ ActiveRecord::Schema.define(:version => 20120325161132) do
     t.time     "timeStart"
     t.time     "timeEnd"
     t.integer  "numGuest"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "service_id"
     t.string   "email"
+    t.decimal  "total_price", :default => 0.0
   end
 
   create_table "services", :force => true do |t|

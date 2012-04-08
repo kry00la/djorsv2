@@ -1,21 +1,42 @@
 Djors::Application.routes.draw do
- 
 
 
 
- 
-  
 
-
-  
 
   resources :services
 
-  resources :reservations do
-     resources :reservation_packages
-     resources :reservation_function_rooms
-     resources :package_line_items
-  end
+   resources :reservations do
+
+     resources :pages do
+        collection do
+          get :functionroomlist
+          get :packagelist
+          get :package
+          get :menu_add_on          
+        end
+     end
+        resources :reservation_packages 
+          resources :reservation_package_pages do
+            collection do
+               get :menulist 
+               get :menu
+            end
+          end
+        resources :package_line_items
+          resources :menu_addons_line_items
+     resources :reservation_function_rooms        
+    end
+  
+ 
+  #resources :reservation_packages do
+  #   resources :reservation_package_pages do
+  #     collection do
+  #           get :menulist
+  #     end
+  #   end
+  #   resources :package_line_items
+  # end
   
   resources :packages do
     resources :package_crews

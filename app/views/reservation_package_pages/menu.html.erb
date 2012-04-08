@@ -1,0 +1,19 @@
+<%= notice%>
+
+	<p><%= @menu.name%></p>
+	<p><%= @menu.desription%></p>
+	
+	<h1>recipe inside this menu is</h1>
+	
+<%@menu.menu_recipes.each do |recipes|%>
+	<p>
+		<b>NAME:</b>
+		<%= recipes.recipe.name%>
+	</p>
+	
+	<p>
+		<b>PRICE:</b>
+		<%= recipes.recipe.price%>
+	</p>
+<%end%>
+

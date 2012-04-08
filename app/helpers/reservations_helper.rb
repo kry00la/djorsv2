@@ -15,4 +15,11 @@ module ReservationsHelper
     end
   end
   
+  def display_packageprice(reservation)
+    unless reservation.reservation_package == 0
+      render 'no_packageprice' , :reservation => @reservation
+    else
+      render 'packageprice',:reservation => @reservation
+    end
+  end
 end

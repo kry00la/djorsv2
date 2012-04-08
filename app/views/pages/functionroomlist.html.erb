@@ -1,0 +1,13 @@
+
+
+<% if notice %>
+<p id = "notice"><%= notice%></p>
+<%end%>
+
+	<h1>functionRooms</h1>
+			<%@function_room.each do |functionroom|%>
+				<h3><%= functionroom.name%></h3>
+				<p><%= number_to_currency(functionroom.price)%></p>
+				<%= button_to 'add function room', reservation_reservation_function_rooms_path(:function_room_id => functionroom)%>
+				
+			<%end%>

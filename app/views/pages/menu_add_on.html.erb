@@ -1,0 +1,18 @@
+<%= notice%>
+
+
+<h1>Recipes</h1>
+
+	<% @recipe.each do |recipe|%>
+		<p>
+			<%= recipe.name%>
+		</p>
+		
+		<p>
+			<%= recipe.price%>
+		</p>
+		
+		<p>
+			<%= button_to "add recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe)%>
+		</p>
+	<%end%>

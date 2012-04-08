@@ -1,0 +1,2 @@
+module MenuAddonsLineItemsHelper
+end

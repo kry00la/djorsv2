@@ -5,7 +5,7 @@
   <%= @reservation.name %>
 </p>
 
-<%= display_package @reservation%>
+
 <p>
   <b>Address:</b>
   <%= @reservation.address %>
@@ -37,31 +37,15 @@
 </p>
 
 <p>
-	<%= link_to "add functionrooms", new_reservation_reservation_function_room_path(@reservation) %>
+	<b>Total:</b>
+	<%= @reservation.total_price%>
+	
 </p>
 
+<%= display_package @reservation%>
+
+
 <%= display_function_room @reservation%>
-
-
-<table>
-	<tr>
-		<th>Function room</th>
-		<th>Price</th>
-	</tr>
-	<% @reservation.reservation_function_rooms.each do |room|%>
-	<tr>
-		<td><%= room.function_room.name%></td>
-		<td><%= room.function_room.price%></td>
-	</tr>
-	
-
-
-<%end%>
-	
-	
-</table>
-
-
 
 
 

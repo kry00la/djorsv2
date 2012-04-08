@@ -1,0 +1,12 @@
+
+<%@reservation.menu_addons_line_items.each do |addon|%>
+	<p>
+	<%= addon.recipe.name%>	
+	</p>
+	<p>
+	<%= link_to "delete addons" , reservation_menu_addons_line_item_path(@reservation,addon), :method => :delete%>
+	</p>
+<%end%>
+<p>
+<%= link_to "add your addons" , menu_add_on_reservation_pages_path(@reservation)%>
+</p>

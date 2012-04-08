@@ -1,23 +1,26 @@
 class ReservationPackagesController < InheritedResources::Base
 
   def index
-    redirect_to Reservation.find(params[:reservation_id])
+  #  redirect_to Reservation.find(params[:reservation_id])
   end
 
   def show
+    #@package = Package.all
    # redirect_to Reservation.find(params[:reservation_id])
     #@reservation_package = ReservationPackage.find(params[:reservation_id])
-    @reservation = Reservation.includes(:reservation_package => :package).find(params[:id])
+  #  @reservation = Reservation.includes(:reservation_package => :package).find(params[:id])
   end
 
   def new
-    @reservation = Reservation.find(params[:reservation_id])
-    @reservation_package = @reservation.build_reservation_package
+    @reservation_package = ReservationPackage.new
+
   end
   
-  def create
+  def create  
     @reservation = Reservation.find(params[:reservation_id])
-    @reservation_package = @reservation.build_reservation_package(params[:reservation_package])
+    package = Package.find(params[:package_id])
+    @reservation_package = @reservation.add_package(package.id)
+     @reservation.add_reservationcrew(package.id)
     
     if @reservation_package.save
       redirect_to @reservation, :notice => 'package was successfulyy added'
@@ -42,11 +45,13 @@ class ReservationPackagesController < InheritedResources::Base
     end
   end
   
-  def destroy
-     @reservation = Reservation.find(params[:reservation_id])
-    @reservation_package= @reservation.reservation_package
+   def destroy
+    @reservation = Reservation.find(params[:reservation_id])
+    reservation =  Reservation.find(params[:reservation_id])
+    @reservation_package = @reservation.reservation_package
+    @reservation.remove_packageitems(reservation.id)
+    @reservation_package.remove_package
     @reservation_package.destroy
     redirect_to @reservation
   end
- 
 end

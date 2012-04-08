@@ -1,6 +1,25 @@
 class ReservationPackage < ActiveRecord::Base
   belongs_to :reservation
   belongs_to :package
+  has_many :package_line_items
+  
+  
+  
+  
+  def remove_package
+    reservation.total_price = reservation.total_price - self.price
+    reservation.save
+  end
+
+ 
+  def find_package_for_reservation_package(package_id)
+     currentpackage = package.find_crew_for_reservation(package_id)
+     currentpackage
+  end
+  
+  def total_crew
+    total_crew = package.sumofcrew
+  end
   
 
 end
