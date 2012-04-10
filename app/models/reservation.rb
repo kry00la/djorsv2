@@ -8,6 +8,7 @@ class Reservation < ActiveRecord::Base
   has_many :function_rooms, :through =>:reservation_function_rooms
   has_many :reservation_crews
 
+  #########functionrooms############
 
   def sumoffunctionroom
     function = reservation_function_rooms
@@ -29,7 +30,14 @@ class Reservation < ActiveRecord::Base
     end
         
 
-    ############################
+    ###########package#################
+    
+    def remove_packagemenu(reservation_id)
+      menus = package_line_items.find_all_by_reservation_id(reservation_id)
+          menus.each do |menu|
+          menu.destroy
+      end
+    end
 
     def remove_packageitems(reservation_id)
       menus = package_line_items.find_all_by_reservation_id(reservation_id)
@@ -47,6 +55,10 @@ class Reservation < ActiveRecord::Base
      
     end
     
+    def reservation_crew_total
+      total = reservation_crew.crew_total_price
+      total
+    end
     
     
     def packagecrew(package_id)
@@ -79,7 +91,7 @@ class Reservation < ActiveRecord::Base
      
     end
     
-    ###########################
+    ############menu###############
     
       def sumofmenu
         menu = package_line_items
@@ -101,7 +113,7 @@ class Reservation < ActiveRecord::Base
         current_menu
     end
     
-    #########################
+    ############addons#############
     def sumofaddon
       addon = menu_addons_line_items
       Array.wrap(addon).sum {|addon| addon.price}

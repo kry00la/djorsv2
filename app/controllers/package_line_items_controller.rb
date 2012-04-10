@@ -21,7 +21,7 @@ class PackageLineItemsController < InheritedResources::Base
     reservation = Reservation.find(params[:reservation_id])
     @package_line_item = @reservation.package_line_items.find(params[:id])
     @package_line_item.remove_menu
-    @reservation.remove_packageitems(reservation.id)
+    @reservation.remove_packagemenu(reservation.id)
     @package_line_item.destroy
     redirect_to @reservation, :notice => "menu successfuly deleted"
   end
