@@ -32,13 +32,7 @@ class Reservation < ActiveRecord::Base
 
     ###########package#################
     
-    def remove_packagemenu(reservation_id)
-      menus = package_line_items.find_all_by_reservation_id(reservation_id)
-          menus.each do |menu|
-          menu.destroy
-      end
-    end
-
+    
     def remove_packageitems(reservation_id)
       menus = package_line_items.find_all_by_reservation_id(reservation_id)
       menus.each do |menu|
@@ -92,6 +86,15 @@ class Reservation < ActiveRecord::Base
     end
     
     ############menu###############
+      # def find_my_menu(menu_id)
+        # current_menu = package_line_items.find_by_menu_id(menu_id)
+       # if current_menu
+        # current_menu
+       # else
+#          
+       # end       
+      # end
+    
     
       def sumofmenu
         menu = package_line_items
@@ -112,6 +115,14 @@ class Reservation < ActiveRecord::Base
         end
         current_menu
     end
+    
+    # def remove_menu_from_package(menu_id)
+      # current_menu = menus.find_by_menu_id(menu_id)
+      # self.reservation_package.price = self.reservation_package.price - current_menu.price
+      # self.reservation_package.save
+      # self.total_price = self.total_price - self.package_line_items.price
+      # self.save
+    # end
     
     ############addons#############
     def sumofaddon
