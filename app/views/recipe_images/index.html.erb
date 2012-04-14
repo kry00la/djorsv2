@@ -1,0 +1,23 @@
+<h1>Listing recipe_images</h1>
+
+<table>
+  <tr>
+    <th>Recipe</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recipe_images.each do |recipe_image| %>
+  <tr>
+    <td><%= recipe_image.recipe_id %></td>
+    <td><%= link_to 'Show', recipe_image %></td>
+    <td><%= link_to 'Edit', edit_recipe_image_path(recipe_image) %></td>
+    <td><%= link_to 'Destroy', recipe_image, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recipe image', new_recipe_image_path %>

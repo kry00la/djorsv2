@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipe:</b>
+  <%= @recipe_image.recipe_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_image_path(@recipe_image) %> |
+<%= link_to 'Back', recipe_images_path %>

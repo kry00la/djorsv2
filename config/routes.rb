@@ -4,6 +4,10 @@ Djors::Application.routes.draw do
 
 
 
+  resources :function_room_images
+
+  resources :recipe_images
+
   resources :services
 
    resources :reservations do

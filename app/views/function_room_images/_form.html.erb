@@ -1,0 +1,21 @@
+<%= form_for(@function_room_image) do |f| %>
+  <% if @function_room_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@function_room_image.errors.count, "error") %> prohibited this function_room_image from being saved:</h2>
+
+      <ul>
+      <% @function_room_image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :function_room_id %><br />
+    <%= f.number_field :function_room_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

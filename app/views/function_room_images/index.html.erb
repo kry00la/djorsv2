@@ -1,0 +1,23 @@
+<h1>Listing function_room_images</h1>
+
+<table>
+  <tr>
+    <th>Function room</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @function_room_images.each do |function_room_image| %>
+  <tr>
+    <td><%= function_room_image.function_room_id %></td>
+    <td><%= link_to 'Show', function_room_image %></td>
+    <td><%= link_to 'Edit', edit_function_room_image_path(function_room_image) %></td>
+    <td><%= link_to 'Destroy', function_room_image, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Function room image', new_function_room_image_path %>
