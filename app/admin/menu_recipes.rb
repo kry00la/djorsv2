@@ -1,6 +1,8 @@
 ActiveAdmin.register MenuRecipe do
     menu :parent => "Manage Package"
-    
+    filter :recipe
+    filter :menu
+   # filter :price, :as => :numeric
   # form :partial => "menu_recipe"
     
     

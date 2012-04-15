@@ -1,6 +1,8 @@
 ActiveAdmin.register Recipe do
   menu :parent => "Services"
-
+  filter :name, :as => :string
+  filter :price, :as => :numeric
+  
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :name

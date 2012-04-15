@@ -1,5 +1,14 @@
 ActiveAdmin.register PackageCrew do
   menu :parent => "Manage Package"
+  filter :package
+  filter :crew
+  form :html => { :enctype => "multipart/form-data" } do |f|
+   f.inputs "Details" do
+    f.input :package
+    f.input :crew
+    end
+  f.buttons
+ end
   
   
   controller do
