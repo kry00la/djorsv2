@@ -2,6 +2,17 @@ ActiveAdmin.register Menu do
   menu :parent => "Services"
   filter :menu_category
   filter :name
+  
+    
+  index do 
+    column :name
+    column :price
+    column :menu_category
+  default_actions
+  end
+  
+  
+  
    form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :menu_category

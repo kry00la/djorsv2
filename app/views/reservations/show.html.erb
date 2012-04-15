@@ -23,12 +23,12 @@
 
 <p>
   <b>Timestart:</b>
-  <%= @reservation.timeStart %>
+  <%= @reservation.timeStart.strftime('%H:%M:%S:%p') %>
 </p>
 
 <p>
   <b>Timeend:</b>
-  <%= @reservation.timeEnd %>
+  <%= @reservation.timeEnd.strftime('%H:%M:%S:%p') %>
 </p>
 
 <p>

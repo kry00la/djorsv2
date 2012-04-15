@@ -5,7 +5,20 @@ ActiveAdmin.register MenuRecipe do
    # filter :price, :as => :numeric
   # form :partial => "menu_recipe"
     
-    
+  index do 
+    column :recipe
+    column :menu
+  default_actions
+  end
+  
+  
+  form :html => { :enctype => "multipart/form-data" } do |f|
+   f.inputs "Details" do
+   f.input :menu
+   f.input :recipe
+  end
+  f.buttons
+ end
     
     
     controller do

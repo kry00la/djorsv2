@@ -38,11 +38,11 @@
    
   <div class="field">
     <%= f.label :timeStart %><br />
-    <%= f.time_select :timeStart %>
+    <%= f.time_select :timeStart ,:twelve_hour => true %>
   </div>
   <div class="field">
     <%= f.label :timeEnd %><br />
-    <%= f.time_select :timeEnd %>
+    <%= f.time_select :timeEnd ,:twelve_hour => true%>
   </div>
   <div class="field">
     <%= f.label :numGuest %><br />

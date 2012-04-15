@@ -1,6 +1,16 @@
 ActiveAdmin.register RecipeImage do
     menu :parent => "Manage Services"
     filter :recipe
+   
+     
+  index do 
+    column :recipe
+    column :image
+  default_actions
+  end
+  
+   
+   
     form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Add Image to recipe" do
     f.input :recipe

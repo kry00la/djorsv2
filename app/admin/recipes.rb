@@ -3,11 +3,22 @@ ActiveAdmin.register Recipe do
   filter :name, :as => :string
   filter :price, :as => :numeric
   
+    
+  index do 
+    column :name
+    column :price
+    column "profile image",:image_recipe
+    column :recipe_category
+  default_actions
+  end
+  
+  
+  
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :name
     f.input :description
-    f.input :price
+    f.input :price, :as => :string
     f.input :recipe_category
     f.input :image_recipe, :as => :file
     #f.input :image_recipe, :as => :file  ,:hint => "current image: #{f.template.image_tag(f.object.image_recipe.url(:thumb))}"
