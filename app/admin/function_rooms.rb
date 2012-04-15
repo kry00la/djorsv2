@@ -9,6 +9,11 @@ ActiveAdmin.register FunctionRoom do
     column :name
     column "Main picture",:image_function_room 
     column :capacity
+     column :price, :sortable => :price do |function|
+      div :class => "price" do
+        number_to_currency function.price, :unit => "&#8369;"
+      end
+    end
   default_actions
   end
   

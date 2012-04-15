@@ -6,9 +6,13 @@ ActiveAdmin.register Recipe do
     
   index do 
     column :name
-    column :price
     column "profile image",:image_recipe
     column :recipe_category
+      column :price, :sortable => :price do |function|
+      div :class => "price" do
+        number_to_currency function.price, :unit => "&#8369;"
+      end
+    end
   default_actions
   end
   

@@ -5,7 +5,11 @@ ActiveAdmin.register Crew do
     
   index do 
     column :name
-    column :price
+     column :price, :sortable => :price do |d|
+      div :class => "price" do
+        number_to_currency d.price, :unit => "&#8369;"
+      end
+    end
   default_actions
   end
   
