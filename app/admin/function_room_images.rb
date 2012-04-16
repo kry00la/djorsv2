@@ -5,7 +5,7 @@ ActiveAdmin.register FunctionRoomImage do
   
   index do 
     column :function_room
-    column :image
+    column :image 
   default_actions
   end
   
@@ -14,7 +14,7 @@ ActiveAdmin.register FunctionRoomImage do
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :function_room
-    f.input :image, :as => :file
+    f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb))
     end
   f.buttons
  end
@@ -25,6 +25,8 @@ ActiveAdmin.register FunctionRoomImage do
       @function_room = FunctionRoomImage.new(params[:function_room_image])
       if @function_room.save
         redirect_to admin_function_room_image_path(@function_room), :notice => "image succesfully added"
+      else
+        redirect_to new_admin_function_room_image_url
       end
     end
   

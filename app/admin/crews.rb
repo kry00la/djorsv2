@@ -13,4 +13,13 @@ ActiveAdmin.register Crew do
   default_actions
   end
   
+   form :html => { :enctype => "multipart/form-data" } do |f|
+   f.inputs "Details" do
+    f.input :name
+    f.input :description
+    f.input :price, :as => :string
+   end
+  f.buttons
+ end
+  
 end

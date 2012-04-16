@@ -24,7 +24,7 @@ ActiveAdmin.register Recipe do
     f.input :description
     f.input :price, :as => :string
     f.input :recipe_category
-    f.input :image_recipe, :as => :file
+    f.input :image_recipe, :as => :file, :hint => f.template.image_tag(f.object.image_recipe.url(:thumb))
     #f.input :image_recipe, :as => :file  ,:hint => "current image: #{f.template.image_tag(f.object.image_recipe.url(:thumb))}"
     #f.input :image, :as => :file
     end
@@ -32,16 +32,7 @@ ActiveAdmin.register Recipe do
  end
  
  
- controller do
-   def new
-     @recipe = Recipe.new
-   end
-   
-   def create
-      @recipe = Recipe.new(params[:recipe])
-      @recipe.save
-   end
- end
+ 
 
  
 end

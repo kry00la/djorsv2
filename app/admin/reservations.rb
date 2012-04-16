@@ -5,6 +5,7 @@ ActiveAdmin.register Reservation do
   filter :email
   
   index do 
+    column :id
     column "Guest Name", :name
     column "Service Type", :service
     column "Booked Date", :date

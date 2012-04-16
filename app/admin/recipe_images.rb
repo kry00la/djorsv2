@@ -14,7 +14,7 @@ ActiveAdmin.register RecipeImage do
     form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Add Image to recipe" do
     f.input :recipe
-    f.input :image, :as => :file
+    f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb))
     #f.input :image_recipe, :as => :file  ,:hint => "current image: #{f.template.image_tag(f.object.image_recipe.url(:thumb))}"
     #f.input :image, :as => :file
     end

@@ -2,6 +2,9 @@ class Package < ActiveRecord::Base
   has_one :reservation_package
  # has_many :crews, :through => :package_crews, :uniq => true
   has_many :package_crews
+  
+  validates :name,:description,:price ,:presence => :true
+  validates :price, :numericality => true
  
   def add_crew(crew_id)
     current_package = package_crews.find_by_crew_id(crew_id)

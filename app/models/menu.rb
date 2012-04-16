@@ -5,6 +5,9 @@ class Menu < ActiveRecord::Base
 	has_many :recipes, :through => :menu_recipes, :uniq => true
 	belongs_to :menu_category
 
+  validates :menu_category,:name,:desription,:price ,:presence => :true
+  
+
   def sumofrecipe
     recipe = menu_recipes
     Array.wrap(recipe).sum {|recipe| recipe.price}
