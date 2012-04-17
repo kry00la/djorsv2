@@ -1,13 +1,15 @@
-ActiveAdmin.register MenuRecipe do
+ActiveAdmin.register MenuRecipe ,:as => "Menu Group"do
     menu :parent => "Manage Package"
     filter :recipe
     filter :menu
+
    # filter :price, :as => :numeric
   # form :partial => "menu_recipe"
     
   index do 
     column :recipe
     column :menu
+
   default_actions
   end
   
@@ -16,6 +18,7 @@ ActiveAdmin.register MenuRecipe do
    f.inputs "Details" do
    f.input :menu
    f.input :recipe
+  
   end
   f.buttons
  end

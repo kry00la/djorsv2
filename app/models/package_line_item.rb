@@ -11,6 +11,12 @@ class PackageLineItem < ActiveRecord::Base
     reservation.save
   end
   
+  def remove_menu_upon_destory(reservation_id)
+     menus = self.find_all_by_reservation_id(reservation_id)
+     menus.each do |menu|
+     menu.destroy
+      end
+  end
 
   
 end

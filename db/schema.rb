@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414162810) do
+ActiveRecord::Schema.define(:version => 20120417170838) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -100,6 +100,12 @@ ActiveRecord::Schema.define(:version => 20120414162810) do
     t.decimal  "price"
   end
 
+  create_table "menu_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "menus", :force => true do |t|
     t.string   "name"
     t.text     "desription"
@@ -107,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20120414162810) do
     t.datetime "updated_at",                        :null => false
     t.integer  "menu_category_id"
     t.decimal  "price",            :default => 0.0
+    t.integer  "menu_type_id"
   end
 
   create_table "package_crews", :force => true do |t|
@@ -209,6 +216,7 @@ ActiveRecord::Schema.define(:version => 20120414162810) do
     t.integer  "service_id"
     t.string   "email"
     t.decimal  "total_price", :default => 0.0
+    t.integer  "total_hour"
   end
 
   create_table "services", :force => true do |t|

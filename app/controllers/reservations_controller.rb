@@ -1,11 +1,19 @@
 class ReservationsController < InheritedResources::Base
-  def index
-    @reservations = Reservation.all
+  def new
+    @reservation = Reservation.new
   end
   
-  def show
-    @reservation = Reservation.includes(:reservation_function_rooms => :function_room,:reservation_package => :package).find(params[:id])
-  end
+  #def create
+    
+  #end
   
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    reservation = Reservation.find(params[:id])
+    @reservation.remove_all_associated(reservation.id)
+    @reservation.destroy
+    redirect_to @reservation, :notice => "menu successfuly deleted"
+        
+  end
 
 end

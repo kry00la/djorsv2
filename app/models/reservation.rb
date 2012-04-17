@@ -8,6 +8,53 @@ class Reservation < ActiveRecord::Base
   has_many :function_rooms, :through =>:reservation_function_rooms
   has_many :reservation_crews
 
+  ###########global############
+   def remove_menu_upon_destroy(reservation_id)
+      menus = package_line_items.find_all_by_reservation_id(reservation_id)
+      menus.each do |menu|
+          menu.destroy
+      end
+    end
+    
+    def remove_addons_upon_destroy(reservation_id)
+      addons = menu_addons_line_items.find_all_by_reservation_id(reservation_id)
+      addons.each do |addon|
+        addon.destroy
+      end
+    end
+    
+    def remove_crew_upon_destroy(reservation_id)
+     reservation_crew = reservation_crews.find_all_by_reservation_id(reservation_id)
+     reservation_crew.each do |rc|
+       rc.destroy
+     end
+    end
+    
+    def remove_function_room_upon_destroy(reservation_id)
+      reservation_function_room = reservation_function_rooms.find_all_by_reservation_id(reservation_id)
+      reservation_function_room.each do |rfr|
+        rfr.destroy
+      end
+    end
+
+
+  #########self################
+  
+  def remove_all_associated(reservation_id)
+      self.remove_menu_upon_destroy(reservation_id)
+      self.remove_addons_upon_destroy(reservation_id)
+      self.remove_crew_upon_destroy(reservation_id)
+      self.remove_function_room_upon_destroy(reservation_id)
+  end
+  
+  def compute_for_total_hours
+      
+  end
+  
+  
+
+
+
   #########functionrooms############
 
   def sumoffunctionroom
@@ -32,21 +79,12 @@ class Reservation < ActiveRecord::Base
 
     ###########package#################
     
+   
     
     def remove_packageitems(reservation_id)
-      menus = package_line_items.find_all_by_reservation_id(reservation_id)
-      menus.each do |menu|
-          menu.destroy
-      end
-      addons = menu_addons_line_items.find_all_by_reservation_id(reservation_id)
-      addons.each do |addon|
-        addon.destroy
-      end
-     reservation_crew = reservation_crews.find_all_by_reservation_id(reservation_id)
-     reservation_crew.each do |rc|
-       rc.destroy
-     end
-     
+      self.remove_menu_upon_destroy(reservation_id)
+      self.remove_addons_upon_destroy(reservation_id)
+      self.remove_crew_upon_destroy(reservation_id)
     end
     
     def reservation_crew_total
@@ -86,15 +124,7 @@ class Reservation < ActiveRecord::Base
     end
     
     ############menu###############
-      # def find_my_menu(menu_id)
-        # current_menu = package_line_items.find_by_menu_id(menu_id)
-       # if current_menu
-        # current_menu
-       # else
-#          
-       # end       
-      # end
-    
+
     
       def sumofmenu
         menu = package_line_items
@@ -116,13 +146,6 @@ class Reservation < ActiveRecord::Base
         current_menu
     end
     
-    # def remove_menu_from_package(menu_id)
-      # current_menu = menus.find_by_menu_id(menu_id)
-      # self.reservation_package.price = self.reservation_package.price - current_menu.price
-      # self.reservation_package.save
-      # self.total_price = self.total_price - self.package_line_items.price
-      # self.save
-    # end
     
     ############addons#############
     def sumofaddon

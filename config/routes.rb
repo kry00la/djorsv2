@@ -4,6 +4,8 @@ Djors::Application.routes.draw do
 
 
 
+  
+
   resources :function_room_images
 
   resources :recipe_images
@@ -61,8 +63,8 @@ Djors::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
  
-
-
+  root :to => "public#index", :as  => 'public'
+    #root :to => 'reservations', :as =>'store'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

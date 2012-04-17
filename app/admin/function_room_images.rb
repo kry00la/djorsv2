@@ -1,4 +1,4 @@
-ActiveAdmin.register FunctionRoomImage do
+ActiveAdmin.register FunctionRoomImage , :as => "Function Room Image Manager" do
   menu :parent => "Manage Services"
   filter :function_room
   

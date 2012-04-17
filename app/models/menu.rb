@@ -4,6 +4,7 @@ class Menu < ActiveRecord::Base
 	has_many :menu_recipes
 	has_many :recipes, :through => :menu_recipes, :uniq => true
 	belongs_to :menu_category
+	belongs_to :menu_type
 
   validates :menu_category,:name,:desription,:price ,:presence => :true
   

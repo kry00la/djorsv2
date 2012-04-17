@@ -1,7 +1,7 @@
 class PackageCrew < ActiveRecord::Base
   belongs_to :package
   belongs_to :crew
-
+  validates :crew, :package ,:presence => :true
   def total_price
     price * quantity
   end

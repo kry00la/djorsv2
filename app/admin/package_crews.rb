@@ -1,4 +1,4 @@
-ActiveAdmin.register PackageCrew do
+ActiveAdmin.register PackageCrew,:as => "Package Group" do
   menu :parent => "Manage Package"
   filter :package
   filter :crew
@@ -8,11 +8,11 @@ ActiveAdmin.register PackageCrew do
     column :package
     column :crew
     column :quantity
-     column :price, :sortable => :price do |d|
-      div :class => "price" do
-        number_to_currency d.price, :unit => "&#8369;"
-      end
-    end
+     #column :price, :sortable => :price do |d|
+     # div :class => "price" do
+    #    number_to_currency d.price, :unit => "&#8369;"
+  #    end
+    #end
     
   default_actions
   end

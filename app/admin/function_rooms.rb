@@ -23,6 +23,7 @@ ActiveAdmin.register FunctionRoom do
    f.inputs "Details" do
     f.input :name 
     f.input :description
+    f.input :capacity , :as => :string
     f.input :price, :as => :string
     f.input :image_function_room, :as => :file, :hint => f.template.image_tag(f.object.image_function_room.url(:thumb))
     end

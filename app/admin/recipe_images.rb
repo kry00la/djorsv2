@@ -1,4 +1,4 @@
-ActiveAdmin.register RecipeImage do
+ActiveAdmin.register RecipeImage, :as => "Recipe Image Manager" do
     menu :parent => "Manage Services"
     filter :recipe
    

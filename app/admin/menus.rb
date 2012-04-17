@@ -1,7 +1,9 @@
 ActiveAdmin.register Menu do
   menu :parent => "Services"
   filter :menu_category
+  filter :menu_type
   filter :name
+  
   
     
   index do 
@@ -12,6 +14,7 @@ ActiveAdmin.register Menu do
       end
     end
     column :menu_category
+    column :menu_type
   default_actions
   end
   
@@ -19,7 +22,9 @@ ActiveAdmin.register Menu do
   
    form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
+    
     f.input :menu_category
+    f.input :menu_type
     f.input :name
     f.input :desription
     #f.input :price, :as => :string
