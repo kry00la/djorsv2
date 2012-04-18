@@ -216,7 +216,6 @@ ActiveRecord::Schema.define(:version => 20120417170838) do
     t.integer  "service_id"
     t.string   "email"
     t.decimal  "total_price", :default => 0.0
-    t.integer  "total_hour"
   end
 
   create_table "services", :force => true do |t|

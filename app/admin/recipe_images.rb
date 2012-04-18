@@ -1,5 +1,5 @@
 ActiveAdmin.register RecipeImage, :as => "Recipe Image Manager" do
-    menu :parent => "Manage Services"
+    menu :parent => "Image Manager"
     filter :recipe
    
      

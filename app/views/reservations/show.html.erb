@@ -36,9 +36,15 @@
 </p>
 
 <p>
+	<b>Total Hours you will render:</b>
+	<%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
+	<%= timex[:diff]%>
+
+</p>
+
+<p>
 	<b>Total:</b>
 	<%= @reservation.total_price%>
-	
 </p>
 
 <%= display_package @reservation%>

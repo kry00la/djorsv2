@@ -48,7 +48,9 @@ class Reservation < ActiveRecord::Base
   end
   
   def compute_for_total_hours
-      
+      differences=Time.diff(Time.parse(self.timeStart.to_s), Time.parse(self.timeEnd.to_s))
+      total=("#{differences[:hour]}"+"."+"#{differences[:minute]}").to_d
+      total
   end
   
   
@@ -69,13 +71,13 @@ class Reservation < ActiveRecord::Base
        current_function_room
      else
      current_function_room = reservation_function_rooms.build(:function_room_id => function_room_id)
-     current_function_room.price = current_function_room.function_room.price 
+     current_function_room.price = current_function_room.function_room.price * compute_for_total_hours
       self.total_price += current_function_room.price
       self.save!
      end
      current_function_room
     end
-        
+
 
     ###########package#################
     

@@ -1,11 +1,20 @@
 class ReservationsController < InheritedResources::Base
+  def edit
+    @reservation = Reservation.find(params[:id])
+  end
+  
   def new
     @reservation = Reservation.new
   end
   
-  #def create
+  def create
+    @reservation = Reservation.new(params[:reservation])
     
-  #end
+    if @reservation.save
+    #  @reservation.compute_for_total_hours
+      redirect_to @reservation, :notice => "created"
+    end  
+  end
   
   def destroy
     @reservation = Reservation.find(params[:id])

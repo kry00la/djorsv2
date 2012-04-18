@@ -7,7 +7,7 @@ gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'time_diff'
 gem 'sqlite3'
 gem 'activeadmin'
 gem 'formtastic'
