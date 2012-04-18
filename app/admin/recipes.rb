@@ -1,4 +1,4 @@
-ActiveAdmin.register Recipe do
+ActiveAdmin.register Recipe ,:as => "Create Recipe" do
   menu :parent => "Services"
   filter :name, :as => :string
   filter :price, :as => :numeric

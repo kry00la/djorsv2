@@ -1,4 +1,4 @@
-ActiveAdmin.register Package do
+ActiveAdmin.register Package ,:as => "Create Package"do
   menu :parent => "Services"
   filter :name, :as => :string
   filter :price, :as => :numeric

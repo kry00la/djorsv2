@@ -1,4 +1,4 @@
-ActiveAdmin.register Menu do
+ActiveAdmin.register Menu ,:as => "Create Menu" do
   menu :parent => "Services"
   filter :menu_category
   filter :menu_type
