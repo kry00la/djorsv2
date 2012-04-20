@@ -6,9 +6,9 @@ Djors::Application.routes.draw do
 
   
 
-  resources :package_categories
-
   resources :package_menus
+
+  resources :package_categories
 
   resources :function_room_images
 
