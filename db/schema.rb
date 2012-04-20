@@ -140,14 +140,6 @@ ActiveRecord::Schema.define(:version => 20120419134958) do
     t.integer  "reservation_id"
   end
 
-  create_table "package_menus", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.decimal  "price"
-    t.integer  "package_id"
-    t.integer  "menu_id"
-  end
-
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.text     "description"

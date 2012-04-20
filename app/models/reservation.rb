@@ -137,8 +137,6 @@ class Reservation < ActiveRecord::Base
       reservationpackagemenus.each do |a|
         @package_line_item = package_line_items.create(:reservation_id => self, :menu_id => a.menu_id , :price => a.price)
         @package_line_item.save
-       # @reservation_menu= reservation_menus.create(:reservation_id => self, :menu_id => a.menu_id, :price => a.price)
-        #@reservation_menu.save
       end
     end
     
