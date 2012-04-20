@@ -1,19 +1,15 @@
-ActiveAdmin.register PackageCrew,:as => "Package Group" do
-  menu :parent => "Manage Package"
+ActiveAdmin.register PackageCrew  do
+  menu :parent => "Group Manager" ,:label => "Crew for package"
+   actions :all, :except => [:edit]
   filter :package
   filter :crew
   
-  
+ 
   index do 
     column :package
     column :crew
     column :quantity
-     #column :price, :sortable => :price do |d|
-     # div :class => "price" do
-    #    number_to_currency d.price, :unit => "&#8369;"
-  #    end
-    #end
-    
+ 
   default_actions
   end
   
@@ -25,31 +21,41 @@ ActiveAdmin.register PackageCrew,:as => "Package Group" do
    f.inputs "Details" do
     f.input :package
     f.input :crew
+    f.input :quantity , :as => :string
     end
   f.buttons
  end
   
   
-  controller do
-    def new
-      @package_crew = PackageCrew.new
-    end
-    
-    def create
-      @package = Package.find(params[:package_crew][:package_id])
-      crew = Crew.find(params[:package_crew][:crew_id])
-      
-     @package_crew = @package.add_crew(crew.id)
-     
-     if @package_crew.save
-       redirect_to {admin_package_crew_url}
-     end
-     
-     def destroy
-        @package_crew = PackageCrew.find(params[:id])
-        @package_crew.remove_crew
-        @package_crew.destroy
-     end
-    end
-  end
+
+
+  
+  
+  
+    controller do
+               
+
+               def create
+                 @package = Package.find(params[:package_crew][:package_id])
+                     crew = Crew.find(params[:package_crew][:crew_id])
+                 
+                  @package_crew = @package.add_crew(crew.id)
+                     if @package_crew.save
+                         redirect_to {admin_package_crew_url}
+                     end                 
+               end
+              
+              
+                      
+                 def destroy
+                   
+                      @package_crew = PackageCrew.find(params[:id])
+                      @package_crew.remove_crew
+                      
+                      if @package_crew.destroy
+                       redirect_to :action => :index, :notice => "This is a test notice!"
+                      end
+                   
+                 end
+      end
 end

@@ -17,6 +17,10 @@ class ReservationPackage < ActiveRecord::Base
      currentpackage
   end
   
+  def total_menu
+    total_menu = package.sumofmenu
+  end
+  
   def total_crew
     total_crew = package.sumofcrew
   end

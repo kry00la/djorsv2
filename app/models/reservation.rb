@@ -7,6 +7,7 @@ class Reservation < ActiveRecord::Base
   has_many :menus , :through => :package_line_items, :uniq => true
   has_many :function_rooms, :through =>:reservation_function_rooms
   has_many :reservation_crews
+  has_many :reservation_menus
 
   ###########global############
    def remove_menu_upon_destroy(reservation_id)
@@ -49,11 +50,25 @@ class Reservation < ActiveRecord::Base
   
   def compute_for_total_hours
       differences=Time.diff(Time.parse(self.timeStart.to_s), Time.parse(self.timeEnd.to_s))
-      total=("#{differences[:hour]}"+"."+"#{differences[:minute]}").to_d
+      min = ("." +"#{differences[:minute]}").to_d
+      min = min / ".60".to_d
+     # if min = 1
+     #   min = 0.1
+    #  else
+    #    min
+ #     end
+      min = sprintf("%.1f",(min))
+      total = ("#{differences[:hour]}").to_d + min.to_d
+      
+      
+      #minute =sprintf("%.1f" ,(("."+"#{differences[:minute]}").to_d/ ".60".to_d))
+          
+      #total=(("#{differences[:hour]}").to_d+("."+"#{minute}").to_d).to_d
+    
       total
   end
   
-  
+
 
 
 
@@ -105,7 +120,8 @@ class Reservation < ActiveRecord::Base
     def add_package(package_id)
       current_package = build_reservation_package(:package_id => package_id)
       sumofcrew = reservation_package.total_crew
-      current_package.price = current_package.package.price + sumofcrew
+      sumofmenu = reservation_package.total_menu
+      current_package.price = current_package.package.price + sumofcrew + sumofmenu
         self.total_price = self.total_price + current_package.price 
         self.save
       current_package
@@ -114,6 +130,16 @@ class Reservation < ActiveRecord::Base
     def scan_my_self_tru_package(package_id)
        current_package = self.find_by_package_id(package_id)
        current_package = current_package.reservation_id
+    end
+    
+    def add_reservationmenu(package_id)
+      reservationpackagemenus = reservation_package.package.find_menu_for_reservation(package_id)
+      reservationpackagemenus.each do |a|
+        @package_line_item = package_line_items.create(:reservation_id => self, :menu_id => a.menu_id , :price => a.price)
+        @package_line_item.save
+       # @reservation_menu= reservation_menus.create(:reservation_id => self, :menu_id => a.menu_id, :price => a.price)
+        #@reservation_menu.save
+      end
     end
     
     def add_reservationcrew(package_id)
@@ -128,10 +154,10 @@ class Reservation < ActiveRecord::Base
     ############menu###############
 
     
-      def sumofmenu
-        menu = package_line_items
-        Array.wrap(menu).sum {|menu| menu.price}
-      end
+     # def sumofmenu
+      #  menu = package_line_items
+     #   Array.wrap(menu).sum {|menu| menu.price}
+   #   end
     
       def add_menu(menu_id)
         current_menu = package_line_items.find_by_menu_id(menu_id)
@@ -140,9 +166,9 @@ class Reservation < ActiveRecord::Base
         else
           current_menu = package_line_items.build(:menu_id => menu_id)
           current_menu.price = current_menu.menu.price
-            self.reservation_package.price = self.reservation_package.price + current_menu.price
+            self.reservation_package.price = self.reservation_package.price + (current_menu.price * self.numGuest)
               self.reservation_package.save
-                self.total_price =  self.total_price  + current_menu.price
+                self.total_price =  self.total_price  + (current_menu.price * self.numGuest)
                   self.save
         end
         current_menu

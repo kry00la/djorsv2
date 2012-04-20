@@ -1,4 +1,4 @@
-ActiveAdmin.register Crew ,:as => "Create Crew"do
+ActiveAdmin.register Crew do
   menu :parent => "Services"
   filter :name, :as => :string
   filter :price, :as => :numeric

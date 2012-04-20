@@ -1,0 +1,17 @@
+<%= form_for(@package_menu) do |f| %>
+  <% if @package_menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@package_menu.errors.count, "error") %> prohibited this package_menu from being saved:</h2>
+
+      <ul>
+      <% @package_menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

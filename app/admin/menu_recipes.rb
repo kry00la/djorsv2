@@ -1,5 +1,6 @@
-ActiveAdmin.register MenuRecipe ,:as => "Menu Group"do
-    menu :parent => "Manage Package"
+ActiveAdmin.register MenuRecipe do
+    menu :parent => "Group Manager"
+    actions :all, :except => [:edit]
     filter :recipe
     filter :menu
 
@@ -25,10 +26,6 @@ ActiveAdmin.register MenuRecipe ,:as => "Menu Group"do
     
     
     controller do
-      def new
-          @menu_recipe = MenuRecipe.new  
-      end
-      
       def create
           @menu = Menu.find(params[:menu_recipe][:menu_id])
           recipe = Recipe.find(params[:menu_recipe][:recipe_id])
@@ -40,14 +37,11 @@ ActiveAdmin.register MenuRecipe ,:as => "Menu Group"do
        end
       
       def destroy
-          
-          
-      @menu_recipe = MenuRecipe.find(params[:id])
-      @menu_recipe.remove_recipe
-      @menu_recipe.destroy
-    
-   
-      
+        @menu_recipe = MenuRecipe.find(params[:id])
+     #   @menu_recipe.remove_recipe
+          if @menu_recipe.destroy
+             redirect_to :action => :index, :notice => "This is a test notice!"
+          end
       end     
 
     end

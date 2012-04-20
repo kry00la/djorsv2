@@ -1,4 +1,4 @@
-ActiveAdmin.register FunctionRoom ,:as => "Create Function Room"do
+ActiveAdmin.register FunctionRoom do
   menu :parent => "Services"
   filter :name, :as => :string
   filter :price, :as => :numeric

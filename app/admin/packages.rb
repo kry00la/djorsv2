@@ -1,4 +1,4 @@
-ActiveAdmin.register Package ,:as => "Create Package"do
+ActiveAdmin.register Package do
   menu :parent => "Services"
   filter :name, :as => :string
   filter :price, :as => :numeric
@@ -6,8 +6,9 @@ ActiveAdmin.register Package ,:as => "Create Package"do
     
   index do 
     column :name
-      column :price, :sortable => :price do |d|
-      div :class => "price" do
+    column :package_category
+    column :price, :sortable => :price do |d|
+            div :class => "price" do
         number_to_currency d.price, :unit => "&#8369;"
       end
     end
@@ -17,6 +18,7 @@ ActiveAdmin.register Package ,:as => "Create Package"do
    form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :name 
+    f.input :package_category
     f.input :description
     f.input :price, :as => :string
    end

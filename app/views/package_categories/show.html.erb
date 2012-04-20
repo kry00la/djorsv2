@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @package_category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @package_category.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_package_category_path(@package_category) %> |
+<%= link_to 'Back', package_categories_path %>

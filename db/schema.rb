@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417170838) do
+ActiveRecord::Schema.define(:version => 20120419134958) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -116,6 +116,13 @@ ActiveRecord::Schema.define(:version => 20120417170838) do
     t.integer  "menu_type_id"
   end
 
+  create_table "package_categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "package_crews", :force => true do |t|
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -134,18 +141,20 @@ ActiveRecord::Schema.define(:version => 20120417170838) do
   end
 
   create_table "package_menus", :force => true do |t|
-    t.integer  "menu_id"
-    t.integer  "package_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.decimal  "price"
+    t.integer  "package_id"
+    t.integer  "menu_id"
   end
 
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "package_category_id"
   end
 
   create_table "recipe_categories", :force => true do |t|
@@ -193,6 +202,14 @@ ActiveRecord::Schema.define(:version => 20120417170838) do
     t.integer  "function_room_id"
     t.integer  "reservation_id"
     t.decimal  "price",            :default => 0.0
+  end
+
+  create_table "reservation_menus", :force => true do |t|
+    t.integer  "reservation_id"
+    t.integer  "menu_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.decimal  "price"
   end
 
   create_table "reservation_packages", :force => true do |t|
