@@ -11,6 +11,7 @@
 		<p>
 			<%= recipe.price%>
 		</p>
+		
 		<p>
 			<%= image_tag recipe.image_recipe.url(:medium) %>
 		</p>
@@ -19,3 +20,4 @@
 			<%= button_to "add recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe)%>
 		</p>
 	<%end%>
+

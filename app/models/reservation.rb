@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-  has_one :reservation_package
+  has_one :reservation_package ,:dependent => :destroy
   belongs_to :service
   has_many :reservation_function_rooms
   has_many :package_line_items
@@ -52,19 +52,8 @@ class Reservation < ActiveRecord::Base
       differences=Time.diff(Time.parse(self.timeStart.to_s), Time.parse(self.timeEnd.to_s))
       min = ("." +"#{differences[:minute]}").to_d
       min = min / ".60".to_d
-     # if min = 1
-     #   min = 0.1
-    #  else
-    #    min
- #     end
       min = sprintf("%.1f",(min))
       total = ("#{differences[:hour]}").to_d + min.to_d
-      
-      
-      #minute =sprintf("%.1f" ,(("."+"#{differences[:minute]}").to_d/ ".60".to_d))
-          
-      #total=(("#{differences[:hour]}").to_d+("."+"#{minute}").to_d).to_d
-    
       total
   end
   

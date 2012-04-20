@@ -15,4 +15,7 @@ module PagesHelper
      end
   end
   
+  def display_quantity_form(reservation)
+     
+  end
 end

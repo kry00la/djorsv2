@@ -5,6 +5,11 @@ class ReservationPackage < ActiveRecord::Base
   
   
   
+  def remove_menu_from_package
+    price=reservation.numGuest * self.price
+    reservation.total_price = reservation.total_price - price
+    reservation.save
+  end
   
   def remove_package
     reservation.total_price = reservation.total_price - self.price

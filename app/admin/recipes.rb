@@ -19,14 +19,15 @@ ActiveAdmin.register Recipe do
   
   
   form :html => { :enctype => "multipart/form-data" } do |f|
+    
    f.inputs "Details" do
+    f.input :menu_type ,:label => "Recipe Type"
     f.input :name
     f.input :description
     f.input :price, :as => :string
     f.input :recipe_category
     f.input :image_recipe, :as => :file, :hint => f.template.image_tag(f.object.image_recipe.url(:thumb))
-    #f.input :image_recipe, :as => :file  ,:hint => "current image: #{f.template.image_tag(f.object.image_recipe.url(:thumb))}"
-    #f.input :image, :as => :file
+
     end
   f.buttons
  end

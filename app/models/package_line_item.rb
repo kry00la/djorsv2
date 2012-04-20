@@ -3,9 +3,10 @@ class PackageLineItem < ActiveRecord::Base
   belongs_to :reservation
   
   def remove_menu
-    reservation.reservation_package.price = reservation.reservation_package.price - self.menu.price
+    price = self.menu.price * reservation.numGuest
+    reservation.reservation_package.price = reservation.reservation_package.price - price
     reservation.reservation_package.save
-    reservation.total_price = reservation.total_price - self.price
+    reservation.total_price = reservation.total_price - price
     reservation.save
   end
   
