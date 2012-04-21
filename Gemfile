@@ -8,13 +8,24 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'time_diff'
-gem 'sqlite3'
+
 gem 'activeadmin'
 gem 'formtastic'
 
-group :production do
-  gem 'pg', '0.12.2'
+
+group :production, :staging do
+  gem 'pg', " ~> 0.12.0"  
 end
+
+group :development, :test do # Pretty printed test output
+#   gem 'turn', '0.8.2', :require => false
+    gem "sqlite3-ruby", :require => "sqlite3"
+    gem 'sqlite3', '1.3.5'
+end
+
+# group :development, :test do
+  # gem "sqlite3-ruby", :require => "sqlite3"
+# end
 
 gem "paperclip", "~> 3.0"
  
