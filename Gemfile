@@ -11,7 +11,11 @@ gem 'time_diff'
 gem 'sqlite3'
 gem 'activeadmin'
 gem 'formtastic'
-gem 'pg'
+
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 gem "paperclip", "~> 3.0"
  
 # Gems used only for assets and not required
