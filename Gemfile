@@ -15,7 +15,7 @@ gem 'validates_overlap'
    gem "nifty-generators"
 group :production, :staging do
   gem 'pg'
-  gem 'taps'
+
    
 end
 
