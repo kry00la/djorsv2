@@ -1,6 +1,6 @@
 class BookReservation < ActiveRecord::Base
   belongs_to :reservation
-  has_many :transactions, :class_name => "BookTransaction"
+  has_many :transactions,:dependent => :destroy, :class_name => "BookTransaction"
   #attr_accessible :reservation_id, :ip_address, :first_name, :last_name, :card_type, :card_expires_on
   attr_accessor :card_number, :card_verification
   

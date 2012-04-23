@@ -34,4 +34,15 @@ ActiveAdmin.register Reservation do
     end
   f.buttons
  end
+ controller do
+   def destory
+                      @reservation = Reservation.find(params[:id])
+                      destroy_reservation_session
+                      
+                      if @reservation.destroy
+                       redirect_to :action => :index, :notice => "This is a test notice!"
+                      end
+   end
+ end
+ 
 end

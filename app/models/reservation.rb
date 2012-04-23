@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   has_one :reservation_package ,:dependent => :destroy
-  has_one :book_reservation
+  has_one :book_reservation ,:dependent => :destroy
   belongs_to :service
   has_many :reservation_function_rooms, :dependent => :destroy
   has_many :package_line_items, :dependent => :destroy
