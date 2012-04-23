@@ -14,12 +14,14 @@ gem "formtastic", "~> 2.1.1"
 gem 'validates_overlap'
 
 group :production, :staging do
-  gem 'pg', " ~> 0.12.0"  
+  gem 'pg', " ~> 0.12.0"
+   gem 'taps'
+    gem 'rmagick'  
 end
 
 group :development, :test do # Pretty printed test output
 #   gem 'turn', '0.8.2', :require => false
-    gem 'taps', :require => false # has an sqlite dependency, which heroku hates
+   
     gem "nifty-generators"
     gem "sqlite3-ruby", :require => "sqlite3"
     gem 'sqlite3', '1.3.5'
