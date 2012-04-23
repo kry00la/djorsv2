@@ -12,18 +12,17 @@ gem 'activemerchant', :require => 'active_merchant'
 gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
 gem 'validates_overlap'
-
+   gem "nifty-generators"
 group :production, :staging do
-  gem 'pg', " ~> 0.12.0"
-   gem 'taps'
+  gem 'pg'
+  gem 'taps'
    
 end
 
 group :development, :test do # Pretty printed test output
 #   gem 'turn', '0.8.2', :require => false
-   
-    gem "nifty-generators"
-    gem "sqlite3-ruby", :require => "sqlite3"
+    
+  #  gem "sqlite3-ruby", :require => "sqlite3"
     gem 'sqlite3', '1.3.5'
 end
 
