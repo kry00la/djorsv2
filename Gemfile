@@ -16,7 +16,7 @@ gem 'validates_overlap'
 group :production, :staging do
   gem 'pg', " ~> 0.12.0"
    gem 'taps'
-    gem 'rmagick'  
+   
 end
 
 group :development, :test do # Pretty printed test output
