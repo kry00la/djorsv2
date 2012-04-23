@@ -19,10 +19,10 @@ end
 
 group :development, :test do # Pretty printed test output
 #   gem 'turn', '0.8.2', :require => false
-    #gem 'taps', :require => false # has an sqlite dependency, which heroku hates
-   # gem "nifty-generators"
-  #  gem "sqlite3-ruby", :require => "sqlite3"
- #   gem 'sqlite3', '1.3.5'
+    gem 'taps', :require => false # has an sqlite dependency, which heroku hates
+    gem "nifty-generators"
+    gem "sqlite3-ruby", :require => "sqlite3"
+    gem 'sqlite3', '1.3.5'
 end
 
 # group :development, :test do
