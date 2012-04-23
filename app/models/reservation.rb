@@ -1,14 +1,25 @@
 class Reservation < ActiveRecord::Base
-  has_one :reservation_package #,:dependent => :destroy
+  has_one :reservation_package ,:dependent => :destroy
+  has_one :book_reservation
   belongs_to :service
-  has_many :reservation_function_rooms
-  has_many :package_line_items
-  has_many :menu_addons_line_items
+  has_many :reservation_function_rooms, :dependent => :destroy
+  has_many :package_line_items, :dependent => :destroy
+  has_many :menu_addons_line_items ,:dependent => :destroy
   has_many :menus , :through => :package_line_items, :uniq => true
   has_many :function_rooms, :through =>:reservation_function_rooms
-  has_many :reservation_crews
-  has_many :reservation_menus
+  has_many :reservation_crews ,:dependent => :destroy
 
+ ##### validation #####
+  validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
+  validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:service,:presence => :true
+  validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
+
+
+   
+
+
+  
+  
   ###########global############
    def remove_menu_upon_destroy(reservation_id)
       menus = package_line_items.find_all_by_reservation_id(reservation_id)

@@ -22,4 +22,15 @@ ActiveAdmin.register Crew do
   f.buttons
  end
   
+  
+  controller do
+   # def destroy
+     # @crew = Crew.find(params[:id])
+    #  if @crew.package_crews.destroy
+   #     redirect_to :action => :index, :notice => "Crew deleted"
+   #   end
+      #@crew.destroy
+      
+  #  end
+  end
 end

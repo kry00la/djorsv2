@@ -1,5 +1,5 @@
 ActiveAdmin.register MenuRecipe do
-    menu :parent => "Group Manager"
+    menu :parent => "Group Manager" ,:label => "Recipe for menu"
     actions :all, :except => [:edit]
     filter :recipe
     filter :menu
@@ -38,7 +38,7 @@ ActiveAdmin.register MenuRecipe do
       
       def destroy
         @menu_recipe = MenuRecipe.find(params[:id])
-     #   @menu_recipe.remove_recipe
+        @menu_recipe.remove_recipe
           if @menu_recipe.destroy
              redirect_to :action => :index, :notice => "This is a test notice!"
           end

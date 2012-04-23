@@ -6,6 +6,8 @@ Djors::Application.routes.draw do
 
   
 
+  resources :book_reservations
+
   resources :package_menus
 
   resources :package_categories
@@ -34,8 +36,8 @@ Djors::Application.routes.draw do
             end
           end
         resources :package_line_items
-          resources :menu_addons_line_items
-     resources :reservation_function_rooms        
+        resources :menu_addons_line_items
+        resources :reservation_function_rooms        
     end
   
  

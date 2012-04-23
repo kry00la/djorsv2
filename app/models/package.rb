@@ -1,7 +1,7 @@
 class Package < ActiveRecord::Base
   has_one :reservation_package
- # has_many :crews, :through => :package_crews, :uniq => true
   has_many :package_crews
+  has_many :crews, :through => :package_crews, :uniq => true
   has_many :package_menus
   belongs_to :package_category
   validates :name,:description,:price ,:presence => :true

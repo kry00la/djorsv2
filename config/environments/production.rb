@@ -1,6 +1,7 @@
 Djors::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  config.assets.precompile += %w[active_admin.css active_admin.js]
+  
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -64,4 +65,12 @@ Djors::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :production
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => "doejoeplace_api1.gmail.com",
+      :password => "FMNC3N6TD54JXA97",
+      :signature => "Ase5OVTkyMk1KZt3S8p1dnJz7NS1AfKssqfbegy0USX4zJuiFA8DHQjf"
+  )
+end
 end

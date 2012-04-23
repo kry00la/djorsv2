@@ -1,6 +1,6 @@
-ActiveAdmin.register Reservation , :as => "Reservation Tickets"do
+ActiveAdmin.register Reservation do
   
-  menu :parent => "Tickets" 
+  menu :parent => "Tickets" ,:label => "Reservation Tickets"
   filter :name
   filter :date
   filter :email
@@ -26,7 +26,7 @@ ActiveAdmin.register Reservation , :as => "Reservation Tickets"do
     f.input :contact, :as => :string
     f.input :date
     #time issue#
-    f.input :timeStart,:label => "Time Start",:twelve_hour => true  
+    f.input :timeStart,:label => "Time Start"
     f.input :timeEnd ,:label => "Time End"
     ##
     f.input :numGuest, :as => :string

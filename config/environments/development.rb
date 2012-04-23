@@ -34,4 +34,14 @@ Djors::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => "doejoeplace_api1.gmail.com",
+      :password => "FMNC3N6TD54JXA97",
+      :signature => "Ase5OVTkyMk1KZt3S8p1dnJz7NS1AfKssqfbegy0USX4zJuiFA8DHQjf"
+    )
+  end
 end

@@ -1,7 +1,8 @@
-<%= form_for(@reservation) do |f| %>
-  <% if @reservation.errors.any? %>
+<div class="container">
+<%= form_for @reservation, :html => { :class => 'form-horizontal' } do |f| %>
+
+<% if @reservation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
       <ul>
       <% @reservation.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -9,49 +10,70 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'span3' %>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.number_field :contact %>
+  <div class="control-group">
+    <%= f.label :contact, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field  :contact, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date, :class => 'date_select',:start_year => Date.today.year, :end_year => (Date.today.year+10) ,:class => 'date_select' %>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+  <div class="control-group">
+    <%= f.label :timeStart, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true%>
+    </div>
   </div>
-  
-  <div>  
-  <%= f.label :service_id%><br />
-  <%= collection_select(:reservation,:service_id,Service.all,:id,:name)%>
+  <div class="control-group">
+    <%= f.label :timeEnd, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true  %>
+    </div>
   </div>
-   
-  <div class="field">
-    <%= f.label :timeStart %><br />
-    <%= f.time_select :timeStart ,{:twelve_hour => true }    %>
-    
+  <div class="control-group">
+    <%= f.label :numGuest, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field  :numGuest, :class => 'number_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :timeEnd %><br />    
-    <%= f.time_select :timeEnd ,{:twelve_hour => true} %>
-    
+  <div class="control-group">
+    <%= f.label :service_id, :class => 'control-label' %>
+    <div class="controls">
+     <%= collection_select(:reservation,:service_id,Service.all,:id,:name) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :numGuest %><br />
-    <%= f.number_field :numGuest %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+  	<p>Agreement</p>
+		 <%= f.check_box :reservation_option, :class => 'text_field' %>
+  </div>
+  <div class="form-actions">
+  	<button class="btn" type="submit">
+    	<%= f.submit %>
+    </button>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reservations_path, :class => 'btn' %>
   </div>
 <% end %>
+</div>

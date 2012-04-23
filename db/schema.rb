@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420164458) do
+ActiveRecord::Schema.define(:version => 20120423182345) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,29 @@ ActiveRecord::Schema.define(:version => 20120420164458) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "book_reservations", :force => true do |t|
+    t.integer  "reservation_id"
+    t.string   "ip_address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "book_transactions", :force => true do |t|
+    t.integer  "book_reservation_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "crews", :force => true do |t|
     t.string   "name"
@@ -230,11 +253,13 @@ ActiveRecord::Schema.define(:version => 20120420164458) do
     t.time     "timeStart"
     t.time     "timeEnd"
     t.integer  "numGuest"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "service_id"
     t.string   "email"
-    t.decimal  "total_price", :default => 0.0
+    t.decimal  "total_price",        :default => 0.0
+    t.date     "booked_at"
+    t.boolean  "reservation_option"
   end
 
   create_table "services", :force => true do |t|
