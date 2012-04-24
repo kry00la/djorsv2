@@ -20,7 +20,7 @@ end
 group :development, :test do
   gem 'sqlite3'
 end
-
+gem 'sqlite3-ruby', '1.3.2',  :group => :development
 
 gem "paperclip", "~> 3.0"
  
