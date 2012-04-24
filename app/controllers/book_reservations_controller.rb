@@ -1,11 +1,5 @@
 class BookReservationsController < ApplicationController
-  def success
-    
-  end
-
-  def fail
-    
-  end
+ 
 
   def new
    @book_reservation = BookReservation.new

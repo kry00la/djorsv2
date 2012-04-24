@@ -13,22 +13,13 @@ gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
 gem 'validates_overlap'
    gem "nifty-generators"
-group :production, :staging do
-  gem 'pg'
-
-   
+group :production do
+  gem 'pg'  
+end
+group :development, :test do
+  gem 'sqlite3'
 end
 
-group :development, :test do # Pretty printed test output
-#   gem 'turn', '0.8.2', :require => false
-    
-  #  gem "sqlite3-ruby", :require => "sqlite3"
-    gem 'sqlite3'
-end
-
-# group :development, :test do
-  # gem "sqlite3-ruby", :require => "sqlite3"
-# end
 
 gem "paperclip", "~> 3.0"
  
