@@ -12,14 +12,15 @@ gem 'activemerchant', :require => 'active_merchant'
 gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
 gem 'validates_overlap'
-   gem "nifty-generators"
+gem "nifty-generators"
 gem 'thin'
-group :production do
-  gem 'pg'  
+group :production, :staging do
+  gem "pg"
 end
 
-gem 'sqlite3-ruby', '1.3.2',  :group => :development
-
+group :development, :test do
+  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+end
 gem "paperclip", "~> 3.0"
  
 # Gems used only for assets and not required
