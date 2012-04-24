@@ -11,7 +11,7 @@ class Reservation < ActiveRecord::Base
 
  ##### validation #####
   validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
-  validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:service,:presence => :true
+  validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
   validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
 
 

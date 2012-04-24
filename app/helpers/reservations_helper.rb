@@ -22,4 +22,6 @@ module ReservationsHelper
       render 'packageprice',:reservation => @reservation
     end
   end
+  
+
 end

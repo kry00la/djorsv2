@@ -1,7 +1,15 @@
-<h1>menu you added</h1>
+<div id="reservation_container">
+	
+	
+
+<h1>Your Current Menu</h1>
 <% @reservation.package_line_items.each do |menu|%>	
 <p><%= link_to menu.menu.name, menu_reservation_reservation_package_pages_path(@reservation,menu) %></p>
-<p><%= link_to "delete item" ,reservation_package_line_item_path(@reservation,menu), :method => :delete%></p>
+<p>
+	<button class="btn-danger">
+	<%= link_to "delete item" ,reservation_package_line_item_path(@reservation,menu), :method => :delete%>
+	</button>
+	</p>
 <%end%>
 
 
@@ -9,12 +17,13 @@
 
 
 
+<hr />
 
 
-
-<h1>list of menu</h1>
+<h2>list of menu Available you can add</h2>
 <%@menu.each do |menu|%>
 	<h2><%= menu.name%></h2>
 	<p><%= menu.desription%></p>
 	<%= button_to "add menu", reservation_package_line_items_path(:menu_id => menu)%>
 <%end%>
+</div>

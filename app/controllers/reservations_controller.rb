@@ -1,5 +1,7 @@
 class ReservationsController < InheritedResources::Base
-  
+  def index
+    @reservations = Reservation.find(:all, :order => 'date')
+  end
 
   def edit
     @reservation = Reservation.find(params[:id])
@@ -25,9 +27,12 @@ class ReservationsController < InheritedResources::Base
   def destroy
     @reservation = Reservation.find(params[:id])
     reservation = Reservation.find(params[:id])
-    @reservation.remove_all_associated(reservation.id)
-    @reservation.destroy
-    redirect_to @reservation, :notice => "menu successfuly deleted"
+    
+    if @reservation.destroy
+      destroy_reservation_session
+       redirect_to @reservation, :notice => "reservation Deleted"
+    end
+   
         
   end
  

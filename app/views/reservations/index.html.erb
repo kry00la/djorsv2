@@ -1,43 +1,27 @@
 <%- model_class = Reservation.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<h1>Reservation Calendar</h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:contact) %></th>
+      
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:timeStart) %></th>
       <th><%= model_class.human_attribute_name(:timeEnd) %></th>
       <th><%= model_class.human_attribute_name(:numGuest) %></th>
-      <th><%= model_class.human_attribute_name(:service_id) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:total_price) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+   
+ 
     </tr>
   </thead>
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= link_to reservation.id, reservation_path(reservation) %></td>
-        <td><%= reservation.name %></td>
-        <td><%= reservation.address %></td>
-        <td><%= reservation.contact %></td>
-        <td><%= reservation.date %></td>
-        <td><%= reservation.timeStart %></td>
-        <td><%= reservation.timeEnd %></td>
-        <td><%= reservation.numGuest %></td>
+        <td><%= reservation.date.strftime("%B %d,%Y") %></td>
+        <td><%= reservation.timeStart.strftime('%l:%M - %P') %></td>
+        <td><%= reservation.timeEnd.strftime('%l:%M - %P') %></td>
         <td><%= reservation.service_id %></td>
-        <td><%= reservation.email %></td>
-        <td><%= reservation.total_price %></td>
-        <td><%=l reservation.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_reservation_path(reservation), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', reservation, confirm: 'Are you sure?', method: :delete %>
-        </td>
+        
+
+
       </tr>
     <% end %>
   </tbody>

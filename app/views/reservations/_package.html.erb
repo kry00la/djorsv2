@@ -3,10 +3,14 @@
 		<th><h2>Package name:</h2></th>
 	</tr>
 		<tr>	
-				<td><%= @reservation.reservation_package.package.name%></td>		
+						
 				<td><%= link_to @reservation.reservation_package.package.name,package_reservation_pages_path(@reservation)%></td>
 				<td><%= display_packageprice @reservation%></td>
-				<td><%= link_to "Delete package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete%></td>
+				<td>
+					<button class="btn-danger" type="submit">
+					<%= link_to "Delete package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete%>
+					</button>
+					</td>
 		</tr>	
 	
 	

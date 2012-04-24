@@ -221,6 +221,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (= 0.4.3)
   activemerchant
+  bourbon
   coffee-rails (~> 3.2.1)
   formtastic (~> 2.1.1)
   jquery-rails

@@ -1,4 +1,4 @@
-<h1>menus you added</h1>
+<h1>Your Current Menu</h1>
 <% @reservation.package_line_items.each do |menu|%>	
 	
 	<p>
@@ -13,13 +13,17 @@
 	</p>
 
 	<p>
+		<button class="btn btn-danger" type="submit">
 			<%= link_to "delete item" ,reservation_package_line_item_path(@reservation,menu), :method => :delete%>
+		</button>
 	</p>
 <%end%>
 
 
 <p>
+	<button class="btn" type="submit">
 	<%=link_to "add your menu" ,  menulist_reservation_reservation_package_pages_path(@reservation)%>
+	</button>
 </p>
 
 

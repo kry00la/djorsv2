@@ -1,3 +1,5 @@
+<div id="reservation_container">
+	
 <%= notice%>
 
 	<p><%= @menu.name%></p>
@@ -6,6 +8,8 @@
 	<h1>recipe inside this menu is</h1>
 	
 <%@menu.menu_recipes.each do |recipes|%>
+			
+	
 	<p>
 		<b>NAME:</b>
 		<%= recipes.recipe.name%>
@@ -15,5 +19,7 @@
 		<b>PRICE:</b>
 		<%= recipes.recipe.price%>
 	</p>
+	<hr />
 <%end%>
 
+</div>

@@ -40,7 +40,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-
+  gem 'bourbon'
   gem 'uglifier', '>= 1.0.3'
 end
 

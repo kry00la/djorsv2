@@ -1,4 +1,4 @@
-<div class="container">
+<div id="regform">
 <%= form_for @reservation, :html => { :class => 'form-horizontal' } do |f| %>
 
 <% if @reservation.errors.any? %>
@@ -65,9 +65,11 @@
     </div>
   </div>
   <div class="control-group">
-  	<p>Agreement</p>
-		 <%= f.check_box :reservation_option, :class => 'text_field' %>
-  </div>
+  	
+  	 <div class="controls">
+		 <%= f.check_box :reservation_option, :class => 'text_field' %> Registration Agreement
+    </div>
+    </div>
   <div class="form-actions">
   	<button class="btn" type="submit">
     	<%= f.submit %>

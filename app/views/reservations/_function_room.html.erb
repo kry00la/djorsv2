@@ -1,8 +1,3 @@
-<p>
-	<%= link_to "add functionrooms",  functionroomlist_reservation_pages_path(@reservation) %>
-</p>
-
-
 
 <table>
 	<tr>
@@ -13,7 +8,13 @@
 	<tr>
 		<td><%= room.function_room.name%></td>
 		<td><%= room.function_room.price%></td>
-		<td><%= link_to "delete function room", reservation_reservation_function_room_path(@reservation,room), :confirm => "u sure?", :method => :delete %></td>
+		
+		<td>
+			<button class="btn btn-danger" type="submit">
+			<%= link_to "delete function room", reservation_reservation_function_room_path(@reservation,room), :confirm => "u sure?", :method => :delete %>
+			</button>
+			</td>
+
 	</tr>										
 	
 
@@ -22,4 +23,6 @@
 	
 	
 </table>
-
+<button class="btn" type="submit">
+	<%= link_to "add functionrooms",  functionroomlist_reservation_pages_path(@reservation) %>
+</button>
