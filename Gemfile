@@ -11,7 +11,7 @@ gem 'time_diff'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
-gem 'validates_overlap'
+#gem 'validates_overlap'
 gem "nifty-generators"
 gem 'thin'
 group :production, :staging do
@@ -19,7 +19,7 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+  gem "sqlite3-ruby", "~> 1.3.0"
 end
 gem "paperclip", "~> 3.0"
  
