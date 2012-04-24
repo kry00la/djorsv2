@@ -13,6 +13,7 @@ gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
 gem 'validates_overlap'
    gem "nifty-generators"
+gem 'thin'
 group :production do
   gem 'pg'  
 end
