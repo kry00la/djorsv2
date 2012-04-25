@@ -18,16 +18,23 @@ ActiveAdmin.register Reservation do
     default_actions
   end
   
+  sidebar :customer_information, :only => :show do
+    attributes_table_for reservation do
+      row("Reservation Edit") { link_to "Edit Details",reservation_path(@reservation)}
+    end
+  end
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Reservation Information" do
     f.input :service
     f.input :name
     f.input :address
     f.input :contact, :as => :string
-    f.input :date
+    f.input :date, :as => :date, :hint => 'Select a date',
+         :prompt => {:day => "Day", :month => "Month", :year => "Year"},
+         :start_year => Time.now.year
     #time issue#
-    f.input :timeStart,:label => "Time Start"
-    f.input :timeEnd ,:label => "Time End"
+    f.input :timeStart ,:label => "Time Start", :twelve_hour => true 
+    f.input :timeEnd ,:label => "Time End" , :twelve_hour => true 
     ##
     f.input :numGuest, :as => :string
     f.input :email
@@ -37,26 +44,16 @@ ActiveAdmin.register Reservation do
  
  
  
- sidebar :customer_information, :only => :show do
-    attributes_table_for reservation do
-      row("name") { auto_link reservation.name }
-      row("Date") {reservation.date}
-      row("Number of Guest") {reservation.numGuest}
-      row("time Start") { reservation.timeStart}
-      row("time End") { reservation.timeEnd}
-      row :email
-      row :contact
-      row :total_price
-    end
-  end
+
  
  
  controller do
-   def destory
+   def destroy
                       @reservation = Reservation.find(params[:id])
-                      destroy_reservation_session
+                     
                       
                       if @reservation.destroy
+                       destroy_reservation_session
                        redirect_to :action => :index, :notice => "This is a test notice!"
                       end
    end

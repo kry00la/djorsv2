@@ -33,6 +33,7 @@ Djors::Application.routes.draw do
             collection do
                get :menulist 
                get :menu
+               get :function_alone
             end
           end
         resources :package_line_items

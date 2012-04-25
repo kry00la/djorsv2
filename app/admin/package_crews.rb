@@ -21,7 +21,7 @@ ActiveAdmin.register PackageCrew  do
    f.inputs "Details" do
     f.input :package
     f.input :crew
-    f.input :quantity , :as => :string
+    #f.input :quantity , :as => :string
     end
   f.buttons
  end
@@ -47,15 +47,15 @@ ActiveAdmin.register PackageCrew  do
               
               
                       
-                 def destroy
+                 # def destroy
+#                    
+                      # @package_crew = PackageCrew.find(params[:id])
+                      # @package_crew.remove_crew
+#                       
+                      # if @package_crew.destroy
+                       # redirect_to :action => :index, :notice => "This is a test notice!"
+                      # end
                    
-                      @package_crew = PackageCrew.find(params[:id])
-                      @package_crew.remove_crew
-                      
-                      if @package_crew.destroy
-                       redirect_to :action => :index, :notice => "This is a test notice!"
-                      end
-                   
-                 end
+              #   end
       end
 end

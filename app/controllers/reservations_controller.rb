@@ -18,7 +18,7 @@ class ReservationsController < InheritedResources::Base
     if @reservation.save
       create_reservation_session(@reservation.id)
     #  @reservation.compute_for_total_hours
-      redirect_to @reservation, :notice => "created"
+      redirect_to @reservation, :notice => "Welcome please continue your registration"
     else
       render :action => :new
     end  

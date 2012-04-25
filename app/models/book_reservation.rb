@@ -8,7 +8,7 @@ class BookReservation < ActiveRecord::Base
 
   def booked
     response = GATEWAY.purchase(price_in_cents, credit_card, reservation_option)
-    transactions.create!(:action => "Booked", :amount => price_in_cents, :response => response)
+    #transactions.create!(:action => "Booked", :amount => price_in_cents, :response => response)
     reservation.update_attribute(:booked_at, Time.now) if response.success?
     response.success?
   end

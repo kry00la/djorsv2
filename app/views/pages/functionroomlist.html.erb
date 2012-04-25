@@ -5,7 +5,12 @@
 
 	<h1>Function Rooms</h1>
 			<%@function_room.each do |functionroom|%>
-				<h3><%= functionroom.name%></h3>
+				<h3>
+					<%= link_to functionroom.name ,function_alone_reservation_reservation_package_pages_path(@reservation,:function_room_id => functionroom.id) %></p>
+				</h3>
+				<p>
+				<%= image_tag functionroom.image_function_room.url(:medium) %>
+				</p>
 				<p> PHP<%= functionroom.price%></p>
 				<%= button_to 'add function room', reservation_reservation_function_rooms_path(:function_room_id => functionroom)%>
 				<hr />

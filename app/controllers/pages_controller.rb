@@ -1,4 +1,3 @@
-
 class PagesController < ApplicationController
   
   def functionroomlist
@@ -24,4 +23,6 @@ class PagesController < ApplicationController
     @reservation = Reservation.find(params[:reservation_id])
     @recipe = Recipe.all
   end
+  
+
 end

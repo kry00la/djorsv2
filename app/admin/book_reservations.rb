@@ -41,12 +41,17 @@ ActiveAdmin.register BookReservation do
     end
     active_admin_comments
  end
-     index do 
-    column :id 
-    column "Guest" , :reservation
-    column "Card First Name", :first_name
-    column "Card Last Name", :last_name
-    column "Card Type", :card_type
-    column "Card Expiration",:card_expires_on
+  sidebar :customer_information, :only => :show do
+    attributes_table_for reservation do
+      row("name") { auto_link reservation.name }
+      row("Date") {reservation.date}
+      row("Number of Guest") {reservation.numGuest}
+      row("time Start") { reservation.timeStart}
+      row("time End") { reservation.timeEnd}
+      row :email
+      row :contact
+      row :total_price
+      row("Reservation Edit") { link_to "Edit Details",reservation_path(@reservation)}
     end
+  end
 end

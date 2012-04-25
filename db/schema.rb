@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   create_table "crews", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "price",       :precision => 10, :scale => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "function_room_images", :force => true do |t|
@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
     t.string   "name"
     t.text     "description"
     t.integer  "capacity"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.decimal  "price"
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
+    t.decimal  "price",                            :precision => 10, :scale => 0
     t.string   "image_function_room_file_name"
     t.string   "image_function_room_content_type"
     t.integer  "image_function_room_file_size"
@@ -101,12 +101,12 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   end
 
   create_table "menu_addons_line_items", :force => true do |t|
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.integer  "reservation_id"
     t.integer  "recipe_id"
-    t.decimal  "price",          :default => 0.0
-    t.integer  "quantity",       :default => 1
+    t.decimal  "price",          :precision => 10, :scale => 0, :default => 0
+    t.integer  "quantity",                                      :default => 1
   end
 
   create_table "menu_categories", :force => true do |t|
@@ -117,11 +117,11 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   end
 
   create_table "menu_recipes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "recipe_id"
     t.integer  "menu_id"
-    t.decimal  "price"
+    t.decimal  "price",      :precision => 10, :scale => 0
   end
 
   create_table "menu_types", :force => true do |t|
@@ -133,10 +133,10 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   create_table "menus", :force => true do |t|
     t.string   "name"
     t.text     "desription"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
     t.integer  "menu_category_id"
-    t.decimal  "price",            :default => 0.0
+    t.decimal  "price",            :precision => 10, :scale => 0, :default => 0
     t.integer  "menu_type_id"
   end
 
@@ -148,36 +148,36 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   end
 
   create_table "package_crews", :force => true do |t|
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.integer  "crew_id"
     t.integer  "package_id"
-    t.decimal  "price"
-    t.integer  "quantity",   :default => 1
+    t.decimal  "price",      :precision => 10, :scale => 0
+    t.integer  "quantity",                                  :default => 1
   end
 
   create_table "package_line_items", :force => true do |t|
     t.integer  "menu_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.decimal  "price"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.decimal  "price",          :precision => 10, :scale => 0
     t.integer  "reservation_id"
   end
 
   create_table "package_menus", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "package_id"
-    t.decimal  "price"
+    t.decimal  "price",      :precision => 10, :scale => 0
     t.integer  "menu_id"
   end
 
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.decimal  "price",               :precision => 10, :scale => 0
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
     t.integer  "package_category_id"
   end
 
@@ -201,9 +201,9 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
   create_table "recipes", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.decimal  "price",                     :precision => 10, :scale => 0
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.integer  "recipe_category_id"
     t.string   "image_recipe_file_name"
     t.string   "image_recipe_content_type"
@@ -216,33 +216,33 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
     t.integer  "crew_id"
     t.integer  "reservation_id"
     t.integer  "quantity"
-    t.decimal  "price"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.decimal  "price",          :precision => 10, :scale => 0
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "reservation_function_rooms", :force => true do |t|
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
     t.integer  "function_room_id"
     t.integer  "reservation_id"
-    t.decimal  "price",            :default => 0.0
+    t.decimal  "price",            :precision => 10, :scale => 0, :default => 0
   end
 
   create_table "reservation_menus", :force => true do |t|
     t.integer  "reservation_id"
     t.integer  "menu_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.decimal  "price"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.decimal  "price",          :precision => 10, :scale => 0
   end
 
   create_table "reservation_packages", :force => true do |t|
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.integer  "reservation_id"
     t.integer  "package_id"
-    t.decimal  "price",          :default => 0.0
+    t.decimal  "price",          :precision => 10, :scale => 0, :default => 0
   end
 
   create_table "reservations", :force => true do |t|
@@ -253,11 +253,11 @@ ActiveRecord::Schema.define(:version => 20120423182345) do
     t.time     "timeStart"
     t.time     "timeEnd"
     t.integer  "numGuest"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
     t.integer  "service_id"
     t.string   "email"
-    t.decimal  "total_price",        :default => 0.0
+    t.decimal  "total_price",        :precision => 10, :scale => 0, :default => 0
     t.date     "booked_at"
     t.boolean  "reservation_option"
   end

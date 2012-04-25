@@ -10,4 +10,8 @@ class ReservationPackagePagesController < ApplicationController
     @menu = Menu.find(params[:menu_id])
     
   end
+  
+    def function_alone
+    @functionroom = FunctionRoom.find(params[:function_room_id])
+  end
 end

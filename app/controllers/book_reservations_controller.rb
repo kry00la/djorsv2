@@ -13,9 +13,9 @@ def create
     if @book_reservation.save
        create_reservation_session(@reservation.id)
       if @book_reservation.booked
-         render :action => "success" and return
-       else
          render :action => "fail" and return
+       else
+         render :action => "success" and return
        end
     end
     else
