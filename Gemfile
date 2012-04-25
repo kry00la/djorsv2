@@ -15,7 +15,7 @@ gem "formtastic", "~> 2.1.1"
 gem "nifty-generators"
 gem 'thin'
 group :production, :staging do
- gem 'mysql2'
+ gem 'pg'
 end
 
 group :development, :test do
