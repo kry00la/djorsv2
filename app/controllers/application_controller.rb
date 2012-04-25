@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
  
 private
   before_filter :current_reservation
-  around_filter :catch_not_found
+#  around_filter :catch_not_found
 
     def catch_not_found
       yield
     rescue ActiveRecord::RecordNotFound
       redirect_to reservations_path, :flash => { :error => "You have entered a invalid reservation contact management for details." }
     end
+    
    def current_reservation
    @reservation ||= Reservation.find(session[:reservation_id]) if session[:reservation_id]
      rescue ActiveRecord::RecordNotFound
