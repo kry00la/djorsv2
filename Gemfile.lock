@@ -186,8 +186,6 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    validates_overlap (0.0.4)
-      rails (>= 3.0.0)
     warden (1.1.1)
       rack (>= 1.0)
 
@@ -213,4 +211,3 @@ DEPENDENCIES
   time_diff
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  validates_overlap
