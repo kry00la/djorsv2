@@ -20,6 +20,7 @@ end
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0"
+  #gem "mysql2"
 end
 gem "paperclip", "~> 3.0"
  
