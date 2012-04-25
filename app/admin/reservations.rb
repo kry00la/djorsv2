@@ -10,11 +10,10 @@ ActiveAdmin.register Reservation do
     column "Guest Name", :name
     column "Service Type", :service
     column "Booked Date", :date
-    column "Time Start", :timeStart# do |x|
-      # x.timeStart.to_s(:long)
-    #end
+    column "Time Start", :timeStart
     column "Time End",:timeEnd
     column "Number of guest", :numGuest
+    column "Last update", :updated_at
     default_actions
   end
   
