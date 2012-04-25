@@ -4,10 +4,11 @@
 
 	<p><%=@functionroom.name%></p>
 	<p><%=@functionroom.price%></p>
-	
-	 <%@functionrooms.each do |d|%>
+	<p><%=@functionroom.description%></p>
+	<p>Can serve at least <%=@functionroom.capacity%> Persons</p>
+	 <%@functionroom.function_room_images.each do |d|%>
 	 	<p>
-	
+		<%= d.image_function_room%> 
 
 	 	</p>
 	 <%end%>
