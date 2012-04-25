@@ -14,7 +14,7 @@ ActiveAdmin.register Menu do
       end
     end
     column :menu_category
-    column :menu_type
+  #  column :menu_type
   default_actions
   end
   
@@ -24,7 +24,7 @@ ActiveAdmin.register Menu do
    f.inputs "Details" do
     
     f.input :menu_category
-    f.input :menu_type
+  #  f.input :menu_type
     f.input :name
     f.input :desription
     #f.input :price, :as => :string

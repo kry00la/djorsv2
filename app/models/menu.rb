@@ -23,7 +23,7 @@ class Menu < ActiveRecord::Base
 	  else
 	    current_menu = menu_recipes.build(:recipe_id => recipe_id)
 	    current_menu.price = current_menu.recipe.price
-	    self.price = self.price + sumofrecipe
+	    self.price = self.price + current_menu.price
 	    self.save!
 	  end
 	  current_menu
