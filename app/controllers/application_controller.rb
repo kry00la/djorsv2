@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
  
 private
   before_filter :current_reservation
-  around_filter :catch_not_found
+#  around_filter :catch_not_found
 
     def catch_not_found
       yield
