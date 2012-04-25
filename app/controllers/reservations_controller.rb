@@ -5,7 +5,7 @@ class ReservationsController < InheritedResources::Base
 
   def edit
     @reservation = Reservation.find(params[:id])
-     # session[:reservation_id] << @reservation.id
+  
   end
   
   def new
@@ -17,7 +17,6 @@ class ReservationsController < InheritedResources::Base
     @reservation = Reservation.new(params[:reservation])
     if @reservation.save
       create_reservation_session(@reservation.id)
-    #  @reservation.compute_for_total_hours
       redirect_to @reservation, :notice => "Welcome please continue your registration"
     else
       render :action => :new
