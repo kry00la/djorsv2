@@ -17,6 +17,20 @@ ActiveAdmin.register Reservation do
     default_actions
   end
   
+ 
+    
+    csv do
+      column :id
+      column("Name") { |name| reservation.name }
+      column("Service") { |service| reservation.service.name }
+      column("adress") { |address| reservation.address }
+      column("date") { |date| reservation.date }
+      column("contact") { |contact| reservation.contact }
+      column("Time Start") { |timestart| reservation.timeStart.strftime('%l:%M - %P') }
+      column("timeEnd") { |timeend| reservation.timeEnd.strftime('%l:%M - %P') }
+      column("Number of Guest") { |numGuest| reservation.numGuest }
+    end
+  
   sidebar :customer_information, :only => :show do
     attributes_table_for reservation do
       row("Reservation Edit") { link_to "Edit Details",reservation_path(@reservation)}
