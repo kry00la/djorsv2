@@ -25,11 +25,9 @@ ActiveAdmin.register Menu do
    f.inputs "Details" do
     
     f.input :menu_category
-  #  f.input :menu_type
     f.input :name
     f.input :desription
-    #f.input :price, :as => :string
-    #f.input :image_function_room, :as => :file  #,:hint => "current image: #{f.template.image_tag(f.object.image_function_room.url(:thumb))}"
+    
     end
   f.buttons
  end

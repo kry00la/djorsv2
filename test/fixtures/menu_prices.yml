@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  mmenu_id: 1
-  recipe_id: 1
+  menu_id: 1
 
 two:
-  mmenu_id: 1
-  recipe_id: 1
+  menu_id: 1

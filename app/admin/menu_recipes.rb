@@ -27,25 +27,28 @@ ActiveAdmin.register MenuRecipe do
  end
     
     
+=begin
     controller do
-      def create
-          @menu = Menu.find(params[:menu_id])
-          recipe = Recipe.find(params[:recipe_id])
-          @menu_recipe = @menu.add_recipe(recipe.id)
-          
-           if @menu_recipe.save!
-            redirect_to {admin_menu_recipe_url}
-          end
-       end
-      
-      def destroy
-        @menu_recipe = MenuRecipe.find(params[:id])
-        @menu_recipe.remove_recipe
-          if @menu_recipe.destroy
-             redirect_to :action => :index, :notice => "This is a test notice!"
-          end
-      end     
-
-    end
+        def create
+            @menu = Menu.find(params[:menu_id])
+            recipe = Recipe.find(params[:recipe_id])
+            @menu_recipe = @menu.add_recipe(recipe.id)
+            
+             if @menu_recipe.save!
+              redirect_to {admin_menu_recipe_url}
+            end
+         end
+        
+        def destroy
+          @menu_recipe = MenuRecipe.find(params[:id])
+          @menu_recipe.remove_recipe
+            if @menu_recipe.destroy
+               redirect_to :action => :index, :notice => "This is a test notice!"
+            end
+        end     
+  
+      end
+=end
+  
     
 end
