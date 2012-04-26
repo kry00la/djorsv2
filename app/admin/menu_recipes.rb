@@ -1,4 +1,5 @@
 ActiveAdmin.register MenuRecipe do
+ 
     menu :parent => "Group Manager" ,:label => "Recipe for menu"
     actions :all, :except => [:edit]
     filter :recipe
@@ -26,15 +27,15 @@ ActiveAdmin.register MenuRecipe do
     
     
     controller do
-      # def create
-          # @menu = Menu.find(params[:menu_recipe][:menu_id])
-          # recipe = Recipe.find(params[:menu_recipe][:recipe_id])
-          # @menu_recipe = @menu.add_recipe(recipe.id)
-#           
-           # if @menu_recipe.save
-            # redirect_to {admin_menu_recipe_url}
-          # end
-       # end
+      def create
+          @menu = Menu.find(params[:menu_id])
+          recipe = Recipe.find(params[:recipe_id])
+          @menu_recipe = @menu.add_recipe(recipe.id)
+          
+           if @menu_recipe.save
+            redirect_to {admin_menu_recipe_url}
+          end
+       end
       
       def destroy
         @menu_recipe = MenuRecipe.find(params[:id])
