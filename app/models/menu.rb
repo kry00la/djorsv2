@@ -5,8 +5,9 @@ class Menu < ActiveRecord::Base
 	has_many :recipes, :through => :menu_recipes, :uniq => true
 	belongs_to :menu_category
 	belongs_to :menu_type
-  #validates :name, :uniqueness => {:scope => :menu_category}
-  validates :menu_category,:name,:desription,:price ,:presence => :true
+	validates_uniqueness_of :name, :scope => :menu_category_id ,:message => 'Menu name already exsist in menu category'
+#  validate :name, :uniqueness => true, :scope => :menu_category_id
+  validates :menu_category,:name,:desription,:price ,:presence => :true 
   
 
 
