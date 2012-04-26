@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  has_many :build_menu
   has_many :menu_recipes
   has_many :menu_addons_line_items
   has_many :recipe_image, :dependent => :destroy

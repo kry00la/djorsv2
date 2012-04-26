@@ -1,5 +1,5 @@
 class Menu < ActiveRecord::Base
- 
+   has_many :build_menu
 	has_many :package_line_items
 	has_many :menu_recipes
 	has_many :recipes, :through => :menu_recipes, :uniq => true
@@ -18,11 +18,11 @@ class Menu < ActiveRecord::Base
   end
 
 	def add_recipe(recipe_id)
-	  current_menu = menu_recipes.find_by_recipe_id(recipe_id)
+	  current_menu = build_menu.find_by_recipe_id(recipe_id)
 	  if current_menu
 	    current_menu
 	  else
-	    current_menu = menu_recipes.build(:recipe_id => recipe_id)
+	    current_menu = build_menu.build(:recipe_id => recipe_id)
 	    current_menu.price = current_menu.recipe.price
 	    self.price = self.price + current_menu.price
 	    self.save!

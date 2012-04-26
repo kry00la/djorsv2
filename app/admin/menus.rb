@@ -1,4 +1,5 @@
 ActiveAdmin.register Menu do
+
   menu :parent => "Services"
   filter :menu_category
   filter :menu_type
