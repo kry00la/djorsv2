@@ -30,7 +30,13 @@ background-color:yellow;
 }
 
 #reservation_container {
-background-color:purple;
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #8A6E81));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #8A6E81 100%);
+
 }
 
 #reservation_handler{
