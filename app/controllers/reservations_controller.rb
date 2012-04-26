@@ -9,6 +9,7 @@ class ReservationsController < InheritedResources::Base
   
   def show
     @reservation = Reservation.find(params[:id])
+    create_reservation_session(@reservation.id)
   end
   
   def new

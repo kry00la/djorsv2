@@ -1,12 +1,14 @@
-Congationlation <%=@reservation.name%> your reservation ticket number has been granted <%=@reservation.id%>
+Congationlation <%=@reservation.name%> your reservation ticket number has been granted 
 
-to proced please click the link bellow
-------------------------------
-<%= link_to "Complete reservation", reservation_path(@reservation)%>
--------------------------------
+Ticket Number:<%=@reservation.id%>
 
-thank you
-Doe-Joe Event Place 
+to continue the application for this reservation please click the link bellow
+----------------------------------------------------------------------------------------------------
+<%= link_to "complete reservation", reservation_url(:host,@reservation)%>
+----------------------------------------------------------------------------------------------------
 
-Doe - Joe Event place 
+Thank you
+Doh-Joe Event Place 
+
+Doh-Joe Event place 
 Ortigas, Pasig Phillipines
