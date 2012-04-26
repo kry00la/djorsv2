@@ -28,8 +28,8 @@ ActiveAdmin.register MenuRecipe do
     
     controller do
       def create
-          @menu = Menu.find(params[:menu_recipes][:menu_id])
-          recipe = Recipe.find(params[:menu_recipes][:recipe_id])
+          @menu = Menu.find(params[:menu_recipe][:menu_id])
+          recipe = Recipe.find(params[:menu_recipe][:recipe_id])
           @menu_recipe = @menu.add_recipe(recipe.id)
           
            if @menu_recipe.save
