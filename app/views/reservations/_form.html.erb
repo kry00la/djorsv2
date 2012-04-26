@@ -31,19 +31,19 @@
   <div class="control-group">
     <%= f.label :date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :date, :class => 'date_select',:start_year => Date.today.year, :end_year => (Date.today.year+10) ,:class => 'date_select' %>
+      <%= f.date_select :date, :class => 'date_select',:start_year =>Time.now.year, :end_year => (Date.today.year+5) ,:class => 'date_select', :prompt => {:day => "Day", :month => "Month", :year => "Year"}%>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :timeStart, :class => 'control-label' %>
     <div class="controls">
-      <%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true%>
+      <%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true, :prompt => {:hour => "00", :minute => "00"}%>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :timeEnd, :class => 'control-label' %>
     <div class="controls">
-      <%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true  %>
+      <%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true , :prompt => {:hour => "00", :minute => "00"} %>
     </div>
   </div>
   <div class="control-group">
