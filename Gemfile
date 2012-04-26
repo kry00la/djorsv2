@@ -12,6 +12,7 @@ gem 'activemerchant', :require => 'active_merchant'
 gem 'activeadmin' , '0.4.3'
 gem "formtastic", "~> 2.1.1"
 #gem 'validates_overlap'
+#gem 'range_validator'
 gem "nifty-generators"
 gem 'thin'
 group :production, :staging do

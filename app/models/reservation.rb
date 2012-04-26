@@ -10,12 +10,18 @@ class Reservation < ActiveRecord::Base
   has_many :reservation_crews ,:dependent => :destroy
 
  ##### validation #####
- # validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
+  #validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
   validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
  # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
   validates_format_of :contact,:numGuest, :with => /^[0-9]+$/
   
+ # validates :duration, :range => { :not_overlapping => Proc.new{ |m| Reservation.where(:date => m.date) } }
+
+  def duration
+    differences=Time.diff(timeStart,timeEnd)
+    differences= differences[:diff]
+  end
 
    
    #def find_reservation_addons(recipe_id)
