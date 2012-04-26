@@ -20,9 +20,10 @@ class ReservationPackagesController < InheritedResources::Base
     @reservation = Reservation.find(params[:reservation_id])
     package = Package.find(params[:package_id])
     @reservation_package = @reservation.add_package(package.id)
-    if @reservation_package.save
      @reservation.add_reservationcrew(package.id)
      @reservation.add_reservationmenu(package.id)
+    if @reservation_package.save
+
       redirect_to @reservation, :notice => 'package added'
    else
      render :action => "new"
