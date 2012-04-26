@@ -4,6 +4,7 @@ ActiveAdmin.register Reservation do
   filter :name
   filter :date
   filter :email
+  
  
   index do 
     column "Reservation Number",:id
@@ -14,10 +15,28 @@ ActiveAdmin.register Reservation do
     column "Time End",:timeEnd
     column "Number of guest", :numGuest
     column "Last update", :updated_at
+    column "Created", :created_at
     default_actions
+    
+  
   end
   
- 
+    
+     action_item :only => :show ,:method => :get do 
+      link_to('Send Confirmation', confirm_admin_reservation_path(@reservation)) 
+     end 
+     
+  member_action :confirm, :method => :get do
+    @reservation = Reservation.find(params[:id])
+    if Notifier.reservation_approved(@reservation).deliver
+     redirect_to admin_reservations_url, :notice => "Confirmation Sent!!"
+      else
+      redirect_to admin_reservations_url, :notice => "Fail to send" 
+     end
+     
+  end
+  
+    
     
     csv do
       column :id
@@ -55,21 +74,19 @@ ActiveAdmin.register Reservation do
   f.buttons
  end
  
- 
- 
 
  
- 
- controller do
-   def destroy
+
+              controller do
+                    def destroy
                       @reservation = Reservation.find(params[:id])
                      
                       
                       if @reservation.destroy
                        destroy_reservation_session
-                       redirect_to :action => :index, :notice => "This is a test notice!"
+                       redirect_to :action => :index, :notice => "Reservation Deleted!"
                       end
-   end
- end
+                     end
+              end
  
 end

@@ -5,7 +5,10 @@ class ReservationsController < InheritedResources::Base
 
   def edit
     @reservation = Reservation.find(params[:id])
+  end
   
+  def show
+    @reservation = Reservation.find(params[:id])
   end
   
   def new
@@ -23,8 +26,10 @@ class ReservationsController < InheritedResources::Base
   def create
     @reservation = Reservation.new(params[:reservation])
     if @reservation.save
+      Notifier.reservation_received(@reservation).deliver
       create_reservation_session(@reservation.id)
-      redirect_to @reservation, :notice => "Welcome please continue your registration"
+      redirect_to public_url, :notice => "Congratiolations you have just requested a reservation at doh-joe event place please check your email
+for the continuation of the request thank you from doh-joe management"
     else
       render :action => :new
     end  
