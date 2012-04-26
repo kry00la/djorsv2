@@ -11,7 +11,7 @@ class PackageLineItemsController < InheritedResources::Base
     menu = Menu.find(params[:menu_id])
     @package_line_item = @reservation.add_menu(menu.id)
     if @package_line_item.save
-     redirect_to @reservation, :notice => "menu successfuly added"
+     redirect_to package_reservation_pages_url, :notice => "menu successfuly added"
     end 
   end
   
@@ -25,7 +25,7 @@ class PackageLineItemsController < InheritedResources::Base
     @package_line_item.remove_menu
    #@reservation.remove_packagemenu(reservation.id)
     @package_line_item.destroy
-    redirect_to @reservation, :notice => "menu successfuly deleted"
+    redirect_to package_reservation_pages_url, :notice => "menu successfuly deleted"
   end
   
   

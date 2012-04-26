@@ -1,16 +1,61 @@
 
-<%@reservation.menu_addons_line_items.each do |addon|%>
-	<p>
-	<%= addon.recipe.name%>	
-	</p>
-	<p>
-		<button class="btn-danger">
-	<%= link_to "delete addons" , reservation_menu_addons_line_item_path(@reservation,addon), :method => :delete%>
-		</button>
-	</p>
-<%end%>
-<p>
-	<button class="btn">
-<%= link_to "add your addons" , menu_add_on_reservation_pages_path(@reservation)%>
-	</button>
-</p>
+
+		<div class="row-fluid">
+				<div class="span12">
+					<ul>
+				
+			<%@reservation.menu_addons_line_items.each do |addon|%>
+				<div class="span3">
+					<li>	
+						<ul>
+							<li>
+							<p>
+								<b>
+									<h3>
+										<%= addon.recipe.name%>	
+									</h3>
+								</b>
+							</p>	
+							</li>
+						    <li>
+							    <p>
+							    	
+									<%= image_tag addon.recipe.image_recipe.url(:thumb) %>
+									
+								</p>	
+						    </li>
+							<li>
+								<p>
+									<%= addon.recipe.price%>
+								</p>
+							</li>
+								<li>
+									<p>
+										<button class="btn-danger">
+											<%= link_to "remove addons" , reservation_menu_addons_line_item_path(@reservation,addon), :method => :delete%>
+										</button>
+									</p>
+								</li>
+							
+					
+						</ul>				
+					
+					</i>
+				</div>
+				
+			<%end%>
+				</ul>
+				
+			
+		</div>
+	</div>
+	
+	
+				<p>
+					<button class="btn btn-success">
+						<%= link_to "add your addons" , menu_add_on_reservation_pages_path(@reservation)%>
+					</button>
+				</p>
+	
+
+

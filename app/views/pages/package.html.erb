@@ -1,7 +1,14 @@
 <div id="reservation_container">
+	<p>
+		<button class="btn btn-info">
+	 		<%= link_to "Return to dashboard" , reservation_path(@reservation)%>
+	 	</button>
+	 	
 
-<p>Package Name: <%= @reservation.reservation_package.package.name%></p>
-<p>Package Price: PHP<%= @reservation.reservation_package.package.price%></p>
+	</p>
+	
+<p>Package Name: <strong><%= @reservation.reservation_package.package.name%></strong></p>
+<p>Package Price: <strong>PHP<%= @reservation.reservation_package.package.price%></strong></p>
 
 
 

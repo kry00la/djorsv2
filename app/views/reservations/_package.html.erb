@@ -7,10 +7,14 @@
 				<td><%= link_to @reservation.reservation_package.package.name,package_reservation_pages_path(@reservation)%></td>
 				<td><%= display_packageprice @reservation%></td>
 				<td>
-					<button class="btn-danger" type="submit">
+					
+					
+						<button class="btn btn-danger" type="submit">
 					<%= link_to "Delete package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete%>
-					</button>
+						</button>
 					</td>
+	
+					
 		</tr>	
 	
 	

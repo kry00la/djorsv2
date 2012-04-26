@@ -1,7 +1,7 @@
 class ReservationPackage < ActiveRecord::Base
   belongs_to :reservation
   belongs_to :package
-  has_many :package_line_items
+  has_many :package_line_items 
   
   
   

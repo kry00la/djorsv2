@@ -10,7 +10,7 @@ class MenuAddonsLineItemsController < InheritedResources::Base
     @menu_addon = @reservation.add_addon(recipe.id)
     
     if @menu_addon.save
-      redirect_to @reservation, :notice => "add on successfuly added"
+      redirect_to package_reservation_pages_url, :notice => "add on successfuly added"
     end
   end
   
@@ -19,7 +19,7 @@ class MenuAddonsLineItemsController < InheritedResources::Base
     @menu_addon = @reservation.menu_addons_line_items.find(params[:id])
     @menu_addon.remove_addon
     @menu_addon.destroy
-    redirect_to @reservation, :notice => "delete addons"
+    redirect_to package_reservation_pages_url, :notice => "delete addons"
   end
   
   

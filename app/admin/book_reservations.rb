@@ -65,9 +65,14 @@ ActiveAdmin.register BookReservation do
   
       ###########reports###########           
     csv do
-      #column("Id") { |name| reservation.id }
-      #column("Name") { |name| reservation.name }
-    #  column("Package Reserved") {|package| Reservation.reservation_package(package)}
+      column("Id") { |name| reservation.id }
+      column("Name") { |name| reservation.name }
+      column("Service") { |service| reservation.service.name }
+      column("adress") { |address| reservation.address }
+      column("date") { |date| reservation.date }
+      column("Time Start") { |timestart| reservation.timeStart.strftime('%l:%M - %P') }
+      column("timeEnd") { |timeend| reservation.timeEnd.strftime('%l:%M - %P') }
+      column("Number of Guest") { |numGuest| reservation.numGuest }
     end
     
   

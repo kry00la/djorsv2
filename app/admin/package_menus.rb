@@ -1,6 +1,6 @@
 ActiveAdmin.register PackageMenu do
    menu :parent => "Group Manager" ,:label => "Menu for package"
-   
+   actions :all, :except => [:edit]    
    index do 
     column :package
     column :menu

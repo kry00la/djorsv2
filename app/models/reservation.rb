@@ -184,7 +184,7 @@ class Reservation < ActiveRecord::Base
     def add_addon(recipe_id)
       current_addon = menu_addons_line_items.find_by_recipe_id(recipe_id)
       if current_addon
-        current_addon
+        current_addon 
       else
         current_addon = menu_addons_line_items.build(:recipe_id => recipe_id)
         current_addon.price  = current_addon.recipe.price

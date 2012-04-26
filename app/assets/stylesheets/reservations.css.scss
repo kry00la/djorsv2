@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body a:hover {
+   background-color:transparent;
+}
+ul, ul li a {
+list-style: none;
+text-decoration: none;
+font-weight: bold;
+font-size: 11px;
+}
+
+
+
+
+a:link ,a:visited , a:active {
+  text-decoration: none; 
+}
+
+
+#border-image{
+  border:solid 20px;
+}
 
 
 .total_price {

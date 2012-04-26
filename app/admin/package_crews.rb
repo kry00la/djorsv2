@@ -1,6 +1,6 @@
 ActiveAdmin.register PackageCrew  do
   menu :parent => "Group Manager" ,:label => "Crew for package"
-   actions :all, :except => [:edit]
+  actions :all, :except => [:edit]
   filter :package
   filter :crew
   
