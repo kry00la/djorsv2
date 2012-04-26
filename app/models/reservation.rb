@@ -210,7 +210,16 @@ class Reservation < ActiveRecord::Base
       end
       current_addon
     end
-    
+   ##################################################################################################
+   
+   def get_crews_for_package(package_id)
+     crews  
+   end
+   
+   
+   def add_package_to_reservation(package_id)
+     @reservation_package 
+   end 
     
     
     

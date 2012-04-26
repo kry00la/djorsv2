@@ -15,7 +15,9 @@
 <b>CREWS</b>
 <%@reservation_package.reservation.reservation_crews.each do |crew|%>
 	<p>
-		<%= crew.crew.name%> x <%= crew.quantity%><b> PHP<%= crew.total_price%></b>
+		<p>Crew Name :<%= crew.crew.name%></p>
+		 <p> <%= crew.crew.price%> Each of person <%= crew.quantity%></p>
+		  	<p> Total :PHP<%= crew.total_price%></p>
 	</p>
 <%end%>
 <hr />
