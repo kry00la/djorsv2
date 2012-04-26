@@ -20,6 +20,7 @@ class Notifier < ActionMailer::Base
   #
   def reservation_approved(reservation)
     @reservation = reservation
+    @url = "doejoe-place.herokuapp.com"
     mail :to => reservation.email ,:subject => 'Doh-Joe reservation approval'
   end
 end
