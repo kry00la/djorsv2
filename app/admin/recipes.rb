@@ -22,10 +22,11 @@ ActiveAdmin.register Recipe do
     
    f.inputs "Details" do
    # f.input :menu_type ,:label => "Recipe Type"
+    f.input :recipe_category
     f.input :name
     f.input :description
     f.input :price, :as => :string
-    f.input :recipe_category
+
     f.input :image_recipe, :as => :file, :hint => f.template.image_tag(f.object.image_recipe.url(:thumb))
 
     end

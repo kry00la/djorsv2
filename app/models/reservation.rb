@@ -14,10 +14,19 @@ class Reservation < ActiveRecord::Base
   validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
  # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
-  validates_format_of :contact, :with => /^[0-9]+$/
+  validates_format_of :contact,:numGuest, :with => /^[0-9]+$/
+  
 
    
-
+   #def find_reservation_addons(recipe_id)
+  # #  addons = self.menu_addons_line_items.find_all_by_recipe_id(recipe_id)
+  #   addons 
+  # end
+   
+  def sumofaddons
+    Array.wrap(menu_addons_line_items).sum {|recipe| recipe.price}
+  end
+  
 
   
   
@@ -187,7 +196,7 @@ class Reservation < ActiveRecord::Base
         current_addon 
       else
         current_addon = menu_addons_line_items.build(:recipe_id => recipe_id)
-        current_addon.price  = current_addon.recipe.price
+        current_addon.price  = current_addon.recipe.price  * self.numGuest
           self.reservation_package.price = self.reservation_package.price + current_addon.price
             self.reservation_package.save
               self.total_price =   self.total_price +  current_addon.price

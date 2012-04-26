@@ -10,7 +10,14 @@ class ReservationsController < InheritedResources::Base
   
   def new
     @reservation = Reservation.new
-      #session[:reservation_id] << @reservation.id
+  end
+  
+  def update
+    @reservation = Reservation.find(params[:id])
+    if @cart.update_attributes(params[:cart])
+      redirect_to @reservation , :notice => "You have successfuly Update Your Ticket"
+      
+    end
   end
   
   def create
@@ -29,7 +36,7 @@ class ReservationsController < InheritedResources::Base
     
     if @reservation.destroy
       destroy_reservation_session
-       redirect_to @reservation, :notice => "reservation Deleted"
+       redirect_to @reservation, :notice => "You Successfully terminate your reservation thank you for your time"
     end
    
         
