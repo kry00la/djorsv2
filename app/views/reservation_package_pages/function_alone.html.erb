@@ -8,8 +8,7 @@
 	<p>Can serve at least <%=@functionroom.capacity%> Persons</p>
 	 <%@functionroom.function_room_images.each do |d|%>
 	 	<p>
-		<%= d.image%> 
-
+		<%= image_tag d.image.url(:medium)%> 
 	 	</p>
 	 <%end%>
 	
