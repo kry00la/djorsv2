@@ -165,6 +165,14 @@ class Reservation < ActiveRecord::Base
      
     end
     
+    def add_menu_price_to_reservation_package
+      price = package_line_items.open_menu
+         self.reservation_package.price = self.reservation_package.price + (price * self.numGuest)
+            self.reservation_package.save
+              self.total_price = self.total_price + (price * self.numGuest)
+                self.save
+    end
+    
     ############menu###############
 
     
@@ -179,10 +187,12 @@ class Reservation < ActiveRecord::Base
           current_menu
         else
           current_menu = package_line_items.build(:menu_id => menu_id)
-          current_menu.price = current_menu.menu.price
-            self.reservation_package.price = self.reservation_package.price + (current_menu.price * self.numGuest)
-              self.reservation_package.save
-                self.total_price =  self.total_price  + (current_menu.price * self.numGuest)
+           self.reservation_package.price = self.reservation_package.price + (current_menu.get_menu_price * self.numGuest)
+            self.reservation_package.save
+        #  current_menu.price = current_menu.menu.price 
+          #  self.reservation_package.price = self.reservation_package.price + (current_menu.price * self.numGuest)
+              #self.reservation_package.save
+                self.total_price =  self.total_price  + (current_menu.get_menu_price* self.numGuest)
                   self.save
         end
         current_menu

@@ -24,6 +24,9 @@
 <%@menu.each do |menu|%>
 	<h2><%= menu.name%></h2>
 	<p><%= menu.desription%></p>
+	<p>PHP <%=menu.my_price %></p>
+	<p><%=menu.menu_category.name%></p>
 	<%= button_to "add menu", reservation_package_line_items_path(:menu_id => menu)%>
+	
 <%end%>
 </div>

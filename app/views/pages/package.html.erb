@@ -10,7 +10,7 @@
 <p>Package Name: <strong><%= @reservation.reservation_package.package.name%></strong></p>
 <p>Package Price: <strong>PHP<%= @reservation.reservation_package.package.price%></strong></p>
 
-
+<hr>
 
 <b>CREWS</b>
 <%@reservation_package.reservation.reservation_crews.each do |crew|%>
@@ -19,13 +19,14 @@
 		 <p> <%= crew.crew.price%> Each of person <%= crew.quantity%></p>
 		  	<p> Total :PHP<%= crew.total_price%></p>
 	</p>
+	<hr />
 <%end%>
-<hr />
+
 
 <p>
-	<h3><b>Total Value of the package: </b></h3>
+	<h3><b>Value of the package: </b></h3>
 	<p><b>
-		PHP <%= @reservation.reservation_package.price%>
+		<u>PHP <%= @reservation.reservation_package.price%></u> 
 	</p></b>
 </p>
 

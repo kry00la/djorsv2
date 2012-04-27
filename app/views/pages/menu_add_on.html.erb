@@ -1,26 +1,74 @@
 <div id="reservation_container">
 
 
-<h1>Recipes</h1>
 
-	<% @recipe.each do |recipe|%>
-		<p>
-			<%= recipe.name%>
-		</p>
-		
-		<p>
-			PHP <%= recipe.price%>
-		</p>
-		
-		<p>
-			<%= image_tag recipe.image_recipe.url(:medium) %>
-		</p>
-		
-		<p>
+
+
+		<div class="row-fluid">
+				<div class="span12">
+				
+				<h1>Recipe to choose for addons</h1>
+					<ul>
+				
+			<% @recipe.each do |recipe|%>
+				<div class="span7">
+					<li>	
+						<ul>
+							<li>
+							<p>
+								<b>
+									<h3>
+										<%= recipe.name%>
+									</h3>
+								</b>
+							</p>	
+							</li>
+						    <li>
+							    <p>
+							    	
+										<%= image_tag recipe.image_recipe.url(:medium) %>
+									
+								</p>	
+						    </li>
+							<li>
+								<p>
+									PHP <%= recipe.price%>
+								</p>
+								
+								<li>
+									<p>
+										<%= recipe.recipe_category.name%>
+									</p>
+								</li>
+							</li>
+								<li>
+									<p>
+										<button class="btn-danger">
+											<%= button_to "add recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe)%>
+										</button>
+									</p>
+								</li>
+							
+					
+						</ul>				
+					
+					</i>
+				</div>
+				
+			<%end%>
+				</ul>
+				
 			
-			<%= button_to "add recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe)%>
-		</p>
-		<hr />
-	<%end%>
+		</div>
+	</div>
+	
+	
+				
+
+
+
+
+
+
 
 </div>

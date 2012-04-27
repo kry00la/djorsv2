@@ -1,5 +1,5 @@
 class Menu < ActiveRecord::Base
-   has_many :build_menu
+   #has_many :build_menu
 	has_many :package_line_items
 	has_many :menu_recipes
 	has_many :recipes, :through => :menu_recipes, :uniq => true
@@ -10,7 +10,14 @@ class Menu < ActiveRecord::Base
   validates :menu_category,:name,:desription,:price ,:presence => :true 
   
 
-
+   def my_price
+     Array.wrap(menu_recipes).sum {|r| r.recipe.price} 
+   #  myprice = menu_recipes.sumofmyrecipes
+   end
+  
+  # def sumofmyrecipes
+    # Array.wrap(recipe).sum {|recipe| recipe.price}
+  # end
 
   def sumofrecipe
     recipe = menu_recipes
