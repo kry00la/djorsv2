@@ -14,7 +14,7 @@ class Reservation < ActiveRecord::Base
   validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
   # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
-  validates_format_of :contact,:numGuest, :with => /^[0-9]+$/
+  validates_format_of :timeEnd,:timeStart,:contact,:numGuest, :with => /^[0-9]+$/
 
   # validates :duration, :range => { :not_overlapping => Proc.new{ |m| Reservation.where(:date => m.date) } }
 
