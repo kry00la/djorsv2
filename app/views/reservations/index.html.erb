@@ -16,8 +16,8 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.date.strftime("%B %d,%Y") %></td>
-        <td><%= reservation.timeStart.strftime('%l:%M - %P') %></td>
-        <td><%= reservation.timeEnd.strftime('%l:%M - %P') %></td>
+        <td><%= reservation.timeStart %></td>
+        <td><%= reservation.timeEnd%></td>
       </tr>
     <% end %>
   </tbody>
