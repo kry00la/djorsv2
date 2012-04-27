@@ -11,8 +11,8 @@ ActiveAdmin.register Reservation do
     column "Guest Name", :name
     column "Service Type", :service
     column "Booked Date", :date
-    column "Time Start", :timeStart
-    column "Time End",:timeEnd
+    column "Time Start", :time_start
+    column "Time End",:time_end
     column "Number of guest", :numGuest
     column "Last update", :updated_at
     column "Created", :created_at
@@ -45,8 +45,8 @@ ActiveAdmin.register Reservation do
       column("adress") { |address| reservation.address }
       column("date") { |date| reservation.date }
       column("contact") { |contact| reservation.contact }
-      column("Time Start") { |timestart| reservation.timeStart.strftime('%l:%M - %P') }
-      column("timeEnd") { |timeend| reservation.timeEnd.strftime('%l:%M - %P') }
+      column("Time Start") { |timestart| reservation.time_start.strftime('%l:%M - %P') }
+      column("timeEnd") { |timeend| reservation.time_end.strftime('%l:%M - %P') }
       column("Number of Guest") { |numGuest| reservation.numGuest }
     end
   
@@ -65,8 +65,8 @@ ActiveAdmin.register Reservation do
          :prompt => {:day => "Day", :month => "Month", :year => "Year"},
          :start_year => Time.now.year
     #time issue#
-    f.input :timeStart ,:label => "Time Start", :twelve_hour => true 
-    f.input :timeEnd ,:label => "Time End" , :twelve_hour => true 
+    f.input :time_start ,:label => "Time Start", :twelve_hour => true 
+    f.input :time_end ,:label => "Time End" , :twelve_hour => true 
     ##
     f.input :numGuest, :as => :string
     f.input :email

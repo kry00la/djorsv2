@@ -53,8 +53,8 @@ ActiveAdmin.register BookReservation do
       row("name") { auto_link reservation.name }
       row("Date") {reservation.date}
       row("Number of Guest") {reservation.numGuest}
-      row("time Start") { reservation.timeStart}
-      row("time End") { reservation.timeEnd}
+      row("time Start") { reservation.time_start}
+      row("time End") { reservation.time_end}
       row :email
       row :contact
       row :total_price
