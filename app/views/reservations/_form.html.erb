@@ -1,5 +1,5 @@
-<div id="regform">
-<%= form_for @reservation, :html => { :class => 'form-horizontal' } do |f| %>
+
+<%= form_for @reservation do |f| %>
 
 <% if @reservation.errors.any? %>
     <div id="error_explanation">
@@ -11,63 +11,53 @@
     </div>
   <% end %>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      Name* <%= f.text_field :name, :class => 'text_field' %> 
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :address, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :address, :class => 'span3' %>
+      Address*<%= f.text_field :address, :class => 'span3' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :contact, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field  :contact, :class => 'text_field' %>
+      Contact*<%= f.text_field  :contact, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :date, :class => 'date_select',:start_year =>Time.now.year, :end_year => (Date.today.year+5) ,:class => 'date_select', :prompt => {:day => "Day", :month => "Month", :year => "Year"}%>
+      Date*<%= f.date_select :date, :class => 'date_select',:start_year =>Time.now.year, :end_year => (Date.today.year+5) ,:class => 'date_select', :prompt => {:day => "Day", :month => "Month", :year => "Year"}%>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :timeStart, :class => 'control-label' %>
     <div class="controls">
-      <%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true, :prompt => {:hour => "00", :minute => "00"}%>
+      Event Time Start*<%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true, :prompt => {:hour => "00", :minute => "00"}%>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :timeEnd, :class => 'control-label' %>
     <div class="controls">
-      <%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true , :prompt => {:hour => "00", :minute => "00"} %>
+      Event Time End*<%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true , :prompt => {:hour => "00", :minute => "00"} %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :numGuest, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field  :numGuest, :class => 'number_field' %>
+      Number of Guest*<%= f.text_field  :numGuest, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :service_id, :class => 'control-label' %>
     <div class="controls">
-     <%= collection_select(:reservation,:service_id,Service.all,:id,:name) %>
+     Service Type<%= collection_select(:reservation,:service_id,Service.all,:id,:name) %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
+      Email*<%= f.text_field :email, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-  	
   	 <div class="controls">
-		 <%= f.check_box :reservation_option, :class => 'text_field' %> Registration Agreement
+		Registration Agreement <%= f.check_box :reservation_option, :class => 'text_field' %> 
     </div>
     </div>
   <div class="form-actions">

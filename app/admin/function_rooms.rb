@@ -7,7 +7,6 @@ ActiveAdmin.register FunctionRoom do
     
   index do 
     column :name
-    column "Main picture",:image_function_room 
     column :capacity
      column :price, :sortable => :price do |function|
       div :class => "price" do
@@ -17,6 +16,29 @@ ActiveAdmin.register FunctionRoom do
   default_actions
   end
   
+  show :title => :name, :only => :show do
+          panel "Details" do
+             attributes_table_for function_room do
+              row :id
+              row :name
+              row :description
+              row :capacity
+              row :price
+              row :created_at
+            end
+          end
+           active_admin_comments
+        end
+         sidebar :function_room, :only => :show do
+         div do
+            attributes_table_for function_room do
+              row :image_function_room do
+                 image_tag(function_room.image_function_room.url(:medium))
+              end
+            end
+         end
+        end
+        
   
   
    form :html => { :enctype => "multipart/form-data" } do |f|
@@ -25,9 +47,15 @@ ActiveAdmin.register FunctionRoom do
     f.input :description
     f.input :capacity , :as => :string
     f.input :price, :as => :string
-    f.input :image_function_room, :as => :file, :hint => f.template.image_tag(f.object.image_function_room.url(:thumb))
+    f.input :image_function_room,:label => "Function room Schema", :as => :file, :hint => f.template.image_tag(f.object.image_function_room.url(:thumb)),:hint => "not less than 300x300 image size"
     end
   f.buttons
  end
  
+ 
+ controller do
+     before_filter :only => :index do
+    @per_page = 10
+  end
+ end
 end

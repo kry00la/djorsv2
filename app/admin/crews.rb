@@ -17,13 +17,30 @@ ActiveAdmin.register Crew do
    f.inputs "Details" do
     f.input :name
     f.input :description
-    f.input :price, :as => :string
+    f.input :price, :as => :string ,:hint => "per person"
    end
   f.buttons
  end
   
   
+  show :title => :name, :only => :show do
+          panel "Details" do
+             attributes_table_for crew do
+              row :id
+              row :name
+              row :price
+              row :description
+              row :created_at
+            end
+          end
+           active_admin_comments
+        end
+  
   controller do
+    
+    before_filter :only => :index do
+              @per_page = 10
+             end
    # def destroy
      # @crew = Crew.find(params[:id])
     #  if @crew.package_crews.destroy

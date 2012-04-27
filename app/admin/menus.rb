@@ -19,7 +19,7 @@ ActiveAdmin.register Menu do
   default_actions
   end
   
-  
+
   
    form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
@@ -30,5 +30,11 @@ ActiveAdmin.register Menu do
     
     end
   f.buttons
+ end
+ 
+ controller do
+   before_filter :only => :index do
+     @per_page = 10
+   end
  end
 end

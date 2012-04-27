@@ -1,7 +1,7 @@
 ActiveAdmin.register BookReservation do
    menu :parent => "Tickets" ,:label => "Book Reservation Tickets"
      actions :all, :except => [:edit,:destroy,:new]    
-       filter :reservation
+       #filter :reservation 
        filter :card_type
        
        
@@ -75,5 +75,9 @@ ActiveAdmin.register BookReservation do
       column("Number of Guest") { |numGuest| reservation.numGuest }
     end
     
-  
+  controller do
+          before_filter :only => :index do
+              @per_page = 10
+             end
+  end
 end

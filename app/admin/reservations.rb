@@ -1,7 +1,7 @@
 ActiveAdmin.register Reservation do
   
   menu :parent => "Tickets" ,:label => "Reservation Tickets"
-  filter :name
+  filter :name,:as => :string
   filter :date
   filter :email
   
@@ -78,13 +78,17 @@ ActiveAdmin.register Reservation do
               controller do
                     def destroy
                       @reservation = Reservation.find(params[:id])
+                        if @reservation.destroy
+                           destroy_reservation_session
+                           redirect_to :action => :index, :notice => "Reservation Deleted!"
+                        end
+                     end
                      
-                      
-                      if @reservation.destroy
-                       destroy_reservation_session
-                       redirect_to :action => :index, :notice => "Reservation Deleted!"
-                      end
+                     before_filter :only => :index do
+                       @per_page = 10
                      end
               end
+              
+              
  
 end

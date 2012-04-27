@@ -1,5 +1,5 @@
 ActiveAdmin.register MenuRecipe do
-      menu :parent => "Group Manager" ,:label => "Recipe for menu"
+      menu :parent => "Group Manager" ,:label => "Build Menu"
     actions :all, :except => [:edit]
     filter :recipe
     filter :menu

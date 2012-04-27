@@ -11,6 +11,8 @@
 				<p>
 				<%= image_tag functionroom.image_function_room.url(:medium) %>
 				</p>
+				
+
 				<p> PHP<%= functionroom.price%></p>
 				<%= button_to 'add function room', reservation_reservation_function_rooms_path(:function_room_id => functionroom)%>
 				<hr />

@@ -14,8 +14,10 @@ class Reservation < ActiveRecord::Base
   validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
   # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
-  validates_format_of :timeEnd,:timeStart,:contact,:numGuest, :with => /^[0-9]+$/
-
+  #validates_format_of :numGuest, :with => /[0-9]/
+  validates_numericality_of :contact,:numGuest, :only_integer => true ,:message => "invalid not a number"
+  validates_inclusion_of :numGuest, :in => 5..9999999999, :message =>  "minimum of 5 persons"
+  
   # validates :duration, :range => { :not_overlapping => Proc.new{ |m| Reservation.where(:date => m.date) } }
 
   #def find_reservation_addons(recipe_id)

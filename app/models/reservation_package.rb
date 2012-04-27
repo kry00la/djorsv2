@@ -3,8 +3,6 @@ class ReservationPackage < ActiveRecord::Base
   belongs_to :package
   has_many :package_line_items 
   
-  
-  
   def remove_menu_from_package
     price=reservation.numGuest * self.price
     reservation.total_price = reservation.total_price - price

@@ -1,5 +1,5 @@
 ActiveAdmin.register PackageCrew  do
-  menu :parent => "Group Manager" ,:label => "Crew for package"
+  menu :parent => "Group Manager" ,:label => "Add Crew package"
   actions :all, :except => [:edit]
   filter :package
   filter :crew
@@ -9,7 +9,6 @@ ActiveAdmin.register PackageCrew  do
     column :package
     column :crew
     column :quantity
- 
   default_actions
   end
   
@@ -22,10 +21,28 @@ ActiveAdmin.register PackageCrew  do
    f.inputs "Details" do
     f.input :package
     f.input :crew
-    #f.input :quantity , :as => :string
+  
     end
   f.buttons
  end
+ 
+    show do
+      panel "Package" do
+        attributes_table_for package_crew do
+          row :package 
+          row :created_at 
+        end
+      end
+      active_admin_comments
+    end
+    
+    sidebar :crew, :only => :show do
+      attributes_table_for package_crew do
+        row :crew
+        row :quantity
+        row :price
+      end
+    end
   
   
 
@@ -46,7 +63,9 @@ ActiveAdmin.register PackageCrew  do
                      end                 
                end
               
-              
+              before_filter :only => :index do
+              @per_page = 10
+             end
                       
                  # def destroy
 #                    
