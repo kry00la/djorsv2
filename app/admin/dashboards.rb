@@ -6,7 +6,9 @@ ActiveAdmin::Dashboards.build do
 
 
 
-
+  section "Recent Package Release" do
+    
+  end
   
 
 
