@@ -6,7 +6,7 @@ ActiveAdmin.register FunctionRoom do
   
     
   index do 
-    column :name
+    column :name, :sortable => false
     column :capacity
      column :price, :sortable => :price do |function|
       div :class => "price" do

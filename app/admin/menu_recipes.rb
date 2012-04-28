@@ -7,8 +7,8 @@ ActiveAdmin.register MenuRecipe do
 
     
   index do 
-    column :recipe
-    column :menu
+    column :recipe, :sortable => false
+    column :menu, :sortable => false
 
   default_actions
   end

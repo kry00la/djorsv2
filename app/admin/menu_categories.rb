@@ -3,7 +3,7 @@ ActiveAdmin.register MenuCategory do
   filter :name, :as => :string
     
   index do 
-    column :name
+    column :name, :sortable => false
   default_actions
   end
   

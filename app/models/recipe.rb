@@ -8,5 +8,5 @@ class Recipe < ActiveRecord::Base
   has_attached_file :image_recipe, :styles => { :medium => "250x250#",:prev =>"150x150#", :thumb => "50x50#" ,:cute => "30x30#"}
   validates :name,:description,:price,:recipe_category ,:presence => :true
   validates :price, :numericality => true
-  validate :name ,:uniqueness => true
+  validates :name ,:uniqueness => true
 end

@@ -8,13 +8,13 @@ ActiveAdmin.register Menu do
   
     
   index do 
-    column :name
+    column :name, :sortable => false
     #column :price, :sortable => :price do |d|
    #   div :class => "price" do
     #    number_to_currency d.price, :unit => "&#8369;"
     #  end
  #   end
-    column :menu_category
+    column :menu_category, :sortable => false
   #  column :menu_type
   default_actions
   end

@@ -8,7 +8,7 @@ ActiveAdmin.register RecipeImage do
     column " ",:image do |recipe|
         image_tag(recipe.image.url(:cute))
     end
-        column :recipe
+        column :recipe, :sortable => false
   default_actions
   end
   ############

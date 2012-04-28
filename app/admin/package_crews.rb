@@ -6,8 +6,8 @@ ActiveAdmin.register PackageCrew  do
   
  
   index do 
-    column :package
-    column :crew
+    column :package, :sortable => false
+    column :crew, :sortable => false
     column :quantity
   default_actions
   end

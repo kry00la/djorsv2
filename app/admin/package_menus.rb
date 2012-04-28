@@ -2,8 +2,8 @@ ActiveAdmin.register PackageMenu do
    menu :parent => "Group Manager" ,:label => "Build Package"
    actions :all, :except => [:edit]    
    index do 
-    column :package
-    column :menu
+    column :package, :sortable => false
+    column :menu, :sortable => false
   default_actions
   end
   

@@ -14,8 +14,8 @@ ActiveAdmin.register Recipe do
     column " ",:image_recipe do |recipe|
        image_tag(recipe.image_recipe.url(:cute))
     end
-    column :name
-    column :recipe_category
+    column :name , :sortable => false
+    column :recipe_category, :sortable => false
       column :price, :sortable => :price do |function|
       div :class => "price" do
         number_to_currency function.price, :unit => "&#8369;"

@@ -5,8 +5,8 @@ ActiveAdmin.register Package do
   
     
   index do 
-    column :name
-    column :package_category
+    column :name, :sortable => false
+    column :package_category, :sortable => false
     column :price, :sortable => :price do |d|
             div :class => "price" do
         number_to_currency d.price, :unit => "&#8369;"

@@ -8,7 +8,7 @@ ActiveAdmin.register FunctionRoomImage do
     column " ",:image do |function_room|
       image_tag(function_room.image.url(:cute))
     end
-     column :function_room
+     column :function_room, :sortable => false
   default_actions
   end
   
@@ -16,7 +16,7 @@ ActiveAdmin.register FunctionRoomImage do
   
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
-    f.input :function_room
+    f.input :function_room, :sortable => false
     f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb)),:hint => "not less than 300x300 image size" ,:multipart => true      
     end
   f.buttons

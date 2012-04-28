@@ -7,15 +7,15 @@ ActiveAdmin.register Reservation do
   
  
   index do 
-    column "Reservation Number",:id
-    column "Guest Name", :name
-    column "Service Type", :service
-    column "Booked Date", :date
-    column "Time Start", :timeStart
-    column "Time End",:timeEnd
-    column "Number of guest", :numGuest
-    column "Last update", :updated_at
-    column "Created", :created_at
+    column "Reservation Number",:id, :sortable => false
+    column "Guest Name", :name, :sortable => false
+    column "Service Type", :service, :sortable => false
+    column "Booked Date", :date, :sortable => false
+    column "Time Start", :timeStart, :sortable => false
+    column "Time End",:timeEnd, :sortable => false
+    column "Number of guest", :numGuest, :sortable => false
+    column "Last update", :updated_at, :sortable => false
+    column "Created", :created_at, :sortable => false
     default_actions
     
   

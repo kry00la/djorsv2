@@ -4,7 +4,7 @@ ActiveAdmin.register Crew do
   filter :price, :as => :numeric
     
   index do 
-    column :name
+    column :name, :sortable => false
      column :price, :sortable => :price do |d|
       div :class => "price" do
         number_to_currency d.price, :unit => "&#8369;"
