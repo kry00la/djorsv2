@@ -4,6 +4,7 @@ ActiveAdmin.register RecipeCategory do
     
   index do 
     column :name
+   
   default_actions
   end
   
@@ -11,6 +12,7 @@ ActiveAdmin.register RecipeCategory do
           panel "Details" do
              attributes_table_for recipe_category do
               row :name
+              row :description
               row :created_at
             end
           end

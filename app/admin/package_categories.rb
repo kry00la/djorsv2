@@ -12,6 +12,7 @@ ActiveAdmin.register PackageCategory do
           panel "Details" do
              attributes_table_for package_category do
               row :name
+              row :description
               row :created_at
             end
           end

@@ -11,7 +11,9 @@ ActiveAdmin.register MenuCategory do
           panel "Details" do
              attributes_table_for menu_category do
               row :name
+              row :desription
               row :created_at
+              
             end
           end
            active_admin_comments

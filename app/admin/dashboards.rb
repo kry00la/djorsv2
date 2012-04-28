@@ -1,9 +1,25 @@
 ActiveAdmin::Dashboards.build do
+  
+  section "Recent Reservation" do
+    
+  end
+
+
+
+
+  
+
+
+
+
+
 
 
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
+  
+  
   
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
@@ -32,7 +48,7 @@ ActiveAdmin::Dashboards.build do
   # priority it will be sorted higher. For example:
   #
   #   section "Recent Posts", :priority => 10
-  #   section "Recent User", :priority => 1
+   #  section "Recent User", :priority => 1
   #
   # Will render the "Recent Users" then the "Recent Posts" sections on the dashboard.
   
