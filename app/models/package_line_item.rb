@@ -2,6 +2,26 @@ class PackageLineItem < ActiveRecord::Base
   belongs_to :menu
   belongs_to :reservation
   
+
+  
+  def open_menu_by_package(package_id)
+    menus= self.find_all_by_package_id(package_id)
+    menus.each do |men|
+      recipes = menu.find_all_by_menu_id(men.menu_id)
+    end
+    recipes
+  end
+  
+  
+  def find_my_menu_here(menu_id)
+    #recipes = self.find_all_by_menu
+  end
+  
+  
+  def my_menu_price_for_this_reservation
+     price = menu.my_price
+   end
+  
   def open_menu
      menu = self.menu.open_menu_recipe
   end

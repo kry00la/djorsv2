@@ -1,6 +1,7 @@
 
 
 		<div class="row-fluid">
+			<%=@reservation.sumofaddons%>
 				<div class="span12">
 					<ul>
 				
@@ -26,7 +27,10 @@
 						    </li>
 							<li>
 								<p>
-									<%= addon.recipe.price%>
+									<p>
+										PHP <%= addon.recipe.price%> Each
+									</p>
+									Total PHP<%= addon.recipe.price *  @reservation.numGuest%>
 								</p>
 							</li>
 								<li>

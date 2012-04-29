@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Doe Joe Place" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Doh Joe Place" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
-
-  		<div id="headNavBackGround">
-			<h2> DOE JOE EVENT PLACE</h2>
-		</div>
-   
+  		<div id="menu-wrapper">
+  			<div class="container"> 
+  				
+						<div id="menu">
+			   				<ul>
+			   					<li><%= link_to "Home", public_path%></li>
+			   					<li><%= link_to "About Us"%></li>
+			   					<li><%= link_to "Contacts"%></li>
+			   					<li><%= link_to "Apply for reservation", reservations_path%></li>
+			   				</ul>
+			   			</div>
+			   			<div id="header-wrapper">
+						</div>
+				
+	   		</div>
+   		</div>
+   					<div id="bodyHeadbg">
+   					<div class="container">
+   					
+		   					<div id="header-public">
+								<div id="logo">
+									<h1><a href="#">Doh - <span>joe</span></a></h1>
+									<p>Events Place</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
 	    <div id="bodyBackGround">	
 			<div class="container">
 		      <% flash.each do |name, msg| %>
@@ -23,6 +45,12 @@
 		      <%= yield %>
 		      </div>
     </div>
+    	
+    	<div id="footer">
+			<p>&copy; 2012 Doh-joe event place. | Power by <a href="http://doh-joeplace.herokuapp.com">heroku app.com</a>.</p>
+		</div>
+    	
+    
     
   </body>
 </html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426202449) do
+ActiveRecord::Schema.define(:version => 20120428064217) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -67,13 +67,6 @@ ActiveRecord::Schema.define(:version => 20120426202449) do
     t.text     "params"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-  end
-
-  create_table "build_menus", :force => true do |t|
-    t.integer  "mmenu_id"
-    t.integer  "recipe_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "crews", :force => true do |t|
@@ -151,14 +144,6 @@ ActiveRecord::Schema.define(:version => 20120426202449) do
     t.integer  "menu_category_id"
     t.decimal  "price",            :precision => 10, :scale => 0, :default => 0
     t.integer  "menu_type_id"
-  end
-
-  create_table "mmenus", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "menu_category_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
   end
 
   create_table "package_categories", :force => true do |t|
@@ -264,6 +249,13 @@ ActiveRecord::Schema.define(:version => 20120426202449) do
     t.integer  "reservation_id"
     t.integer  "package_id"
     t.decimal  "price",          :precision => 10, :scale => 0, :default => 0
+  end
+
+  create_table "reservation_recipes", :force => true do |t|
+    t.integer  "reservation_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "reservations", :force => true do |t|

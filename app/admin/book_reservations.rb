@@ -7,7 +7,7 @@ ActiveAdmin.register BookReservation do
        
                    show do
                     panel "Package" do
-                   attributes_table_for reservation.reservation_package do
+                   table_for reservation.reservation_package do
                       row("Package Name") { reservation.reservation_package.package.name }
                       row("price") { reservation.reservation_package.price }
                    end

@@ -1,14 +1,9 @@
 ActiveAdmin::Dashboards.build do
   
-  section "Recent Reservation" do
-    
-  end
 
 
 
-  section "Recent Package Release" do
-    
-  end
+
   
 
 

@@ -8,6 +8,8 @@ class Package < ActiveRecord::Base
   validates :price, :numericality => true
  
  
+ 
+  
   
   def add_menu(menu_id)
     current_menu = package_menus.find_by_menu_id(menu_id)
@@ -43,6 +45,13 @@ class Package < ActiveRecord::Base
   def find_menu_for_reservation(package_id)
     package_menu = package_menus.find_all_by_package_id(package_id)
     package_menu
+  end
+  
+  
+  
+  def find_recipe_for_reservation(package_id)
+    package_menu_recipe = package_menus.find_all_by_package_id(package_id)
+    menu_recipe 
   end
   
   def sumofmenu

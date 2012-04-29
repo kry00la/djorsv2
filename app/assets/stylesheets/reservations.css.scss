@@ -46,6 +46,71 @@ a:link ,a:visited , a:active {
     size: 30em;
     weight: bold;
   }
-
   
 }
+
+#index-container {
+  padding:50px;
+  
+  box-shadow: 0 .3em 1em #000;
+  background: white;
+
+}
+
+#index-calendar {
+    font-family:Helvetica Narrow, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  color: #323030;
+}
+
+#reservation-form-head {
+  background:#EEEEEE;
+   box-shadow: 0 .3em 1em #000;
+  height:80px;
+    border-bottom:5px solid #f2f2f2;
+}
+
+#reservation-form-head h1 {
+  
+font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
+  color:#000000;
+  font-weight:bold;
+  text-shadow:1px 1px #fff;
+  text-transform: lowercase;
+  margin-top:20px;  
+}
+
+#reservation-form-head p {
+  color:#898989;
+  font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
+  text-shadow:1px 1px #f2f2f2;
+}
+
+#regform{
+    font-weight:bold;
+    text-shadow:1px 0px #b5b5b5;
+    background-color:white;
+    padding: 100px;
+    box-shadow:1px 6px 30px #000;
+    margin-bottom:40px;
+}
+
+#reg-form-head {
+   background:#EEEEEE;
+   box-shadow: 0 -30 30px #000;
+   height:80px;
+   border-bottom:5px solid #f2f2f2;
+}
+
+#btn_blue a{
+  color:black;
+  font-weight: bold;
+}
+
+#error_handler_val{
+  color:red;
+  font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
+}
+
+

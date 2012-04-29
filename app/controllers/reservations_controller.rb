@@ -16,14 +16,7 @@ class ReservationsController < InheritedResources::Base
     @reservation = Reservation.new
   end
   
-  def update
-    @reservation = Reservation.find(params[:id])
-    if @cart.update_attributes(params[:cart])
-      redirect_to @reservation , :notice => "You have successfuly Update Your Ticket"
-      
-    end
-  end
-  
+
   def create
     @reservation = Reservation.new(params[:reservation])
     if @reservation.save

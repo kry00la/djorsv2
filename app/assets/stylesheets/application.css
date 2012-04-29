@@ -11,46 +11,58 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
- *= require_tree .
+ *=require public
+ *= require reservations
+
 */
 
 
 
-#regform{
- background-color:gray;
- padding: 20px 20px 20px 20px;
 
-}
 
 #package-function {
-background-color:yellow;
-
+background-color:#e5e5e5;
+  margin: 20px 0px 20px 20px;
  padding: 20px 20px 20px 20px;
- 
+ width:450px;
+ border:1px solid #c4c4c4;
+-moz-box-shadow: 0 0 3px #888;
+-webkit-box-shadow: 0 0 3px#888;
+box-shadow: 0 0 3px #888;
 }
 
+
+
 #reservation_container {
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #8A6E81));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #8A6E81 100%);
-
+	
+  	font-family: Helvetica,Arial,clean,sans-serif;
+ 	font-size:13px;
+ 	font-weight:normal;
+ 	word-spacing:0;
+  	padding:20px 20px 20px 10px; 
+  	margin-top:40px;
+ 	border:1px solid #CACACA;
+	border-radius:4px;
+	background-color: #F8F8F8;
+	width: 880px;
+	-moz-box-shadow: 0 0 3px #888;
+	-webkit-box-shadow: 0 0 3px#888;
+    box-shadow: 0 0 3px #888;
 }
 
 #reservation_handler{
- background-color:red;
+ background-color: #EEEEEE;
+ border:1px solid #dbdbdb;
+ width: 220px;
+ height:550px;
  padding: 20px 20px 20px 20px;
+-moz-box-shadow: 0 0 3px #888;
+-webkit-box-shadow: 0 0 3px#888;
+box-shadow: 0 0 3px #888;
 }
 
-p {
-	font-family:"Times New Roman", Times, serif;
-}
 
-a {
-text-decoration:none;
-}
+
 .body:link {text-decoration:none;}
 .body:visited {text-decoration:none;}
 .body:hover {text-decoration:underline;}

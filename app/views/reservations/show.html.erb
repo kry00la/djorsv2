@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 	<div id="reservation_container">
 <%- model_class = @reservation.class -%>
 
@@ -6,39 +6,39 @@
 	
 	<div class="row-fluid">
 		
-		
-		<div class="span9">
-		<div id="package-function">
-<%= display_package @reservation%>
+		<div class="span8">
 
-<hr />
-<%= display_function_room @reservation%>
-		</div>
-			
+				<div id="package-function">
+				
+					<%= display_package @reservation%>
+						<hr />
+					<%= display_function_room @reservation%>
+
+			</div>	
 		</div>
 
-		<div class="span3">
+		<div class="span4">
 			<div id="reservation_handler">
 				<div class="right-wing">
 		
 					<p>
-					  <strong><%= model_class.human_attribute_name(:total_price) %>:</strong><br>
+					  <strong>Total:</strong>
 					  <%= @reservation.total_price %>
 					</p>
 					
 					<p>
-					  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
+					  <strong>Name:</strong>
 					  <%= @reservation.name %>
 					</p>
 					
 					
 					<p>
-					  <strong><%= model_class.human_attribute_name(:date) %>:</strong><br>
+					  <strong>Booked Date:</strong>
 					  <%= @reservation.date %>
 					</p>
 					<p>
-					  <strong><%= model_class.human_attribute_name(:timeStart) %>:</strong> - <strong><%= model_class.human_attribute_name(:timeEnd) %>:</strong><br>
-					  <%= @reservation.timeStart.strftime('%l:%M - %P')%> - 
+					  <strong><%= model_class.human_attribute_name(:timeStart) %>:</strong> | <strong><%= model_class.human_attribute_name(:timeEnd) %>:</strong><br>
+					  <%= @reservation.timeStart.strftime('%l:%M - %P')%> | 
 					  <%= @reservation.timeEnd.strftime('%l:%M - %P')%>
 					</p>
 					<p>

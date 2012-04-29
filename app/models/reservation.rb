@@ -8,6 +8,7 @@ class Reservation < ActiveRecord::Base
   has_many :menus , :through => :package_line_items, :uniq => true
   has_many :function_rooms, :through =>:reservation_function_rooms
   has_many :reservation_crews ,:dependent => :destroy
+  has_many :reservation_recipes, :dependent => :destroy
 
   ##### validation #####
   #validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
@@ -23,6 +24,9 @@ class Reservation < ActiveRecord::Base
   #def find_reservation_addons(recipe_id)
   # #  addons = self.menu_addons_line_items.find_all_by_recipe_id(recipe_id)
   #   addons
+
+  
+  
   # end
   def sumofaddons
     Array.wrap(menu_addons_line_items).sum {|recipe| recipe.price}
@@ -118,7 +122,7 @@ class Reservation < ActiveRecord::Base
   def add_package(package_id)
     current_package = build_reservation_package(:package_id => package_id)
     sumofcrew = reservation_package.total_crew
-    sumofmenu = reservation_package.total_menu * self.numGuest
+    sumofmenu = self.numGuest #noted
     current_package.price = current_package.package.price + sumofcrew + sumofmenu
     self.total_price = self.total_price + current_package.price
     self.save
@@ -135,6 +139,7 @@ class Reservation < ActiveRecord::Base
     reservationpackagemenus.each do |a|
       @package_line_item = package_line_items.create(:reservation_id => self, :menu_id => a.menu_id , :price => a.price)
       @package_line_item.save
+      
     end
   end
 
@@ -144,9 +149,27 @@ class Reservation < ActiveRecord::Base
       @reservation_crew= reservation_crews.create(:reservation_id => self,:crew_id => b.crew_id,:quantity => b.quantity, :price => b.price)
       @reservation_crew.save
     end
-
   end
+  
+  def search_menu(package_id)
+      recipes = package_line_items.open_menu_by_package(package_id) 
+      
+  end
+  
+  
+  
+  ##############
+  
 
+  
+  
+  #def add_recipe_to_lock(package_id)
+   # reservationrecipes = reservation_package.find_my_package#.package.package_line_item.find_my_menu(package_id)#reservation_package.package.find_menu_for_reservation(package_id)
+    #reservationrecipes.each do |c|
+     # recipes = c
+    #end
+  #end
+#####################
   def add_menu_price_to_reservation_package
     price = package_line_items.open_menu
     self.reservation_package.price = self.reservation_package.price + (price * self.numGuest)

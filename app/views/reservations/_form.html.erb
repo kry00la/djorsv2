@@ -1,71 +1,102 @@
 
 <%= form_for @reservation do |f| %>
 
-<% if @reservation.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @reservation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="control-group">
-    <div class="controls">
-      Name* <%= f.text_field :name, :class => 'text_field' %> 
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Address*<%= f.text_field :address, :class => 'span3' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Contact*<%= f.text_field  :contact, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Date*<%= f.date_select :date, :class => 'date_select',:start_year =>Time.now.year, :end_year => (Date.today.year+5) ,:class => 'date_select', :prompt => {:day => "Day", :month => "Month", :year => "Year"}%>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Event Time Start*<%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true, :prompt => {:hour => "00", :minute => "00"}%>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Event Time End*<%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true , :prompt => {:hour => "00", :minute => "00"} %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Number of Guest*<%= f.text_field  :numGuest, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-     Service Type<%= collection_select(:reservation,:service_id,Service.all,:id,:name) %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      Email*<%= f.text_field :email, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-  	 <div class="controls">
-		Registration Agreement <%= f.check_box :reservation_option, :class => 'text_field' %> 
-    </div>
-    </div>
-  <div class="form-actions">
-  	<button class="btn" type="submit">
+	 
+  <div style="clear: both;padding-bottom:40px;">&nbsp;</div>
+		  <div class="container">
+		  	
+		  		<div id="reservation-form-head">
+					<div class ="container">
+						
+							<div class="row">
+								<div class="span12">
+									<div class="row">
+										<div class="span1"> <%= image_tag("rails.png")%>	</div>
+										<div class="span11">
+											<h1>Reservation form</h1>
+											<p>Doh-Joe Events Place</p>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+					 </div>
+					</div>
+  			<div id="regform">
+  				<div class="container">
+		<div id="error_handler_val">
+		 <% if @reservation.errors.any? %>
+		    <div id="error_explanation">
+		      <ul>
+		      <% @reservation.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 </div>
+	  </div>
+				  <table class="table">
+					  	<tr>
+					    	<td> Name* </td> 
+					    	<td> <%= f.text_field :name, :class => 'text_field' , 'size' => 600%>  </td>
+					  	</tr>
+					  	<tr>
+					  		<td>Address*</td>
+					  		<td>  <%= f.text_field :address, :class => 'text_field' %></td>
+					  	</tr>
+				  		<tr>
+				  			<td> Contact*</td>
+				  			<td> <%= f.text_field  :contact, :class => 'text_field' %></td>
+				  		</tr>
+				  		<tr>
+				  			<td>Date*</td>
+				  			<td><%= f.date_select :date, :class => 'date_select',:start_year =>Time.now.year, :end_year => (Date.today.year+5) ,:class => 'date_select', :prompt => {:day => "Day", :month => "Month", :year => "Year"}%></td>
+				  		</tr>
+				  		<tr>
+				  			<td>Event Time Start*</td>
+				  			<td><%= f.time_select :timeStart, :class => 'time_select' ,:twelve_hour => true, :prompt => {:hour => "00", :minute => "00"}%></td>
+				  		</tr>
+				  		<tr>
+				  			<td>Event Time End*</td>
+				  			<td><%= f.time_select :timeEnd, :class => 'time_select', :twelve_hour => true , :prompt => {:hour => "00", :minute => "00"} %></td>
+				  		</tr>
+				  		<tr>
+				  			<td>Number of Guest expected Guest*</td>
+				  			<td><%= f.text_field  :numGuest, :class => 'number_field' %></td>
+				  		</tr>
+				  		<tr>
+				  			<td>Service Type*</td>
+				  			<td><%= collection_select(:reservation,:service_id,Service.all,:id,:name) %></td>
+				  		</tr>
+				  		<tr>
+				  			<td> Email*</td>
+				  			<td><%= f.text_field :email, :class => 'text_field' %></td>
+				  		</tr
+				  		<tr>
+				  			
+				  				<td> </td>
+				  				<strong>
+				  				<td><%=link_to "Terms And Condition" %></td>
+				  				</strong>
+				  			
+				  		</tr>
+				  		
+				  		<tr>
+						  			<td> </td>
+						  			<td><%= f.check_box :reservation_option, :class => 'text_field' %> I have read, and agree to abide by the doh-joe event place rules.</td>
+				  		</tr>
+				  </table>
+		  
+  
+  	 	
     	<%= f.submit %>
-    </button>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                reservations_path, :class => 'btn' %>
+  
+		</div>
   </div>
+      
+
+
+  
 <% end %>
 </div>

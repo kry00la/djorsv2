@@ -1,28 +1,57 @@
 <%- model_class = Reservation.new.class -%>
-<h1>Reservation Calendar</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      
-      <th><%= model_class.human_attribute_name("Date") %></th>
-      <th><%= model_class.human_attribute_name("Start Time") %></th>
-      <th><%= model_class.human_attribute_name("End Time") %></th>
 
-   
- 
-    </tr>
-  </thead>
-  <tbody>
-    <% @reservations.each do |reservation| %>
-      <tr>
-        <td><%= reservation.date.strftime("%B %d,%Y") %></td>
-        <td><%= reservation.timeStart.strftime('%l:%M - %P') %></td>
-        <td><%= reservation.timeEnd.strftime('%l:%M - %P') %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_reservation_path,
-            :class => 'btn btn-primary' %>
+	
+	<div class =" container"> 
+		<div style="clear: both;padding-bottom:40px;">&nbsp;</div>
+		<div id="reservation-form-head">
+			<div class ="container">
+				
+					<div class="row">
+						<div class="span12">
+							<div class="row">
+								<div class="span1"> <%= image_tag("rails.png")%>	</div>
+								<div class="span11">
+									
+									<h1>schedules</h1>
+									<p>Doh-joe resertaion calendar</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+			 </div>
+			</div>
+		<div id="index-container">
+			
+						<div id="index-calendar">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      
+						      <th><%= model_class.human_attribute_name("Date") %></th>
+						      <th><%= model_class.human_attribute_name("Start Time") %></th>
+						      <th><%= model_class.human_attribute_name("End Time") %></th>
+						
+						   
+						 
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <% @reservations.each do |reservation| %>
+						      <tr>
+						        <td><%= reservation.date.strftime("%B %d,%Y") %></td>
+						        <td><%= reservation.timeStart.strftime('%l:%M - %P') %></td>
+						        <td><%= reservation.timeEnd.strftime('%l:%M - %P') %></td>
+						      </tr>
+						    <% end %>
+						  </tbody>
+						</table>
+							<div id="btn_blue">
+							<%= link_to "Apply for a reservation", new_reservation_path, :class => 'btn btn-primary'%>	
+								
+							</div>
+						</div>
+		</div>
+	</div>
+		      	<div style="clear: both;padding-bottom:100px;">&nbsp;</div>
+						      	

@@ -8,16 +8,36 @@ class Menu < ActiveRecord::Base
 	validates_uniqueness_of :name, :scope => :menu_category_id ,:message => 'Menu name already exsist in menu category'
 #  validate :name, :uniqueness => true, :scope => :menu_category_id
   validates :menu_category,:name,:desription,:price ,:presence => :true 
+ 
+  def open_menu_to_menu_recipe
+    recipes = menu_recipes.recipe
+  end
+ 
+  def find_menu_for_reservation(menu_id)
+    package_menu = menu_recipes.find_all_by_menu_id(menu_id)
+    package_menu
+  end
+  
+ 
+  def find_my_menu(menu_id)
+   menu =  menu_recipes.find_all_by_menu_id(menu_id)
+   menu
+  end
+ 
+   def find_my_recipe_id
+      recipes = menu_recipes.find_all_by_menu_id
+      recipes
+   end
+     
+   def find_my_recipe
+    recipes = menu_recipes.my_recipe_price
+  end
   
 
    def my_price
      Array.wrap(menu_recipes).sum {|r| r.recipe.price} 
-   #  myprice = menu_recipes.sumofmyrecipes
    end
-  
-  # def sumofmyrecipes
-    # Array.wrap(recipe).sum {|recipe| recipe.price}
-  # end
+ 
 
   def sumofrecipe
     recipe = menu_recipes
