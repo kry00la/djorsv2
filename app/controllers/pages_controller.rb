@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def functionroomlist
     @reservation = Reservation.find(params[:reservation_id])
     @function_room = FunctionRoom.all 
+    @schema = FunctionRoomSchema.find(1)
   end
   
   def packagelist

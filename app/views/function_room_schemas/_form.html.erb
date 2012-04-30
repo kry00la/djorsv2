@@ -1,0 +1,17 @@
+<%= form_for(@function_room_schema) do |f| %>
+  <% if @function_room_schema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@function_room_schema.errors.count, "error") %> prohibited this function_room_schema from being saved:</h2>
+
+      <ul>
+      <% @function_room_schema.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

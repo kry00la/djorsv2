@@ -6,6 +6,8 @@ Djors::Application.routes.draw do
 
   
 
+  resources :function_room_schemas
+
   resources :content_mini_intro_us
 
   resources :content_intro_us

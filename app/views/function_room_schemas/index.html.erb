@@ -1,0 +1,21 @@
+<h1>Listing function_room_schemas</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @function_room_schemas.each do |function_room_schema| %>
+  <tr>
+    <td><%= link_to 'Show', function_room_schema %></td>
+    <td><%= link_to 'Edit', edit_function_room_schema_path(function_room_schema) %></td>
+    <td><%= link_to 'Destroy', function_room_schema, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Function room schema', new_function_room_schema_path %>
