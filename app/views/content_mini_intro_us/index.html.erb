@@ -1,0 +1,25 @@
+<h1>Listing content_mini_intro_us</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @content_mini_intro_us.each do |content_mini_intro_u| %>
+  <tr>
+    <td><%= content_mini_intro_u.title %></td>
+    <td><%= content_mini_intro_u.body %></td>
+    <td><%= link_to 'Show', content_mini_intro_u %></td>
+    <td><%= link_to 'Edit', edit_content_mini_intro_u_path(content_mini_intro_u) %></td>
+    <td><%= link_to 'Destroy', content_mini_intro_u, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Content mini intro u', new_content_mini_intro_u_path %>

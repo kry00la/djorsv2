@@ -1,0 +1,2 @@
+module ContentAboutUsHelper
+end

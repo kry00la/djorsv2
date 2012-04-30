@@ -6,6 +6,12 @@ Djors::Application.routes.draw do
 
   
 
+  resources :content_mini_intro_us
+
+  resources :content_intro_us
+
+  resources :content_about_us
+
   resources :book_reservations
 
   resources :package_menus
