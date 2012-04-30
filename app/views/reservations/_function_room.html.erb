@@ -1,13 +1,16 @@
 
-<table>
+<table class="table">
 	<tr>
 		<th><h2>Function room</h2></th>
 		<th><h2>Price</h2></th>
 	</tr>
+	
+	
 	<% @reservation.reservation_function_rooms.each do |room|%>
 	<tr>
+		
 		<td><%= room.function_room.name%></td>
-		<td><%= room.function_room.price%></td>
+		<td><%= room.function_room.price %></td>
 		<td>
 			<button class="btn btn-danger" type="submit">
 			<%= link_to "Remove Function Room", reservation_reservation_function_room_path(@reservation,room), :confirm => "Are really sure to remove the function room?", :method => :delete %>

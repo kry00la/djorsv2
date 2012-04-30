@@ -22,6 +22,7 @@ class PagesController < ApplicationController
   def menu_add_on
     @reservation = Reservation.find(params[:reservation_id])
     @recipe = Recipe.all
+    
   end
   
 

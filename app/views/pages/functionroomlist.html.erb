@@ -1,20 +1,62 @@
 <div id="reservation_container">
-<% if notice %>
-<p id = "notice"><%= notice%></p>
-<%end%>
-
-	<h1>Function Rooms</h1>
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 		
+		
+			 		
+			 		
+			 	</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div id="h1banner">
+				Available Function Rooms
+				<hr />
+			</div>
+			<table width="880px" cellpadding="20">
 			<%@function_room.each do |functionroom|%>
-				<h3>
-					<%= link_to functionroom.name ,function_alone_reservation_reservation_package_pages_path(@reservation,:function_room_id => functionroom.id) %></p>
-				</h3>
-				<p>
-				<%= image_tag functionroom.image_function_room.url(:medium) %>
-				</p>
+			<tr>	
+								    
+													<td width="35%">
+														<div class="img_frame">
+															<%= image_tag functionroom.image_function_room.url(:medium) %>
+														</div>
+													</td>
+												<td>
+													<b>
+														<h3>	
+													<%= link_to functionroom.name ,function_alone_reservation_reservation_package_pages_path(@reservation,:function_room_id => functionroom.id) %>
+														</h3>
+													</b>
+													<p>
+														<%= truncate(strip_tags(functionroom.description),:length=>500)  %>
+												    </p>
+												    <strong>		
+													PHP<%= functionroom.price%>
+													</strong>
 				
 
-				<p> PHP<%= functionroom.price%></p>
-				<%= button_to 'add function room', reservation_reservation_function_rooms_path(:function_room_id => functionroom)%>
-				<hr />
+														<p>
+															<div id="btn_blue">
+														<%= button_to 'add function room', reservation_reservation_function_rooms_path(:function_room_id => functionroom) ,:class=>'btn btn-primary'%>
+															</div>
+														</p>
+											</td>
+				</tr>
+				
+				
 			<%end%>
+			</table>
 </div>
+
+
+
+
+	
+	

@@ -15,6 +15,7 @@
 #bodyHeadbg{
    background:url('/assets/grid-18px-masked.png');
 }
+
 #bodyBackGround{
  border-top:1px solid #c1c1c1;
  background:url('/assets/bg.png');
@@ -26,7 +27,7 @@
 #menu-wrapper {
   overflow: hidden;
   height: 56px;
-  border-bottom:1px #b0b2b2;
+  border-bottom:3px #b0b2b2;
   background: #EDEDED;
 }
 
@@ -80,6 +81,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #3B3B3B;
+}
+
+#h1ex h1{
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: -2px;
+  font-family: 'Arvo', serif;
+  font-weight: normal;
+  color: #0285CE;
 }
 
 h1, h2, h3 {
@@ -172,7 +182,8 @@ a:hover {
 #logo h1 {
   margin: 0px;
   padding: 0px;
-  text-transform: lowercase;
+  font-weight:bold;
+  text-shadow: 0 1px 1px #555;
   font-size: 3.8em;
   color: #323030;
 }
@@ -184,7 +195,7 @@ a:hover {
 #logo p {
   margin: 0px;
   padding: 0px;
-  text-transform: uppercase;
+
   font-family: 'Arvo', serif;
   color: #3B3B3B;
 }
@@ -392,13 +403,31 @@ a:hover {
 
   padding: 10px;
   margin-top:10px;
+
   box-shadow: 0 45px 60px -30px #7D7D7D;
-  -moz-border-bottom-colors: withe;
+  -moz-border-bottom-colors: white;
   -moz-border-left-colors: black;
   -moz-border-radius-bottomleft: 10px;
   -moz-border-radius-bottomright: 10px;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
 }
+
+.img_frame{
+ border: 10px solid #666;
+}
+
+.img_frame,.img_frame img{
+width: 200px;
+height: 200px;
+ box-shadow: 0 0 10px #888;
+-webkit-border-radius: 50%; 
+border-radius: 50%; 
+-moz-border-radius: 50%; 
+}
+
+
+
+
 
 
 

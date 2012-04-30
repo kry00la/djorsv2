@@ -1,34 +1,90 @@
 <div id="reservation_container">
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 		
+			 		<ul>
+			 			<li><%= link_to "PAY", new_book_reservation_path ,:class=>"btn btn-inverse"%>		</li>
+			 		</ul>
+			 		
+			 		
+			 	</div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+	
 	<p>
-		<button class="btn btn-info">
-	 		<%= link_to "Return to dashboard" , reservation_path(@reservation)%>
-	 	</button>
+		
 	 	
 
 	</p>
+	<div class="container">
+		
+			<div class="row">
+				<div class="span12">
+					<div class="row">
+						<div class="span6">
+						<p><strong>Package Name: <%= @reservation.reservation_package.package.name%></p>
+						<p<strong>Package description: </strong><%= truncate(strip_tags(@reservation.reservation_package.package.description),:length=>800)%></p>
+						
+						</div>
+						<div class="span6">
+											<div id="aside2">
+													<p>
+														PHP <%= @reservation.reservation_package.price%>
+													</p>
+													
+												</div>
+							<div id="aside">
+									<table cellpadding="10" class="table">
+										<tr>
+											<td>
+											<strong>Crew name</strong>	
+											</td>
+											<td>
+											<b>Number of crew</b>	
+											</td>
+											<td>
+												<b>Price</b>
+											</td>
+										</tr>
+									<h1>CREWS</h1>
+									<%@reservation_package.reservation.reservation_crews.each do |crew|%>
+										
+										
+										<tr>
+											<td>
+												<%= crew.crew.name%>
+											</td>
+											<td>
+											      <%= crew.quantity%>
+											</td>
+											<td>
+													 PHP<%= crew.total_price%>
+											</td>
+											
+										</tr>	
+								<%end%>
+								</table>
+							</div>
+							
+						</div>
+					</div>
+				</div>
 	
-<p>Package Name: <strong><%= @reservation.reservation_package.package.name%></strong></p>
-<p>Package Price: <strong>PHP<%= @reservation.reservation_package.package.price%></strong></p>
-
-<hr>
-
-<b>CREWS</b>
-<%@reservation_package.reservation.reservation_crews.each do |crew|%>
-	<p>
-		<p>Crew Name :<%= crew.crew.name%></p>
-		 <p> <%= crew.crew.price%> Each of person <%= crew.quantity%></p>
-		  	<p> Total :PHP<%= crew.total_price%></p>
-	</p>
-	<hr />
-<%end%>
+			</div>
+		
+	</div>
 
 
-<p>
-	<h3><b>Value of the package: </b></h3>
-	<p><b>
-		<u>PHP <%= @reservation.reservation_package.price%></u> 
-	</p></b>
-</p>
+
 
 <hr />
 <%= display_menulist @reservation%>

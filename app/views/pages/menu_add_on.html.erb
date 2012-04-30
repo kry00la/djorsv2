@@ -1,74 +1,70 @@
 <div id="reservation_container">
-
-
-
-
-
-		<div class="row-fluid">
-				<div class="span12">
-				
-				<h1>Recipe to choose for addons</h1>
-					<ul>
-				
-			<% @recipe.each do |recipe|%>
-				<div class="span7">
-					<li>	
-						<ul>
-							<li>
-							<p>
-								<b>
-									<h3>
-										<%= recipe.name%>
-									</h3>
-								</b>
-							</p>	
-							</li>
-						    <li>
-							    <p>
-							    	
-										<%= image_tag recipe.image_recipe.url(:medium) %>
-									
-								</p>	
-						    </li>
-							<li>
-								<p>
-									PHP <%= recipe.price%>
-								</p>
+	<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 		
+			 		
+			 		
+			 		
+			 	</div>
+		    </div>
+		  </div>
+		</div>
+		
+			<div id="h1banner">
+				Recipe to choose for addons
+				<hr />
+			</div>
+	<table width="880px" cellpadding="20">
+			<% @recipe.each do |recipe|%>		
+						<tr>												    
+													<td width="35%">
+														<div class="img_frame">
+																<%= image_tag recipe.image_recipe.url(:medium) %>
+														</div>
+													</td>
+													
 								
-								<li>
-									<p>
-										<%= recipe.recipe_category.name%>
-									</p>
-								</li>
-							</li>
-								<li>
-									<p>
-										<button class="btn-danger">
-											<%= button_to "add recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe)%>
-										</button>
-									</p>
-								</li>
-							
-					
-						</ul>				
-					
-					</i>
-				</div>
+											<td>
+													<b>
+														<h3>
+															<%= recipe.name%>
+														</h3>
+													</b>
+													
+												
+												    <p>
+												    		<%= truncate(strip_tags(recipe.description),:length=>500)  %>
+												    
+												    </p>	
+											    
+													<p>
+														<strong>
+														PHP <%= recipe.price%>
+														</strong>
+													</p>
+													
+													
+														<p>
+															<%= recipe.recipe_category.name%>
+														</p>
+												
+													
+														<p>
+															<div id="btn_blue">
+																<%= button_to "Add this recipe", reservation_menu_addons_line_items_path(:recipe_id => recipe), :class=> 'btn btn-primary '%>
+															</div>
+														</p>
+											</td>
+				</tr>
 				
 			<%end%>
-				</ul>
-				
-			
-		</div>
-	</div>
+			</table>
+
+
 	
-	
-				
-
-
-
-
-
-
-
 </div>

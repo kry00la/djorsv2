@@ -1,4 +1,4 @@
-<div class="container">
+
 	<div id="reservation_container">
 <%- model_class = @reservation.class -%>
 
@@ -18,6 +18,9 @@
 		</div>
 
 		<div class="span4">
+		
+			
+		  
 			<div id="reservation_handler">
 				<div class="right-wing">
 		
@@ -60,21 +63,17 @@
 				</div>
 				
 		
-		<div class="form-actions">
-			<button class="btn btn-inverse" type="submit">
-			  <%= link_to "PAY", new_book_reservation_path%>		
-			</button>
-		
-		  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-		              edit_reservation_path(@reservation), :class => 'btn' %>
-		  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-		              reservation_path(@reservation),
-		              :method => 'delete',
-		              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-		              :class => 'btn btn-danger' %>
-		</div>
+		<hr />
+			
+			<p>
+			  <%= link_to "PAY", new_book_reservation_path ,:class=>"btn btn-inverse"%>		
+			  <%= link_to "Delete Reservation" ,reservation_path(@reservation),:method => 'delete',:class => 'btn btn-danger',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
+			 </p>
+	
 			</div>
-		</div>			
+		 </div>	
+			
+				
 			
 	</div>		
 			
@@ -83,4 +82,4 @@
 	
 </div>
 	</div>	
-</div>
+

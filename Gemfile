@@ -39,6 +39,7 @@ group :assets do
 end
   gem 'bourbon'
 gem 'jquery-rails'
+#gem 'will_paginate', '>= 3.0.pre'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

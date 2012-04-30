@@ -1,18 +1,42 @@
 <div id="reservation_container">
-	
-<%= notice%>
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 	</div>
+		    </div>
+		  </div>
+		</div>
 
-	<p><%=@functionroom.name%></p>
-	<p><%=@functionroom.price%></p>
-	<p><%=@functionroom.description%></p>
-	<p>Can serve at least <%=@functionroom.capacity%> Persons</p>
+
+
+	<h3><%=@functionroom.name%></h3>
+	<p><%= truncate(strip_tags(@functionroom.description),
+   				:length=>500)  %></p>
+	
+	<p>Can serve at least <b><%=@functionroom.capacity%></b> Persons</p>
+	
+	<div class="container">
+		<h3>function rooms pictures</h3>
+		<hr />
+		
+			
+			
+		<div id="inlineimg">
+			<div id="imagecont">
 	 <%@functionroom.function_room_images.each do |d|%>
+	 	
 	 	<p>
-		<%= image_tag d.image.url(:medium)%> 
+	 		
+		<%= image_tag d.image.url(:medium),:class => "thumbnail"%> 
 	 	</p>
+	 	
 	 <%end%>
-	
-	
-	
-
+		</div>
+	</div>
+	</div>
+   			
 </div>

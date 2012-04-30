@@ -1,9 +1,22 @@
 <div id="reservation_container">
+	
+			<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 	</div>
+		    </div>
+		  </div>
+		</div>
+	
 <%= form_for @book_reservation, :html => { :class => 'form-horizontal' } do |f| %>
   <p>
   	  <%= f.error_messages%>
   </p>
-
+<div class="container">
   <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
@@ -43,9 +56,10 @@
     </div>
   </div>
 
-  <div class="form-actions">
+  
     <%= f.submit nil, :class => 'btn btn-primary' %>
    
-  </div>
+  
+</div>  
 <% end %>
 </div>

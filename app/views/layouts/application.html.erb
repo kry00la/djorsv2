@@ -17,6 +17,7 @@
 			   					<li><%= link_to "About Us"%></li>
 			   					<li><%= link_to "Contacts"%></li>
 			   					<li><%= link_to "Sign up for reservation", reservations_path%></li>
+			   					<li></li>
 			   				</ul>
 			   			</div>
 			   			<div id="header-wrapper">
@@ -29,7 +30,9 @@
    					
 		   					<div id="header-public">
 								<div id="logo">
-									<h1><a href="#">Doh - <span>joe</span></a></h1>
+									<div id="h1ex">
+										<h1><a href="#">Doh-<span>joe</span></a></h1>
+									</div>
 									<p>Events Place</a></p>
 								</div>
 							</div>
@@ -37,9 +40,11 @@
 					</div>
 	    <div id="bodyBackGround">	
 			<div class="container">
+				
 		      <% flash.each do |name, msg| %>
 		        <%= content_tag :div, msg, :id => "flash_#{name}" %>
 		      <% end %>
+		     
 		      
 		      <%= content_tag :h1, yield(:title) if show_title? %>
 		      <%= yield %>

@@ -1,3 +1,68 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#recipe_profile{
+   background-color:black;
+}
+
+
+
+
+#call_out_{
+  background: url('/assets/textured-light-bg.png');
+  width: 100%;
+  margin: 20px 0 40px;
+}
+
+#item_cont_ni_led{
+  background-color:black;
+}
+
+
+#call_out_container{
+  width:100%;
+  height:100%;
+  position:relative;
+  margin-top:25px;
+  z-index:0;
+  padding:20px 0;
+  background:url('/assets/hash-overlay.png');
+}
+
+#call_out_containerh{
+  border:0px;
+  font-size:100px;
+  vertical-align:baseline;
+  margin:0;
+  padding:0;
+}
+
+#call_out_overlay {
+  height:77px;
+  position:absolute;
+  top:40;
+  left:0;
+  width:100%;
+}
+
+#call_out_overlay_bottom{
+   height:77px;
+  position:absolute;
+  bottom:-41px;
+  left:0;
+  width:100%;
+  background:url('/assets/hash-overlay-bottom.png')
+}
+
+#items_wrapper{
+  padding:20px;
+}
+#page_items_container{
+  
+}
+
+#sub_package_container{
+  
+}

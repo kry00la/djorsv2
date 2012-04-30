@@ -1,28 +1,53 @@
 <div id="reservation_container">
-	
-<%= notice%>
+	<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 	</div>
+		    </div>
+		  </div>
+		</div>
 
-	<p><%= @menu.name%></p>
-	<p><%= @menu.desription%></p>
-	
-	<h1>recipe inside this menu is</h1>
-	
-<%@menu.menu_recipes.each do |recipes|%>
-			
-	
-	<p>
-		<b>NAME:</b>
-		<%= recipes.recipe.name%>
-	</p>
-	
-	<p>
-		<b>PRICE:</b>
-		<%= recipes.recipe.price%>
-	</p>
-	<p>
-		<%= image_tag recipes.recipe.image_recipe.url(:medium) %>
-	</p>
+
+	<h1><%= @menu.name%></h1>
+	<p><%= truncate(strip_tags(@menu.desription),:length=>800)%></p>
+	<br />
+	<div id="h1banner">
+	recipe inside this menu are
+	</div>
 	<hr />
-<%end%>
+	<table width="880px" cellpadding="20">
+		<%@menu.menu_recipes.each do |recipes|%>
+				<tr>		
+					<td width="35%">
+							<div class="img_frame">
+								<%= image_tag recipes.recipe.image_recipe.url(:medium) %>
+							</div>
+					</td>
+					<td>
+						<h2>
+							<%= recipes.recipe.name%>
+						</h2>
+						<p>
+							<%= truncate(strip_tags(recipes.recipe.description),:length=>500)  %>
+						</p>	
+					
+						<p>
+							<%= recipes.recipe.recipe_category.name%>
+						</p>
+					</td>
+				</tr>
+								
+			
+		<%end%>
+	</table>
 
 </div>
+
+
+
+
+	

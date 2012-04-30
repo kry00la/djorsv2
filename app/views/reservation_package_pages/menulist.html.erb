@@ -1,5 +1,21 @@
 <div id="reservation_container">
-	
+			<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 		
+			 		<ul>
+			 			<li><%= link_to "PAY", new_book_reservation_path ,:class=>"btn btn-inverse"%>		</li>
+			 		</ul>
+			 		
+			 		
+			 	</div>
+		    </div>
+		  </div>
+		</div>
 	
 
 <h1>Your Current Menu</h1>
@@ -19,14 +35,26 @@
 
 <hr />
 
+<table cellpadding="10" class="table">
+	<tr>
+		<td><b>Menu name</b></td>
+		<td><b>menu description</b></td>
 
+		<td><b>menu price per person</b></td>
+				<td><b>menu category</b></td>
+	</tr>
 <h2>list of menu Available you can add</h2>
 <%@menu.each do |menu|%>
-	<h2><%= menu.name%></h2>
-	<p><%= menu.desription%></p>
-	<p>PHP <%=menu.my_price %></p>
-	<p><%=menu.menu_category.name%></p>
-	<%= button_to "add menu", reservation_package_line_items_path(:menu_id => menu)%>
+	<tr>
+		
+	<td><h3><%= menu.name%></h3></td>
+	<td><p><%= truncate(strip_tags(menu.desription),:length=>400) %></p></td>
+	<td><p>PHP <%=menu.my_price %></p></td>
+	<td><p><%=menu.menu_category.name%></p></td>
+	<td><%= button_to "add menu", reservation_package_line_items_path(:menu_id => menu),:class=> 'btn btn-primary'%></td>
+	
+	</tr>
 	
 <%end%>
+</table>
 </div>
