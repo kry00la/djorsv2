@@ -122,8 +122,7 @@ class Reservation < ActiveRecord::Base
   def add_package(package_id)
     current_package = build_reservation_package(:package_id => package_id)
     sumofcrew = reservation_package.total_crew
-    sumofmenu = self.numGuest #noted
-    current_package.price = current_package.package.price + sumofcrew + sumofmenu
+    current_package.price = current_package.package.price + sumofcrew 
     self.total_price = self.total_price + current_package.price
     self.save
     current_package
