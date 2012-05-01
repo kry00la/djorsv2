@@ -39,7 +39,7 @@
 	<tr>
 		<td><b>Menu name</b></td>
 		<td><b>menu description</b></td>
-
+		
 		<td><b>menu price per guest</b></td>
 				<td><b>menu category</b></td>
 	</tr>
@@ -48,9 +48,11 @@
 	<tr>
 		
 	<td><h3><%= menu.name%></h3></td>
-	<td><p><%= truncate(strip_tags(menu.desription),:length=>400) %></p></td>
-	<td><p>PHP <%=menu.my_price %></p></td>
 	<td><p><%=menu.menu_category.name%></p></td>
+	<td><p><%= truncate(strip_tags(menu.desription),:length=>400) %></p></td>
+
+	
+		<td><p>PHP <%=menu.my_price %></p></td>
 	<td><%= button_to "add menu", reservation_package_line_items_path(:menu_id => menu),:class=> 'btn btn-primary'%></td>
 	
 	</tr>
