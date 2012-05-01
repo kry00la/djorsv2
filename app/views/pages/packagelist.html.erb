@@ -9,7 +9,9 @@
 					<h4><%= truncate(strip_tags(package.description),:length=>800)%> </h4>
 					
 					<h3><%= package.price%></h3>
+					<div id="colormered">
 					<h3><%= package.package_category.name%></h3>
+			      	</div>
 			      <div id="right_button">
 					<%= button_to 'add package', reservation_reservation_packages_path(:package_id => package), :class=> 'btn btn-primary'%>
 				  </div>
