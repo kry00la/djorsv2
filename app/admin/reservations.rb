@@ -12,7 +12,7 @@ ActiveAdmin.register Reservation do
     column "Service Type", :service, :sortable => false
     column "Booked Date", :date, :sortable => false 
     column "Time Start", :timeStart, :sortable => false do |ts|
-      ts.timeEnd.strftime('%l:%M - %P')
+      ts.timeStart.strftime('%l:%M - %P')
     end
     column "Time End",:timeEnd, :sortable => false do |te|
       te.timeEnd.strftime('%l:%M - %P')
