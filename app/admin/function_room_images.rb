@@ -56,6 +56,7 @@ ActiveAdmin.register FunctionRoomImage do
         redirect_to new_admin_function_room_image_url
       end
     end
+    
   before_filter :only => :index do
     @per_page = 10
   end

@@ -1,0 +1,45 @@
+<div id="reservation_container">
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		     	<div id="dashboard_menu">
+		     		<ul>
+			 			<li><%= link_to "Return to dashboard" , reservation_path(@reservation), :class=>'btn btn-success'%></li>
+			 		</ul>
+			 	</div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+	<h3><%=@recipe.name%></h3>
+	<p><%= truncate(strip_tags(@recipe.description),
+   				:length=>500)  %></p>
+	
+	<p><b><%=@recipe.recipe_category.name%></b></p>
+	
+	
+	<div class="container">
+		<h3>Recipe image</h3>
+		<hr />
+		
+			
+			
+		<div id="inlineimg">
+			<div id="imagecont">
+
+
+	  <%@recipe.recipe_images.each do |d|%>
+	 	<p>
+		<%= image_tag d.image.url(:medium),:class => "thumbnail"%> 
+	 	</p>
+	 <%end%>
+	
+	
+	
+		</div>
+	</div>
+	</div>
+   			
+</div>

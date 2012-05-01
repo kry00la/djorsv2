@@ -33,7 +33,8 @@ Djors::Application.routes.draw do
           get :functionroomlist
           get :packagelist
           get :package
-          get :menu_add_on          
+          get :menu_add_on   
+          get :recipe_alone       
         end
      end
         resources :reservation_packages 

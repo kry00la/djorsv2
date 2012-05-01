@@ -32,7 +32,8 @@
 											<td>
 													<b>
 														<h3>
-															<%= recipe.name%>
+															
+															<%= link_to recipe.name ,recipe_alone_reservation_pages_path(@reservation,:recipe_id => recipe.id) %>
 														</h3>
 													</b>
 													

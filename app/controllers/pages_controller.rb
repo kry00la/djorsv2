@@ -26,5 +26,9 @@ class PagesController < ApplicationController
     
   end
   
+   def recipe_alone
+    @recipe = Recipe.find(params[:recipe_id])
+  end
+  
 
 end

@@ -59,6 +59,7 @@ ActiveAdmin.register RecipeImage do
    
    def create
       @recipe_image = RecipeImage.new(params[:recipe_image])
+      
       if @recipe_image.save
         redirect_to admin_recipe_image_path(@recipe_image), :notice => "image succesfully added"
       end

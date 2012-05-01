@@ -14,4 +14,6 @@ class ReservationPackagePagesController < ApplicationController
     def function_alone
     @functionroom = FunctionRoom.find(params[:function_room_id])
   end
+  
+ 
 end
