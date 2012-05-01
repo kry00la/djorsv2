@@ -5,12 +5,12 @@
 				<h1>Packages</h1>
 				<%@package.each do |package|%>
 				<div id="content_wrapper">	
-					<h3><%= package.name%></h3>
-					<h4><%= truncate(strip_tags(package.description),:length=>800)%> </h4>
+					<h3>Package Name:</h3><p><%= package.name%></p>
+					<h4>Package Description:</h4><p><%= truncate(strip_tags(package.description),:length=>800)%> </p>
 					
-					<h3><%= package.price%></h3>
+					<h3>Price:</h3><p><%= package.price%></p>
 					<div id="colormered">
-					<h3><%= package.package_category.name%></h3>
+					<h3>Category:<%= package.package_category.name%></h3>
 			      	</div>
 			      <div id="right_button">
 					<%= button_to 'add package', reservation_reservation_packages_path(:package_id => package), :class=> 'btn btn-primary'%>
