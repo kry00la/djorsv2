@@ -4,8 +4,8 @@ Ticket Number:<%=@reservation.id%>
 
 to continue the application for this reservation please click the link bellow
 ----------------------------------------------------------------------------------------------------
-<%= url_for(:host => "http://dohjoe-place.herokuapp.com", :controller => "reservation", :action => "show") %>
-<%=reservation_url(@reservation,:host => 'dohjoe-place.herokuapp.com')%>
+<%= url_for(:host => "http://doh-joeplace.herokuapp.com/", :controller => "reservation", :action => "show") %>
+<%=reservation_url(@reservation,:host => 'doh-joeplace.herokuapp.com/')%>
 ----------------------------------------------------------------------------------------------------
 
 Thank you
