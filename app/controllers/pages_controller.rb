@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   
   def packagelist
     @reservation = Reservation.find(params[:reservation_id])
-    @package = Package.all
+    @package = Package.find(:all, :order => 'package_category_id')
   end
      
   

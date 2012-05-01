@@ -1,6 +1,6 @@
 class Menu < ActiveRecord::Base
    #has_many :build_menu
-	has_many :package_line_items
+	has_many :package_line_items ,:dependent => :destroy
 	has_many :menu_recipes
 	has_many :recipes, :through => :menu_recipes, :uniq => true
 	belongs_to :menu_category

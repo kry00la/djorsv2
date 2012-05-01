@@ -10,13 +10,17 @@ ActiveAdmin.register Reservation do
     column "Reservation Number",:id, :sortable => false
     column "Guest Name", :name, :sortable => false
     column "Service Type", :service, :sortable => false
-    column "Booked Date", :date, :sortable => false
-    column "Time Start", :timeStart, :sortable => false
-    column "Time End",:timeEnd, :sortable => false
+    column "Booked Date", :date, :sortable => false 
+    column "Time Start", :timeStart, :sortable => false do |ts|
+      ts.timeEnd.strftime('%l:%M - %P')
+    end
+    column "Time End",:timeEnd, :sortable => false do |te|
+      te.timeEnd.strftime('%l:%M - %P')
+    end
     column "Number of guest", :numGuest, :sortable => false
     column "Last update", :updated_at, :sortable => false
     column "Created", :created_at, :sortable => false
-    default_actions
+  default_actions
     
   
   end
@@ -36,25 +40,73 @@ ActiveAdmin.register Reservation do
      
   end
   
+  
+  
+  show do
+   panel "Details" do 
+     attributes_table_for reservation do
+       row :id
+       row :name
+       row :address
+       row :contact
+       row :date
+       row :timeStart do |ts| 
+         ts.timeStart.strftime('%l:%M - %P')
+       end
+      row :timeEnd do |te|
+        te.timeEnd.strftime('%l:%M - %P')
+      end
+      row :created_at 
+      row :service
+      row :total_price
+      row :booked_at  
+      end
+   end
+   active_admin_comments
+ end
+  
+  
     
     
     csv do
       column :id
-      column("Name") { |name| reservation.name }
-      column("Service") { |service| reservation.service.name }
-      column("adress") { |address| reservation.address }
-      column("date") { |date| reservation.date }
-      column("contact") { |contact| reservation.contact }
-      column("Time Start") { |timestart| reservation.timeStart.strftime('%l:%M - %P') }
-      column("timeEnd") { |timeend| reservation.timeEnd.strftime('%l:%M - %P') }
-      column("Number of Guest") { |numGuest| reservation.numGuest }
+      column :name
+      column :address
+      column :contact
+      column :date do |d|
+        d.date.strftime("%B %d,%Y")
+      end
+      column :timeStart do |ts|
+          ts.timeStart.strftime('%l:%M - %P')
+       end
+      column :timeEnd do |time| 
+        time.timeEnd.strftime('%l:%M - %P')
+      end
+      column :numGuest
+      column :service do |s|
+        s.service.name
+      end
+    
+    
+     
     end
   
   sidebar :customer_information, :only => :show do
     attributes_table_for reservation do
+    
       row("Reservation Edit") { link_to "Edit Details",reservation_path(@reservation)}
     end
   end
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
   form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Reservation Information" do
     f.input :service
