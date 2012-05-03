@@ -73,11 +73,7 @@
 										
 										
 										
-										
-									</table>
-							</div>
 			
-				<br >
 					
 					<div id="package-function">
 						
@@ -88,31 +84,7 @@
 						</div>	
 		
 					
-					<p>
-					  <strong>Booked Date:</strong>
-					  <%= @reservation.date %>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:time_start) %>:</strong> | <strong><%= model_class.human_attribute_name(:time_end) %>:</strong><br>
-					  <%= @reservation.time_start.strftime('%l:%M - %P')%> | 
-					  <%= @reservation.time_end.strftime('%l:%M - %P')%>
-					</p>
-					<p>
-					 
-					</p>
-					<p>
-					<b>Total Hours you will render:</b><br>
-						<%timex=Time.diff(Time.parse(@reservation.time_start.to_s), Time.parse(@reservation.time_end.to_s), '%H %N')%>
-						<%= timex[:diff]%>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:numGuest) %>:</strong><br>
-					  <%= @reservation.numGuest %>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:service_id) %>:</strong><br>
-					  <%= @reservation.service.name %>
-					</p>
+				
 				</div>
 				
 	</div>

@@ -11,11 +11,11 @@ ActiveAdmin.register Reservation do
     column "Guest Name", :name, :sortable => false
     column "Service Type", :service, :sortable => false
     column "Booked Date", :date, :sortable => false 
-    column "Time Start", :time_start, :sortable => false do |ts|
-      ts.time_start.strftime('%l:%M - %P')
+    column "Time Start", :timeStart, :sortable => false do |ts|
+      ts.timeStart.strftime('%l:%M - %P')
     end
-    column "Time End",:time_end, :sortable => false do |te|
-      te.time_end.strftime('%l:%M - %P')
+    column "Time End",:timeEnd, :sortable => false do |te|
+      te.timeEnd.strftime('%l:%M - %P')
     end
     column "Number of guest", :numGuest, :sortable => false
     column "Last update", :updated_at, :sortable => false
@@ -50,11 +50,11 @@ ActiveAdmin.register Reservation do
        row :address
        row :contact
        row :date
-       row :time_start do |ts| 
-         ts.time_start.strftime('%l:%M - %P')
+       row :timeStart do |ts| 
+         ts.timeStart.strftime('%l:%M - %P')
        end
-      row :time_end do |te|
-        te.time_end.strftime('%l:%M - %P')
+      row :timeEnd do |te|
+        te.timeEnd.strftime('%l:%M - %P')
       end
       row :created_at 
       row :service
@@ -76,11 +76,11 @@ ActiveAdmin.register Reservation do
       column :date do |d|
         d.date.strftime("%B %d,%Y")
       end
-      column :time_start do |ts|
-          ts.time_start.strftime('%l:%M - %P')
+      column :timeStart do |ts|
+          ts.timeStart.strftime('%l:%M - %P')
        end
-      column :time_end do |time| 
-        time.time_end.strftime('%l:%M - %P')
+      column :timeEnd do |time| 
+        time.timeEnd.strftime('%l:%M - %P')
       end
       column :numGuest
       column :service do |s|
@@ -116,8 +116,8 @@ ActiveAdmin.register Reservation do
     f.input :date, :as => :date, :hint => 'Select a date',
          :prompt => {:day => "Day", :month => "Month", :year => "Year"},
          :start_year => Time.now.year
-    f.input :time_start ,:label => "Time Start", :twelve_hour => true 
-    f.input :time_end ,:label => "Time End" , :twelve_hour => true 
+    f.input :timeStart ,:label => "Time Start", :twelve_hour => true 
+    f.input :timeEnd ,:label => "Time End" , :twelve_hour => true 
     f.input :numGuest, :as => :string
     f.input :email
     end
