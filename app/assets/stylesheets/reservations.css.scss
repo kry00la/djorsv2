@@ -56,12 +56,7 @@ a:link ,a:visited , a:active {
 
 }
 
-#index-calendar {
-    font-family:Helvetica Narrow, sans-serif;
-  font-size: 15px;
-  font-weight: normal;
-  color: #323030;
-}
+
 
 #reservation-form-head {
   background:#EEEEEE;
@@ -69,6 +64,7 @@ a:link ,a:visited , a:active {
       -moz-box-shadow: 0 .3em 1em #000;
    -webkit-box-shadow: 0 .3em 1em #000;
   height:80px;
+  padding:10px;
     border-bottom:5px solid #f2f2f2;
 }
 
@@ -109,10 +105,21 @@ font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
 }
 
 #btn_blue a{
-  color:black;
+  color:white;
   font-weight: bold;
 }
 
+#btn_green a{
+  color:white;
+ 
+  font-weight:bold;
+}
+
+#btn_green_big a{
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+}
 #error_handler_val{
   color:red;
   font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
@@ -120,11 +127,13 @@ font-family:Cambria,'Palatino Linotype','Book Antiqua','URW Palladio L',serif;
 
 
 #package-function {
+  width:800px;
+  float:left;
 background-color:white;
 border: 1px solid #666;
 border-radius: 5px;
 box-shadow: 5px 5px 5px #ccc;
-padding: 29px;
+padding: 20px;
 
 }
 
@@ -132,33 +141,37 @@ padding: 29px;
 
 #reservation_container {
      background:url('/assets/bgcontainer.png');
-     padding:40px;
-    font-family: Helvetica,Arial,clean,sans-serif;
-    font-size:13px;
-    font-weight:normal;
-    word-spacing:0;
-    padding:20px 20px 20px 10px; 
-    margin-top:40px;
-    border:3px solid #CACACA;
+    width:840px;
+    min-height:1000px;
+    border:3px solid #dbdbdb;
+    height:auto! important;
+    margin-top:30px;
+      padding: 50px;
+    margin-bottom:40px;
 
-    
-    width: 880px;
-    -moz-box-shadow: 0 0 3px #888;
-    -webkit-box-shadow: 0 0 3px#888;
-    box-shadow: 0 0 3px #888;
+}
+
+#reservation_wrapper{
+  width:800px;
 }
 
 #reservation_handler{
+  
    background-color: #ffffff;
    border:1px solid #dbdbdb;
-   width: 220px;
-   height:550px;
+   width: 800px;
+   height:300px;
    padding: 20px 20px 20px 20px;
   -moz-box-shadow: 0 0 3px #888;
   -webkit-box-shadow: 0 0 3px;
   box-shadow: 0 0 3px #888;
 }
 
+#wrap{
+  padding:20px;
+  margin:20px 20px 100px 20px;
+  border:5px dotted #dbdbdb;
+}
 #h1banner{
   font-size:50px;
   font-weight:bold;
@@ -171,7 +184,7 @@ padding: 29px;
 #aside{
   background-color:#156AA6;
   padding:10px;
-  width:380px;
+  width:770px;
 
   margin-right:60px;
   border:2px solid #0085d8;
@@ -185,9 +198,12 @@ padding: 29px;
 #aside2{
   background-color:#2c2c2c;
   padding:10px;
-  width:250px;
+  right:20px;
+  width:300px;
+
   margin-bottom:10px;
-  margin-left:120px;
+  margin-left:470px;
+  
   border:2px solid #545454;
    box-shadow: 0 2px 10px #888;
   -webkit-border-radius: 5px; 
@@ -219,6 +235,11 @@ padding: 29px;
   margin:1px;
 }
 
+#bord p{
+  position:relative;
+}
+
+
 #bord img{
   width: 80px;
 height: 80px;
@@ -233,4 +254,29 @@ border-radius: 50%;
 
 #colormered h3{
   color:red;
+}
+
+#form-head{
+  width:300px;
+}
+
+#white_bg{
+  background-color:white;
+  padding:20px;
+}
+
+#white_bg_shadowed{
+   background-color:white;
+  padding:20px;
+  width:795px;
+  margin-top:20px;
+  margin-bottom:30px;
+  margin-left:100px;
+    -moz-box-shadow: 0 .3em 10px #000;
+  -webkit-box-shadow: 0 .3em 10px #000;  
+  box-shadow: 0 .3em 10px #000;
+}
+
+#reservation_content{
+  
 }

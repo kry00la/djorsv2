@@ -1,20 +1,22 @@
 
 <table class="table">
 	<tr>
-		<th><h2>Function room</h2></th>
-		<th><h2>Price</h2></th>
+		<th><h3>Function room</h3></th>
+		<th><h3>Total Price</h3></th>
 	</tr>
-	
+	<%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
+	<% timex[:diff]%>
 	
 	<% @reservation.reservation_function_rooms.each do |room|%>
 	<tr>
 		
+		
 		<td><%= room.function_room.name%></td>
-		<td><%= room.function_room.price %> per hour</td>
+		<td><%= room.function_room.price  * timex[:diff].to_i%></td>
 		<td>
-			<button class="btn btn-danger" type="submit">
-			<%= link_to "Remove Function Room", reservation_reservation_function_room_path(@reservation,room), :confirm => "Are really sure to remove the function room?", :method => :delete %>
-			</button>
+			
+			<%= link_to "Cancel Function Room", reservation_reservation_function_room_path(@reservation,room), :confirm => "Are really sure to remove the function room?", :method => :delete ,:class=>"btn btn-danger"%>
+			
 		</td>
 	</tr>										
 	
@@ -24,6 +26,6 @@
 	
 	
 </table>
-<button class="btn" type="submit">
-	<%= link_to "Add your function room",  functionroomlist_reservation_pages_path(@reservation) %>
-</button>
+
+	<%= link_to "+ Function Room",  functionroomlist_reservation_pages_path(@reservation) ,:class=>'btn'%>
+

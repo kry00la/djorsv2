@@ -8,26 +8,33 @@
     <%= yield(:head) %>
   </head>
   <body>
-  		<div id="menu-wrapper">
-  			<div class="container"> 
-  				
+  		<div id="menu-wrapper">				
 						<div id="menu">
 			   				<ul>
-			   					<li><%= link_to "Home", public_path%></li>
-			   					<li><%= link_to "About Us"%></li>
-			   					<li><%= link_to "Contacts"%></li>
-			   					<li><%= link_to "Sign up for reservation", reservations_path%></li>
-			   					<li><%= link_to "Services"%></li>
-			   					<li></li>
+			   					<li><%= link_to "Home", public_path%></li> 
+			   					<li><%= link_to "Services"%>
+			   						<ul>
+			   							<li><%= link_to "Packages", public_package_publics_path%></li>
+			   							<li><%= link_to "Function rooms",public_functionrooms_path%></li>
+			   							<li><%= link_to "Menus", public_recipes_path%></li>
+			   						</ul>
+			   					</li>
+			   					<li><%= link_to "Sign up for reservation", reservations_path%></li> 
+			   					 <li><%= link_to "Contacts Us",public_contactus_path%></li>
+			   					<li><%= link_to "About Us" ,public_aboutus_path%></li>
+			   				
+			   					
+			   					
 			   				</ul>
 			   			</div>
+			   			
 			   			<div id="header-wrapper">
 						</div>
 				
-	   		</div>
+	   		
    		</div>
    					<div id="bodyHeadbg">
-   					<div class="container">
+   					
    					
 		   					<div id="header-public">
 								<div id="logo">
@@ -37,21 +44,24 @@
 									<p>Events Place</p>
 								</div>
 							</div>
-						</div>
+						
 					</div>
 	    <div id="bodyBackGround">	
-			<div class="container">
-				
-		      <% flash.each do |name, msg| %>
-		        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-		      <% end %>
-		     
-		      
-		      <%= content_tag :h1, yield(:title) if show_title? %>
-		      <%= yield %>
-		      </div>
+			
+				<div id="center-container">
+					
+				      <% flash.each do |name, msg| %>
+				        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+				      <% end %>
+				     
+				      
+				      <%= content_tag :h1, yield(:title) if show_title? %>
+				      <%= yield %>
+			    	
+				</div>		      
     </div>
-    	
+    	<br />
+    	<br /><br /><br /><br />
     	<div id="footer">
 			<p>&copy; 2012 Doh-joe event place. | Power by <a href="http://doh-joeplace.herokuapp.com">heroku app.com</a>.</p>
 		</div>

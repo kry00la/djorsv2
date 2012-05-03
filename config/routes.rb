@@ -6,6 +6,8 @@ Djors::Application.routes.draw do
 
   
 
+  resources :image_slides
+
   resources :function_room_schemas
 
   resources :content_mini_intro_us
@@ -79,8 +81,12 @@ Djors::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
- 
+   get 'public/contactus' 
+   get 'public/aboutus'
+   get 'public/recipes'
+   get 'public/functionrooms'
+   get 'public/functionalone_publics'
+   get 'public/package_publics'
   root :to => "public#index", :as  => 'public'
     #root :to => 'reservations', :as =>'store'
   # The priority is based upon order of creation:
