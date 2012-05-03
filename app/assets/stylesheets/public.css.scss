@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+html, body {
+height: 100%;
+}
+
+
 #headNavBackGround{
   background: #cbc8c8;
   border-bottom: 20px solid #918c8c;
@@ -18,37 +23,81 @@
 
 #bodyBackGround{
  border-top:1px solid #c1c1c1;
+ height: auto;
+  
+
  background:url('/assets/bg.png');
  background-color:#FFFFFF; 
  color:#333333;
+ width:100%;
+  margin: 0 auto -142px;
  padding-bottom:20px;
 }
 
 #menu-wrapper {
   overflow: hidden;
   height: 56px;
-  border-bottom:3px #b0b2b2;
-  background: #EDEDED;
+ border-bottom:3px #b0b2b2;
+ background: #4A3C31;
 }
 
 #menu {
-  width: 1000px;
-  height: 55px;
-  margin: 0px auto;
+ width: 1000px;
+ height: 55px;
+ margin: 0px auto;
   padding: 0px;
 }
 
 #menu ul {
-  margin: 0;
-  padding: 0px;
+   margin: 0;
+   padding: 0px;
   list-style: none;
-  line-height: normal;
-}
+   line-height: normal;
+ }
 
-#menu li {
+ #menu li {
   float: left;
   border-right: 1px solid #FFFFFF;
 }
+
+#menu li ul {
+  float: left;
+  border-right: 1px solid #FFFFFF;
+  display: none; 
+  width: 10em; 
+   color: #3B3B3B;
+   }
+
+#menu ul li ul li{
+ background: #A49D99;
+ border:1px solid #FFFFFF;
+ font-weight:bold;
+}
+   
+#menu li:hover ul {
+  display: block;
+  position: absolute;
+  margin: 0;
+  width:200px;
+  padding: 0; 
+   color: #FFF;
+  }
+
+#menu li:hover li {
+  float: none; 
+   color: #FFF;
+  }
+
+#menu li:hover li a {
+  color: red;
+  border-bottom: 1px solid #fff;
+  color: #FFF; }
+  
+#menu li li a:hover {
+   color: #fff;
+    
+   }   
+
 
 #menu a {
   display: block;
@@ -61,19 +110,16 @@
   font-family: 'Arvo', serif;
   font-size: 14px;
   font-weight: normal;
-  color: #3B3B3B;
+  color: #A49D99;
   border: none;
 }
 
 #menu a:hover, #menu .current_page_item a {
-  background: #0193CC;
+  background: #00A9E0;
   text-decoration: none;
   color: #FFFFFF;
 }
 
-#menu .current_page_item a {
-  background: #0193CC;
-}
 
 body {
   margin: 0;
@@ -92,18 +138,25 @@ body {
   color: #0285CE;
 }
 
-h1, h2, h3 {
+h1, h2, h3 ,h5{
   margin: 0px;
   padding: 0px;
   letter-spacing: -2px;
   text-transform: uppercase;
-  font-family: 'Arvo', serif;
-  font-weight: normal;
+  font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+  text-shadow:0 1px 1px #555;
+
   color: #0285CE;
 }
 
+h5 {
+  font-size:50px;
+  color:#ed5a00;
+}
+
 h1 {
-  font-size: 2em;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 h2 {
@@ -115,7 +168,9 @@ h3 {
 }
 
 p, ul, ol {
+  font-family: Gill Sans / Gill Sans MT, sans-serif;
   margin-top: 0;
+  font-weight:bold;
   line-height: 180%;
 }
 
@@ -130,14 +185,19 @@ a {
 a:hover {
 }
 
+
+
 #footer {
   height: 50px;
-  margin: 0 auto;
+  margin: 20px auto;
+
   padding: 0px 0 15px 0;
   background: #E9E9E9;
   border-top: 5px solid #D8D8D8;
   font-family: 'Arvo', serif;
 }
+
+
 
 #footer p {
   margin: 0;
@@ -256,7 +316,7 @@ a:hover {
 
 #content {
   float: right;
-  width: 640px;
+  width: 580px;
 }
 
 .post {
@@ -291,16 +351,12 @@ a:hover {
   font-weight: normal;
 }
 
-.post .meta .date {
-  float: left;
-}
 
 .post .meta .posted {
   float: right;
 }
 
-.post .meta a {
-}
+
 
 .post .entry {
   padding: 0px 0px 20px 0px;
@@ -319,9 +375,21 @@ a:hover {
 #sidebar {
   float: left;
   width: 200px;
-  margin: 0px;
-  padding: 30px 0px 0px 0px;
-  color: #787878;
+  margin:30px 0px 0px 0px;
+  padding:20px;
+  border:3px solid;
+   background:url('/assets/headerbg-rd.png');
+   -moz-box-shadow:    inset 0px 0px 10px #000;
+   -webkit-box-shadow: inset 0px 0px 10px #000;
+   box-shadow:         inset 0px 0px 10px #000;
+  color: #b7b7b7;
+
+}
+
+#sidebar-shadow{
+    -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
 }
 
 #sidebar ul {
@@ -378,32 +446,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Calendar */
-
-#calendar {
-}
-
-#calendar_wrap {
-  padding: 20px;
-}
-
-#calendar table {
-  width: 100%;
-}
-
-#calendar tbody td {
-  text-align: center;
-}
-
-#calendar #next {
-  text-align: right;
-}
 
 #whole_page_wrapper{
 
-  padding: 10px;
-  margin-top:10px;
-
+  padding: 50px;
+   margin: 50 auto -142px;
   box-shadow: 0 45px 60px -30px #7D7D7D;
   -moz-border-bottom-colors: white;
   -moz-border-left-colors: black;
@@ -425,6 +472,39 @@ border-radius: 50%;
 -moz-border-radius: 50%; 
 }
 
+
+#img-cont{
+  height:130px;
+  width:700px;
+
+}
+
+
+#img-cont ul{
+   margin: 0;
+   padding: 0px;
+ 
+}
+
+#img-cont li {
+  float:left;
+  margin-left:25px;
+}
+
+
+
+
+
+.img_frame2 img{
+width: 150px;
+height: 150px;
+
+ box-shadow: 0 0 10px #888;
+-webkit-border-radius: 50%; 
+border-radius: 50%; 
+-moz-border-radius: 50%; 
+}
+
 #schema {
   margin-top:20px;
 }
@@ -435,11 +515,284 @@ border-radius: 50%;
 
 #right_button {
  margin-left:750px;
+ }
  
+#move_right p {
+  text-align:right;
+}
+
+#content_container{
+ width:950px;
+}
+
+#content_container p{
+    text-indent:20px;
+}
+
+#content_container p{
+  margin:40px;
+}
+
+#carocel h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight:bold;
+  text-transform:normal;
+  text-shadow: none;
+  font-size:15px;
+  color:white;
+}
+
+
+#p.clear, h1.clear {
+  clear:both;
+}
+
+#function_frame{
+  background:#D9EDF7;
+  border:2px solid #BCE8F1;
+  height:260px;
+  width:940px;
+  margin-bottom:30px;
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
+}
+
+#function_room_content {
+  margin-top:30px;
+  margin-bottom:30px;
+  padding:30px;
  
+}
+
+.functionroombox1{
+
+  display:block;
+  margin:30px;
+  float:left;
+}
+
+.functionroombox2{
+ 
+  width:600px;
+  height:200px;
+  margin:30px;
+  float:right;
+}
+
+.function-details{
+ 
+}
+
+.function-details p{
+  font-size:20px;
+  margin-top:-20px;
+}
+
+.function-details-button{
+  float:right;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+.frame {
+  margin-top:10px;
+  margin-left:30px; 
+  margin-bottom:10px;
+  background-color: #ccc;
+  width: 760px;
+  
+  
+}
+
+.ribbon-front strong {
+  font-size:18px;
+  padding:10px;
+  position:relative;
+  top:10px;
+  
+}
+
+.contentLeft, .contentRight {
+  margin-top:10px;  
+  margin-bottom:20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #3a87ad;
+  font-size: 13px;
+  padding: 8px 35px 8px 14px;
+  height: auto;
+  -moz-box-shadow: 0 0 5px #ddd;
+      -webkit-box-shadow: 0 0 5px#ddd;
+      box-shadow: 0 0 5px #ddd;
+}
+
+.contentLeft p, .contentRight p { 
+  margin:30px 20px 0px 20px;
+}
+
+
+.frameLeft {
+  float: left;
+  width:330px;
+  margin: 10px 10px 0px 10px;
+  padding: 0px 0px 0px 0px;
+}
+
+.frameRight {
+  float: right;
+  width:330px;
+  margin: 10px 15px 0px 10px;
+  padding: 0px 0px 0px 0px;
+}
+
+/* ribbon style */
+
+ .ribbon-wrapper {
+  position: relative;
+  left:-16px;
+  top:10px;
+  -moz-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -webkit-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -moz-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -webkit-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+}
+  .ribbon-front {
+  background-color: #75D6FF;  height: 40px;
+  width: 260px;
+  position: relative;
+  left:-10px;
+  z-index: 2;
+}
+
+  .ribbon-front,
+  .ribbon-back-left,
+  .ribbon-back-right
+{
+  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -o-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+}
+
+  .ribbon-edge-topleft,
+  .ribbon-edge-topright,
+  .ribbon-edge-bottomleft,
+  .ribbon-edge-bottomright {
+  position: absolute;
+  z-index: 1;
+  border-style:solid;
+  height:0px;
+  width:0px;
+}
+
+  .ribbon-edge-topleft,
+  .ribbon-edge-topright {
+}
+
+  .ribbon-edge-bottomleft,
+  .ribbon-edge-bottomright {
+  top: 40px;
+}
+
+  .ribbon-edge-topleft,
+  .ribbon-edge-bottomleft {
+  left: -10px;
+  border-color: transparent #86CFFF transparent transparent;
+}
+
+  .ribbon-edge-topleft {
+  top: -10px;
+  border-width: 10px 10px 0 0;
+}
+  .ribbon-edge-bottomleft {
+  border-width: 0 10px 0px 0;
+}
+
+  .ribbon-edge-topright,
+  .ribbon-edge-bottomright {
+  left: 250px;
+  border-color: transparent transparent transparent #86CFFF;
+}
+
+  .ribbon-edge-topright {
+  top: 0px;
+  border-width: 0px 0 0 0px;
+}
+  .ribbon-edge-bottomright {
+  border-width: 0 0 0px 0px;
+}
+
+  .ribbon-back-left {
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  width: 30px;
+  height: 40px;
+  background-color: #75D5F7;  z-index: 0;
+}
+
+  .ribbon-back-right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  height: 40px;
+    z-index: 0;
+}
+
+
+
+  #content-package {
+      margin-top:10px;  
+      margin-bottom:20px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      border: 1px solid #fbeed5;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+      color: #3a87ad;
+      font-size: 13px;
+      padding: 8px 35px 8px 14px;
+      height: auto;
+      -moz-box-shadow: 0 0 5px #ddd;
+          -webkit-box-shadow: 0 0 5px#ddd;
+          box-shadow: 0 0 5px #ddd; 
+      
+      }
+      html>body #content-package {
+      width: 600px; 
+      /* ie5win fudge ends */
+      }
+      
+      #content-package table {
+      color: #3a87ad; 
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);  
+      font-size: 13px;
+      } 
+
+      hr {
+      background:#000;      
+      }
+      
 
 

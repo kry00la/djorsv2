@@ -1,0 +1,28 @@
+<div class="container">
+	<div id="function_room_content">
+	
+		<%@functionrooms.each do |function|%>
+				<div id="function_frame">
+						<div class="functionroombox1">
+							<%= image_tag function.image_function_room.url(:medium) ,:class => 'thumbnail'%>
+						</div>
+						<div class="functionroombox2">
+							<div class="function-details">
+							<p><%= function.name%></p>				
+							</div>			
+								<br />
+							<div class="function-details">
+								<%=truncate(strip_tags(function.description),:length=>560)%>
+							</div>
+							<br />
+							<div class="function-details">
+								Per hour <%=function.price%>
+							</div>
+							
+							
+						</div>
+				</div>
+		<%end%>
+			
+	</div>
+</div>

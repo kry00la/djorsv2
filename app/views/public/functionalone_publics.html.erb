@@ -1,0 +1,10 @@
+	<p>
+	Name:<%=@functionroom.name%>
+	</p>
+	<p>
+	Price:<%=@functionroom.price%>	
+	</p>
+	
+	<%@functionroom.function_room_images.each do |x|%>	
+			<%= image_tag x.image.url(:medium) ,:class => 'thumbnail'%>
+	<%end%>

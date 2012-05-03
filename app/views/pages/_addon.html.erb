@@ -1,6 +1,7 @@
 
 
 		<div class="row-fluid">
+			<div id="white_bg">
 			<p>Total price for addons : <b>PHP<%=@reservation.sumofaddons%></b> </p> 
 				<div class="span12">
 					<ul>
@@ -21,7 +22,7 @@
 						    <li>
 							    <p>
 							    	
-									<%= image_tag addon.recipe.image_recipe.url(:thumb) %>
+									<%= image_tag addon.recipe.image_recipe.url(:thumb),:class=>"thumbnail" %>
 									
 								</p>	
 						    </li>
@@ -35,9 +36,9 @@
 							</li>
 								<li>
 									<p>
-										<button class="btn-danger">
-											<%= link_to "remove addons" , reservation_menu_addons_line_item_path(@reservation,addon), :method => :delete%>
-										</button>
+										
+											<%= link_to "remove addons" , reservation_menu_addons_line_item_path(@reservation,addon), :method => :delete, :class=>"btn-danger"%>
+										
 									</p>
 								</li>
 							
@@ -52,14 +53,15 @@
 				
 			
 		</div>
+		<p>
+				
+						<%= link_to "+ Addons" , menu_add_on_reservation_pages_path(@reservation),:class=>"btn btn-success"%>
+					
+				</p>
 	</div>
 	
 	
-				<p>
-					<button class="btn btn-success">
-						<%= link_to "add your addons" , menu_add_on_reservation_pages_path(@reservation)%>
-					</button>
-				</p>
+				
 	
-
+	</div>
 

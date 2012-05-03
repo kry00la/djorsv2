@@ -1,45 +1,81 @@
-
+<div class="container">
+	<div id="content_container">
 	<div id="whole_page_wrapper">
-		
-								<div class="span12">
-												<div class="span5">
-																
+							
+								<!-- <div class="span12">
+								
+												<div class="span3"> -->
+																		
 																			<div id="sidebar">
+																				
 																				<ul>
 																					<li>
-																						<h2>Reservations</h2>
-																						<div id="search" >
+																						<div style="clear: both;">&nbsp;</div>
+																						<h5>Sign Up</h5>
+																							<br>
+																							<div style="clear: both;">&nbsp;</div>
+																							<div id="btn_green_big">
+																								<%= link_to "Sign up for a reservation",reservations_path , :class => 'btn btn-danger'%>
+																								<div style="clear: both;">&nbsp;</div>
+																								
+																							</div>
 																							
-																							<%= link_to "Sign up for a reservation",reservations_path , :class => 'btn btn-success'%>
-																									
-																							
-																							
-																						</div>
+																						
 																						<div style="clear: both;">&nbsp;</div>
 																					</li>
-																					<li>
-																						<h2><%=@mini.title%></h2>
-																						<p><%=truncate(strip_tags(@mini.body),:length=>200) %></p>
-																					</li>
+																				
 																				
 																					
+																				
 																			</div>
 																			
-												</div>
+												<!-- </div> -->
 												
 												
 												
-														<div class="span6">
+														<!-- <div class="span8"> -->
 															<div id="content">
+																<div class="post">
+																	<h1><%=@welcome.title%></h1>
+																	<div class="entry">
+																		<p><%=truncate(strip_tags(@welcome.body),:length=>500) %></p>
+																	</div>
+																</div>
+																<div class="post">
+																	<div id="myCarousel" class="carousel">
+  <!-- Carousel items -->
+																		  <div class="carousel-inner">
+																		  	<%@slides.each do |slide|%>
+																		  
+																		    <div class="active item"><%= image_tag slide.image.url(:original),:class => "thumbnail"%></div>
+																		    <div class="item"><%= image_tag slide.image.url(:original),:class => "thumbnail"%></div>
+																		   		
+																		    <%end%>
+																		  </div>
+																		  <!-- Carousel nav -->
+																		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+																		  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+																		</div>
+																	
+																</div>
 																		<div class="post">
 																			
-																			<h2><%= @welcome.title %></h2>
+																			<h2>Services</h2>
 																			
 																			<div style="clear: both;">&nbsp;</div>
-																			<div class="entry">
-																				<p><%=truncate(strip_tags(@welcome.body),:length=>1300) %></p>
-																				<p class="links"><a href="#">Continue</a></p>
-																			</div>
+																				<div class="img_frame2">
+																						<div id="img-cont">
+																							<ul>								
+																																								
+																										<li><%= link_to image_tag('/assets/package.png')%></li>
+																											
+																										<li><%= link_to image_tag('/assets/functionroom.png') %></li>
+																								
+																							</ul>
+																						</div>
+																				</div>
+																				
+																				<div style="clear: both;padding-bottom:40px;">&nbsp;</div>
 																		</div>
 																		<div class="post">
 																			<h2><%= @aboutUs.title %></h2>
@@ -47,19 +83,27 @@
 																			<div style="clear: both;">&nbsp;</div>
 																			<div class="entry">
 																				<p><%=truncate(strip_tags(@aboutUs.body),:length=>1300) %></p>
-																				<p class="links"><a href="#">Continue</a></p>
+																						<div id="move_right">
+																							
+																							<p><%= link_to "Continue Reading",public_aboutus_path%></p>
+																							
+																						</div>
 																			</div>
 																		</div>
 																		
-																		<div style="clear: both; margin-bottom: 50px;">&nbsp;</div>
+																		
 															</div>
-													</div>
+												<!-- 	</div> -->
 													
-											
-													
-								</div>
-							
+										
+								
+							<!-- 									
+							</div> -->
 		      	<div style="clear: both;">&nbsp;</div>
-									
-		</div>
 
+	</div>
+	<div style="clear: both; padding:20px;">&nbsp;</div>
+	</div>
+	
+		
+</div>

@@ -1,85 +1,102 @@
 
+	<%- model_class = @reservation.class -%>
+	<div class="container">
 	<div id="reservation_container">
-<%- model_class = @reservation.class -%>
 
-		
 	
-	<div class="row-fluid">
-		
-		<div class="span8">
-
-				<div id="package-function">
-				
-					<%= display_package @reservation%>
-						<hr />
-					<%= display_function_room @reservation%>
-
-			</div>	
-		</div>
-
-		<div class="span4">
-		
-			
-		  
-			<div id="reservation_handler">
-				<div class="right-wing">
-		
-					<p>
-					  <strong>Total:</strong>
-					  <%= @reservation.total_price %>
-					</p>
-					
-					<p>
-					  <strong>Name:</strong>
-					  <%= @reservation.name %>
-					</p>
-					
-					
-					<p>
-					  <strong>Booked Date:</strong>
-					  <%= @reservation.date %>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:timeStart) %>:</strong> | <strong><%= model_class.human_attribute_name(:timeEnd) %>:</strong><br>
-					  <%= @reservation.timeStart.strftime('%l:%M - %P')%> | 
-					  <%= @reservation.timeEnd.strftime('%l:%M - %P')%>
-					</p>
-					<p>
-					 
-					</p>
-					<p>
-					<b>Total Hours you will render:</b><br>
-						<%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
-						<%= timex[:diff]%>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:numGuest) %>:</strong><br>
-					  <%= @reservation.numGuest %>
-					</p>
-					<p>
-					  <strong><%= model_class.human_attribute_name(:service_id) %>:</strong><br>
-					  <%= @reservation.service.name %>
-					</p>
-				</div>
-				
-		
-		<hr />
-			
-			<p>
-			  <%= link_to "PAY", new_book_reservation_path ,:class=>"btn btn-inverse"%>		
-			  <%= link_to "Delete Reservation" ,reservation_path(@reservation),:method => 'delete',:class => 'btn btn-danger',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
-			 </p>
 	
-			</div>
-		 </div>	
+
+
+				<div id="reservation_handler">
+								
+									<table cellpadding="10">
+										
+											<th>Your Information</th>
+										
+										<tr>
+											<td colspan="6"><strong>Name: </strong>:<%= @reservation.name %></td>
+											
+											<td><strong>Total: </strong><%= @reservation.total_price %></td>
+										</tr>
+										
+										<tr>
+											<td> <strong>Booked Date: </strong><%= @reservation.date %></td>
+										
+										</tr>
+										
+										
+										<tr>
+											<td colspan="2"><strong>Time Start: </strong> <%= @reservation.timeStart.strftime('%l:%M - %P')%></td>
+											<td>&nbsp;</td>
+											<td colspan="3"><strong>Time End: </strong><%= @reservation.timeEnd.strftime('%l:%M - %P')%></td>
+										</tr>
+										<tr>
+											<td><strong>Total Hours you will render: </strong><%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
+											<%= timex[:diff]%></td>
+										</tr>
+										
+										<tr>
+											<td><strong>Number of Guest: </strong><%= @reservation.numGuest %></td>
+										</tr>
+										
+										<tr>
+											<td><strong>Service: </strong> <%= @reservation.service.name %></td>
+										</tr>
+										
+										<tr>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+											<td>
+												  <%= link_to "Check Out", new_book_reservation_path ,:class=>"btn btn-inverse"%>		
+											</td>
+											
+											<td>
+												<%= link_to "Cancel Reservation" ,reservation_path(@reservation),:method => 'delete',:class => 'btn btn-danger',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
+											</td>
+										</tr>
+									
+									
+												
+									
+						
+					
+							
+									
+										
+											
+										
+										
+										
+										
+						
+										
+										
+										
+										
+										
+									</table>
+							</div>
+			
+				<br >
+					
+					<div id="package-function">
+						
+							<%= display_package @reservation%>
+								<hr />
+							<%= display_function_room @reservation%>
+		
+						</div>	
+		
+					
+		
+			
 			
 				
+			  
+							
+				
+				
 			
-	</div>		
-			
-			
-			
-	
-</div>
-	</div>	
+	</div>
 
+	</div>

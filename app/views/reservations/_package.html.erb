@@ -1,16 +1,17 @@
 <table class="table">
 	<tr>
-		<th><h2>Package name</h2></th>
+		<th><h3>Package name</h3></th>
+		<th><h3>Total package price</h3></th>
 	</tr>
 		<tr>	
 						
-				<td><%= link_to @reservation.reservation_package.package.name ,package_reservation_pages_path(@reservation)%></td>
+				<td><p><%= link_to @reservation.reservation_package.package.name ,package_reservation_pages_path(@reservation) ,:class=>'btn btn-warning'%></p></td>
 				<td><%= display_packageprice @reservation%></td>
 				
 					
 					
 				   <td>
-					<%= link_to "Delete package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete,:class =>"btn btn-danger"%>
+					<%= link_to "Cancel Package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete,:class =>"btn btn-danger"%>
 						
 					</td>
 	
