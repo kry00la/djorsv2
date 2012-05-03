@@ -40,16 +40,16 @@
 					  <%= @reservation.date %>
 					</p>
 					<p>
-					  <strong><%= model_class.human_attribute_name(:timeStart) %>:</strong> | <strong><%= model_class.human_attribute_name(:timeEnd) %>:</strong><br>
-					  <%= @reservation.timeStart.strftime('%l:%M - %P')%> | 
-					  <%= @reservation.timeEnd.strftime('%l:%M - %P')%>
+					  <strong><%= model_class.human_attribute_name(:time_start) %>:</strong> | <strong><%= model_class.human_attribute_name(:time_end) %>:</strong><br>
+					  <%= @reservation.time_start.strftime('%l:%M - %P')%> | 
+					  <%= @reservation.time_end.strftime('%l:%M - %P')%>
 					</p>
 					<p>
 					 
 					</p>
 					<p>
 					<b>Total Hours you will render:</b><br>
-						<%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
+						<%timex=Time.diff(Time.parse(@reservation.time_start.to_s), Time.parse(@reservation.time_end.to_s), '%H %N')%>
 						<%= timex[:diff]%>
 					</p>
 					<p>

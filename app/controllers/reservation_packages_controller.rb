@@ -23,6 +23,7 @@ class ReservationPackagesController < InheritedResources::Base
     @reservation_package = @reservation.add_package(package.id)
      @reservation.add_reservationcrew(package.id)
      @reservation.add_reservationmenu(package.id)
+     package.get_total(params[:package_id]);
      # @reservation.search_menu(package.id)
      #@reservation.add_menu_price_to_reservation_package
     if @reservation_package.save

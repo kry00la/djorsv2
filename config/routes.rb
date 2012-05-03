@@ -73,6 +73,8 @@ Djors::Application.routes.draw do
 
   resources :recipe_categories
   resources :recipes
+  
+  
 
   ActiveAdmin.routes(self)
 

@@ -11,8 +11,8 @@ class Reservation < ActiveRecord::Base
   has_many :reservation_recipes, :dependent => :destroy
 
   ##### validation #####
-  #validates :timeStart,:timeEnd, :overlap => {:scope => :date,:message => "time already taken"}
-  validates :name,:address,:contact,:email,:date,:timeStart,:timeEnd,:numGuest,:reservation_option,:service,:presence => :true
+  validates :time_start,:time_end, :overlap => {:scope => :date,:message => "time already taken"}
+  validates :name,:address,:contact,:email,:date,:time_start,:time_end,:numGuest,:reservation_option,:service,:presence => :true
   # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
   #validates_format_of :numGuest, :with => /[0-9]/
@@ -25,8 +25,6 @@ class Reservation < ActiveRecord::Base
   # #  addons = self.menu_addons_line_items.find_all_by_recipe_id(recipe_id)
   #   addons
 
-  
-  
   # end
   def sumofaddons
     Array.wrap(menu_addons_line_items).sum {|recipe| recipe.price}
@@ -71,7 +69,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def compute_for_total_hours
-    differences=Time.diff(Time.parse(self.timeStart.to_s), Time.parse(self.timeEnd.to_s))
+    differences=Time.diff(Time.parse(self.time_start.to_s), Time.parse(self.time_end.to_s))
     min = ("." +"#{differences[:minute]}").to_d
     min = min / ".60".to_d
     min = sprintf("%.1f",(min))
@@ -183,6 +181,10 @@ class Reservation < ActiveRecord::Base
   #  menu = package_line_items
   #   Array.wrap(menu).sum {|menu| menu.price}
   #   end
+
+  def get_total() 
+  
+  end
 
   def add_menu(menu_id)
     current_menu = package_line_items.find_by_menu_id(menu_id)

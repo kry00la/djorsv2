@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430124920) do
+ActiveRecord::Schema.define(:version => 20120503162003) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -303,6 +303,8 @@ ActiveRecord::Schema.define(:version => 20120430124920) do
     t.decimal  "total_price",        :precision => 10, :scale => 0, :default => 0
     t.date     "booked_at"
     t.boolean  "reservation_option"
+    t.time     "time_start"
+    t.time     "time_end"
   end
 
   create_table "services", :force => true do |t|
