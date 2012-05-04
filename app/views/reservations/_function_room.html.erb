@@ -4,7 +4,7 @@
 		<th><h3>Function room</h3></th>
 		<th><h3>Total Price</h3></th>
 	</tr>
-	<%timex=Time.diff(Time.parse(@reservation.timeStart.to_s), Time.parse(@reservation.timeEnd.to_s), '%H %N')%>
+	<%timex=Time.diff(Time.parse(@reservation.event_start.to_s), Time.parse(@reservation.event_end.to_s), '%H %N')%>
 	<% timex[:diff]%>
 	
 	<% @reservation.reservation_function_rooms.each do |room|%>
