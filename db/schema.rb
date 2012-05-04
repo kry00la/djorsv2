@@ -312,8 +312,6 @@ ActiveRecord::Schema.define(:version => 20120504061656) do
     t.decimal  "total_price",        :precision => 10, :scale => 0, :default => 0
     t.date     "booked_at"
     t.boolean  "reservation_option"
-    t.time     "time_start"
-    t.time     "time_end"
   end
 
   create_table "services", :force => true do |t|
