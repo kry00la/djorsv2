@@ -76,11 +76,11 @@ ActiveAdmin.register Reservation do
       column :date do |d|
         d.date.strftime("%B %d,%Y")
       end
-      column :time_start do |ts|
-          ts.time_start.strftime('%l:%M - %P')
+      column :event_start do |ts|
+          ts.event_start.strftime('%l:%M - %P')
        end
-      column :time_end do |time| 
-        time.time_end.strftime('%l:%M - %P')
+      column :event_end do |time| 
+        time.event_end.strftime('%l:%M - %P')
       end
       column :numGuest
       column :service do |s|

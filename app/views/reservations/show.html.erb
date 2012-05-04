@@ -26,12 +26,12 @@
 										
 										
 										<tr>
-											<td colspan="2"><strong>Time Start: </strong> <%= @reservation.time_start.strftime('%l:%M - %P')%></td>
+											<td colspan="2"><strong>Time Start: </strong> <%= @reservation.event_start.strftime('%l:%M - %P')%></td>
 											<td>&nbsp;</td>
-											<td colspan="3"><strong>Time End: </strong><%= @reservation.time_end.strftime('%l:%M - %P')%></td>
+											<td colspan="3"><strong>Time End: </strong><%= @reservation.event_end.strftime('%l:%M - %P')%></td>
 										</tr>
 										<tr>
-											<td><strong>Total Hours you will render: </strong><%timex=Time.diff(Time.parse(@reservation.time_start.to_s), Time.parse(@reservation.time_end.to_s), '%H %N')%>
+											<td><strong>Total Hours you will render: </strong><%timex=Time.diff(Time.parse(@reservation.event_start.to_s), Time.parse(@reservation.event_end.to_s), '%H %N')%>
 											<%= timex[:diff]%></td>
 										</tr>
 										
