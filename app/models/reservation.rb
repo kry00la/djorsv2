@@ -11,8 +11,8 @@ class Reservation < ActiveRecord::Base
   has_many :reservation_recipes, :dependent => :destroy
 
   ##### validation #####
-  validates :time_start,:time_end, :overlap => {:scope => :date,:message => "time already taken"}
-  validates :name,:address,:contact,:email,:date,:time_start,:time_end,:numGuest,:reservation_option,:service,:presence => :true
+  validates :event_start,:event_end, :overlap => {:scope => :date,:message => "time already taken"}
+  validates :name,:address,:contact,:email,:date,:event_start,:event_end,:numGuest,:reservation_option,:service,:presence => :true
   # validates_numericality_of :contact , :only_integer => true, :message => "must be numbers only."
   #validates_format_of :name, :with => /^[-a-z]+$/
   #validates_format_of :numGuest, :with => /[0-9]/
@@ -69,7 +69,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def compute_for_total_hours
-    differences=Time.diff(Time.parse(self.time_start.to_s), Time.parse(self.time_end.to_s))
+    differences=Time.diff(Time.parse(self.event_start.to_s), Time.parse(self.event_end.to_s))
     min = ("." +"#{differences[:minute]}").to_d
     min = min / ".60".to_d
     min = sprintf("%.1f",(min))
