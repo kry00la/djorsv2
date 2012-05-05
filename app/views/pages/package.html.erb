@@ -11,7 +11,7 @@
 							 		</ul>
 							 		
 							 		<ul>
-							 			<li><%= link_to "PAY", new_book_reservation_path ,:class=>"btn btn-inverse"%>		</li>
+							 			<li><%= link_to "Check Out Reservation", new_book_reservation_path ,:class=>"btn btn-inverse"%>		</li>
 							 		</ul>
 							 		
 							 		
@@ -39,7 +39,8 @@
 										
 															
 											<div id="aside">
-													<table cellpadding="10" class="table">
+													<table cellpadding="10" width="1000px">
+													
 														<tr>
 															<td>
 															<strong>Crew name</strong>	
@@ -75,7 +76,7 @@
 								
 																<div id="aside2">
 																	<p>
-																		Total Package Price : PHP <%= @reservation.reservation_package.price%>
+																		Total Price : PHP <%= @reservation.reservation_package.price%>
 																	</p>
 																	
 																</div>
@@ -85,7 +86,7 @@
 				
 				
 				
-				
+			
 				<hr />
 				<%= display_menulist @reservation%>
 				
@@ -94,6 +95,7 @@
 				<hr />
 				
 				<%= display_addon @reservation%>
+				
 		</div>
 
 </div>

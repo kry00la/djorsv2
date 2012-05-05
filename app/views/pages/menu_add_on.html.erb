@@ -1,4 +1,4 @@
-<div id="reservation_container">
+<div id="white_bg_shadowed">
 	<div class="navbar">
 		  <div class="navbar-inner">
 		    <div class="container">
@@ -19,7 +19,7 @@
 				Recipe to choose for addons
 				<hr />
 			</div>
-	<table width="880px" cellpadding="20">
+	<table width="980px" cellpadding="20">
 			<% @recipe.each do |recipe|%>		
 						<tr>												    
 													<td width="35%">
@@ -39,7 +39,7 @@
 													
 												
 												    <p>
-												    		<%= truncate(strip_tags(recipe.description),:length=>500)  %>
+												    	<h6><%= truncate(strip_tags(recipe.description),:length=>500)  %></h6>
 												    
 												    </p>	
 											    
@@ -51,7 +51,7 @@
 													
 													
 														<p>
-															<%= recipe.recipe_category.name%>
+														Category:	<%= recipe.recipe_category.name%>
 														</p>
 												
 													

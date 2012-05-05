@@ -464,8 +464,8 @@ a:hover {
 }
 
 .img_frame,.img_frame img{
-width: 200px;
-height: 200px;
+width: 180px;
+height: 180px;
  box-shadow: 0 0 10px #888;
 -webkit-border-radius: 50%; 
 border-radius: 50%; 
@@ -510,7 +510,7 @@ border-radius: 50%;
 }
 
 #content_wrapper {
-  width:850px; 
+  width:930px; 
 }
 
 #right_button {
@@ -795,4 +795,6 @@ border-radius: 50%;
       }
       
 
-
+.publicpackage{
+  margin-left:120px;
+}

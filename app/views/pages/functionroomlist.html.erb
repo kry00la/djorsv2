@@ -1,5 +1,5 @@
 
-<div id="reservation_container">
+<div id="white_bg_shadowed">
 		<div class="navbar">
 		  <div class="navbar-inner">
 		    
@@ -39,7 +39,7 @@
 														</h3>
 													</b>
 													<p>
-														<%= truncate(strip_tags(functionroom.description),:length=>500)  %>
+														<%= truncate(strip_tags(functionroom.description),:length=>300)  %>
 												    </p>
 												    <strong>		
 													PHP<%= functionroom.price%>per hour
@@ -54,8 +54,9 @@
 											</td>
 				</tr>
 				
-				
 			<%end%>
+			
+				
 			</table>
 </div>
 

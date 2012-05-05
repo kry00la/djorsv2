@@ -184,8 +184,9 @@ padding: 20px;
 #aside{
   background-color:#156AA6;
   padding:10px;
-  width:770px;
-
+  width:970px;
+  color:white;
+  font-weight:bold;
   margin-right:60px;
   border:2px solid #0085d8;
    box-shadow: 0 2px 10px #888;
@@ -199,10 +200,10 @@ padding: 20px;
   background-color:#2c2c2c;
   padding:10px;
   right:20px;
-  width:300px;
+  width:auto;
 
-  margin-bottom:10px;
-  margin-left:470px;
+
+  margin-left:670px;
   
   border:2px solid #545454;
    box-shadow: 0 2px 10px #888;
@@ -212,7 +213,7 @@ padding: 20px;
 }
 
 #aside2 p{
-  font-size:30px;
+  font-size:20px;
   margin-left:15px;
   font-weight:bold;
   color:#ededed;
@@ -267,11 +268,11 @@ border-radius: 50%;
 
 #white_bg_shadowed{
    background-color:white;
-  padding:20px;
-  width:795px;
+  padding:30px;
+  width:1000px;
   margin-top:20px;
   margin-bottom:30px;
-  margin-left:100px;
+  margin-left:10px;
     -moz-box-shadow: 0 .3em 10px #000;
   -webkit-box-shadow: 0 .3em 10px #000;  
   box-shadow: 0 .3em 10px #000;
@@ -280,3 +281,5 @@ border-radius: 50%;
 #reservation_content{
   
 }
+
+

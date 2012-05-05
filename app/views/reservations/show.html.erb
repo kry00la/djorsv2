@@ -1,22 +1,34 @@
 
 	<%- model_class = @reservation.class -%>
 	<div class="container">
-	<div id="reservation_container">
+	<div id="white_bg_shadowed">
 
 	
 	
 
 
-				<div id="reservation_handler">
+			
 								
-									<table cellpadding="10">
+									<table cellpadding="10" width="1000px">
 										
 											<th>Your Information</th>
 										
 										<tr>
-											<td colspan="6"><strong>Name: </strong>:<%= @reservation.name %></td>
+										
+											<td colspan="20">&nbsp;</td>
+											<td>
+												 <p><%= link_to "Check Out Reservation", new_book_reservation_path ,:class=>"btn btn-inverse"%>		</p> 
+											</td>
 											
-											<td><strong>Total: </strong><%= @reservation.total_price %></td>
+											<td>
+												<p><%= link_to "Cancel Reservation" ,reservation_path(@reservation),:method => 'delete',:class => 'btn btn-danger',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %></p>
+											</td>
+										</tr>
+										<br />
+										<tr>
+											<td colspan="20"><strong>Name: </strong>:<%= @reservation.name %></td>
+											
+											<td><strong>Total Bill: </strong><%= @reservation.total_price %></td>
 										</tr>
 										
 										<tr>
@@ -26,9 +38,8 @@
 										
 										
 										<tr>
-											<td colspan="2"><strong>Time Start: </strong> <%= @reservation.event_start.strftime('%l:%M - %P')%></td>
-											<td>&nbsp;</td>
-											<td colspan="3"><strong>Time End: </strong><%= @reservation.event_end.strftime('%l:%M - %P')%></td>
+											<td colspan="2"><strong>Event Time: </strong> <%= @reservation.event_start.strftime('%l:%M - %P')%> -
+											 </strong><%= @reservation.event_end.strftime('%l:%M - %P')%></td>
 										</tr>
 										<tr>
 											<td><strong>Total Hours you will render: </strong><%timex=Time.diff(Time.parse(@reservation.event_start.to_s), Time.parse(@reservation.event_end.to_s), '%H %N')%>
@@ -43,30 +54,21 @@
 											<td><strong>Service: </strong> <%= @reservation.service.name %></td>
 										</tr>
 										
-										<tr>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>
-												  <%= link_to "Check Out", new_book_reservation_path ,:class=>"btn btn-inverse"%>		
-											</td>
-											
-											<td>
-												<%= link_to "Cancel Reservation" ,reservation_path(@reservation),:method => 'delete',:class => 'btn btn-danger',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %>
-											</td>
-										</tr>
-
+										
+									</table>
+										<hr />
 					
-					
+				
 						
 							<%= display_package @reservation%>
-								<hr />
+							
 							<%= display_function_room @reservation%>
 		
 					
 		
 					
 				
-				</div>
+			
 				
 	</div>
 

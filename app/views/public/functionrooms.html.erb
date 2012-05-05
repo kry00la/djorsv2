@@ -1,6 +1,7 @@
 <div class="container">
 	<div id="function_room_content">
-	
+	<h1>Function Rooms</h1>
+	<br />
 		<%@functionrooms.each do |function|%>
 				<div id="function_frame">
 						<div class="functionroombox1">
@@ -15,9 +16,7 @@
 								<%=truncate(strip_tags(function.description),:length=>560)%>
 							</div>
 							<br />
-							<div class="function-details">
-								Per hour <%=function.price%>
-							</div>
+							
 							
 							
 						</div>

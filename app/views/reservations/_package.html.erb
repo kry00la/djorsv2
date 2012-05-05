@@ -1,21 +1,20 @@
-<table class="table">
+<h3>Packages</h3>
+<br>
+<table width="1100px">
 	<tr>
-		<th><h3>Package name</h3></th>
-		<th><h3>Total package price</h3></th>
+		<td><h3>name</h3></td>
+		<td><h3>Total package price</h3></td>
+		<td>&nbsp;</td>
 	</tr>
 		<tr>	
 						
-				<td><p><%= link_to @reservation.reservation_package.package.name ,package_reservation_pages_path(@reservation) ,:class=>'btn btn-warning'%></p></td>
+				<td ><p><%=@reservation.reservation_package.package.name%> </p></td>
 				<td><%= display_packageprice @reservation%></td>
-				
-					
-					
-				   <td>
-					<%= link_to "Cancel Package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete,:class =>"btn btn-danger"%>
-						
-					</td>
-	
-					
+				   <td >
+				   	<p>
+					<%= link_to "Check out",package_reservation_pages_path(@reservation) ,:class=>'btn btn-warning'%> <%= link_to "Cancel Package", reservation_reservation_package_path(@reservation), :confirm => "U sure?" , :method => :delete,:class =>"btn btn-danger"%>
+						</p>
+					</td>	
 		</tr>	
 	
 	
@@ -23,7 +22,9 @@
 	
 </table>
 
+<br>
 
+<hr />
 
 
 

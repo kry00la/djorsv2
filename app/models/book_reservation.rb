@@ -3,7 +3,6 @@ class BookReservation < ActiveRecord::Base
   has_many :transactions,:dependent => :destroy, :class_name => "BookTransaction"
   #attr_accessible :reservation_id, :ip_address, :first_name, :last_name, :card_type, :card_expires_on
   attr_accessor :card_number, :card_verification
-  
   validate :validate_card, :on => :create
 
   def booked

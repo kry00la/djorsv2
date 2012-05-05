@@ -1,20 +1,18 @@
-<div id="reservation_container">
+<div id="white_bg_shadowed">
 	<div class="container">
 			
 			<div class ="span12">
 				<h1>Packages</h1>
 				<%@package.each do |package|%>
 				<div id="content_wrapper">	
-					<h4>Package Name:</h4><p><%= package.name%></p>
-					<h4>Package Description:</h4><p><%= truncate(strip_tags(package.description),:length=>800)%> </p>
+					<strong>Package Name</strong><p><h6><%= package.name%></h6></p>
+					<strong>Package Description:</strong><h6><%= truncate(strip_tags(package.description),:length=>800)%> </h6>
+					<strong>Category:</strong> <h6><%= package.package_category.name%></h6>
 					
-					<h4>Price:</h4><p><%= package.price%></p>
-					<div id="colormered">
-					<h3>Category: <%= package.package_category.name%></h3>
-			      	</div>
+					
 			      <div id="right_button">
-					<%= button_to 'add package', reservation_reservation_packages_path(:package_id => package), :class=> 'btn btn-primary'%>
-				  
+					<p><%= button_to 'Select Package', reservation_reservation_packages_path(:package_id => package), :class=> 'btn btn-primary'%>
+				  </p>
 				  </div>
 				 
 						<hr />

@@ -1,8 +1,11 @@
 
-<table class="table">
+<br />
+
+<table  width="1200px">
 	<tr>
-		<th><h3>Function room</h3></th>
-		<th><h3>Total Price</h3></th>
+		<td><h3>Function room</h3></td>
+		<td><h3>Total Price</h3></td>
+		<th>&nbsp;</th>
 	</tr>
 	<%timex=Time.diff(Time.parse(@reservation.event_start.to_s), Time.parse(@reservation.event_end.to_s), '%H %N')%>
 	<% timex[:diff]%>
@@ -14,9 +17,9 @@
 		<td><%= room.function_room.name%></td>
 		<td><%= room.function_room.price  * timex[:diff].to_i%></td>
 		<td>
-			
+			<p>
 			<%= link_to "Cancel Function Room", reservation_reservation_function_room_path(@reservation,room), :confirm => "Are really sure to remove the function room?", :method => :delete ,:class=>"btn btn-danger"%>
-			
+			</p>
 		</td>
 	</tr>										
 	
@@ -26,6 +29,6 @@
 	
 	
 </table>
-
+<p>
 	<%= link_to "+ Function Room",  functionroomlist_reservation_pages_path(@reservation) ,:class=>'btn'%>
-
+</p>
