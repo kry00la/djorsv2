@@ -1,6 +1,6 @@
 ActiveAdmin.register Reservation do
   
-  menu :parent => "Reservations" ,:label => "Reservation Tickets"
+  menu :parent => "Reservations" ,:label => "Reservation"
   filter :name,:as => :string
   filter :date
   filter :email

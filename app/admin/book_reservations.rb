@@ -1,5 +1,5 @@
 ActiveAdmin.register BookReservation do
-   menu :parent => "Reservations" ,:label => "Book Reservation Tickets"
+   menu :parent => "Reservations" ,:label => "Book Reservation"
      actions :all, :except => [:edit,:destroy,:new]    
        filter :reservation 
        filter :card_type
