@@ -3,13 +3,13 @@
 <% @reservation.package_line_items.each do |menu|%>	
 	
 		<p>
-			Menu name
+			Menu name:
 			<b><%= link_to menu.menu.name, menu_reservation_reservation_package_pages_path(@reservation,:menu_id => menu.menu_id) %></p></b>
 		<p>
 			
 
 		<p>
-			Price
+			Per head Price:
 			<b><%= menu.menu.my_price%> </b>
 		</p>
 		
@@ -17,19 +17,11 @@
 			 Total <b> PHP <%= menu.menu.my_price * @reservation.numGuest%></b>
 		</p>
 
-	<p>
-		
-			<%= link_to "Remove Menu" ,reservation_package_line_item_path(@reservation,menu), :method => :delete ,:class => 'btn btn-danger'%>
 
-	</p>
 <%end%>
 <br />
 
-<p>
 
-	<%=link_to "+ menu" ,  menulist_reservation_reservation_package_pages_path(@reservation), :class => 'btn'%>
-
-</p>
 
 
 </div>
