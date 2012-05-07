@@ -22,7 +22,7 @@ class ReservationsController < InheritedResources::Base
     if @reservation.save
       Notifier.reservation_received(@reservation).deliver
       create_reservation_session(@reservation.id)
-      redirect_to public_url, :notice => "Congrationlations you have just requested a reservation at doh-joe event place please check your email
+      redirect_to public_url, :notice => "Congratulations you have just requested a reservation at doh-joe event place please check your email
 for the continuation of the request thank you from doh-joe management"
     else
       render :action => :new
