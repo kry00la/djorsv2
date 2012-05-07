@@ -87,6 +87,7 @@ Djors::Application.routes.draw do
    get 'public/functionrooms'
    get 'public/functionalone_publics'
    get 'public/package_publics'
+   get 'public/term_publics'
   root :to => "public#index", :as  => 'public'
     #root :to => 'reservations', :as =>'store'
   # The priority is based upon order of creation:

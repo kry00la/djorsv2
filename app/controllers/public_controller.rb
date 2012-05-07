@@ -32,4 +32,9 @@ class PublicController < ApplicationController
     
   end
   
+  def term_publics
+    
+  end
+  
+  
 end
